@@ -6,6 +6,8 @@
 *Justitia is blindfolded. She holds scales, and a sword — and she does not raise
 the scales until the sword has felt harm.*
 
+**[📖 Read the essay](essay/soil-for-seeds-of-loving-grace.md)** ([PDF](essay/soil-for-seeds-of-loving-grace.pdf)) · **[▶ Explore it interactively](https://kirill-kruglov.github.io/justitia/web/)** · **[See the evidence](results/)**
+
 A minimal simulation of **blind governance**: can an arbiter keep an ecosystem of
 freely-evolving agents healthy — fair, non-collapsing, not captured by
 exploiters — **without ever reading the agents' internals**? It may act only on
