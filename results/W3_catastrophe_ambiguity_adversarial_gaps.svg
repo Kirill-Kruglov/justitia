@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560">
+<rect width="100%" height="100%" fill="white"/>
+<text x="490.0" y="30" text-anchor="middle" font-family="sans-serif" font-size="18">W3_catastrophe_ambiguity: marginal gaps</text>
+<line x1="80" y1="430" x2="940" y2="430" stroke="#111"/>
+<line x1="80" y1="60" x2="80" y2="430" stroke="#111"/>
+<path d="M 80.0 430.0 L 223.3 369.9 L 366.7 161.8 L 510.0 309.8 L 653.3 430.0 L 796.7 430.0 L 940.0 430.0" fill="none" stroke="#0f766e" stroke-width="2"/>
+<circle cx="80.0" cy="430.0" r="3" fill="#0f766e"/>
+<circle cx="223.3" cy="369.9" r="3" fill="#0f766e"/>
+<circle cx="366.7" cy="161.8" r="3" fill="#0f766e"/>
+<circle cx="510.0" cy="309.8" r="3" fill="#0f766e"/>
+<circle cx="653.3" cy="430.0" r="3" fill="#0f766e"/>
+<circle cx="796.7" cy="430.0" r="3" fill="#0f766e"/>
+<circle cx="940.0" cy="430.0" r="3" fill="#0f766e"/>
+<text x="760" y="60" font-family="sans-serif" font-size="12" fill="#0f766e">gap_AC</text>
+<path d="M 80.0 60.0 L 223.3 73.9 L 366.7 110.9 L 510.0 300.5 L 653.3 388.4 L 796.7 383.8 L 940.0 397.6" fill="none" stroke="#b45309" stroke-width="2"/>
+<circle cx="80.0" cy="60.0" r="3" fill="#b45309"/>
+<circle cx="223.3" cy="73.9" r="3" fill="#b45309"/>
+<circle cx="366.7" cy="110.9" r="3" fill="#b45309"/>
+<circle cx="510.0" cy="300.5" r="3" fill="#b45309"/>
+<circle cx="653.3" cy="388.4" r="3" fill="#b45309"/>
+<circle cx="796.7" cy="383.8" r="3" fill="#b45309"/>
+<circle cx="940.0" cy="397.6" r="3" fill="#b45309"/>
+<text x="760" y="78" font-family="sans-serif" font-size="12" fill="#b45309">gap_CG</text>
+</svg>

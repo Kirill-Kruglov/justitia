@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560">
+<rect width="100%" height="100%" fill="white"/>
+<text x="490.0" y="30" text-anchor="middle" font-family="sans-serif" font-size="18">Bracketed Boundaries by World</text>
+<line x1="90" y1="400" x2="950" y2="400" stroke="#111"/>
+<line x1="90" y1="60" x2="90" y2="400" stroke="#111"/>
+<text x="18" y="280.0" transform="rotate(-90 18 280.0)" font-family="sans-serif" font-size="12">bracketed axes</text>
+<rect x="124.4" y="315.0" width="217.9" height="85.0" fill="#0f766e"/>
+<text x="233.3" y="414" transform="rotate(45 233.3 414)" font-family="sans-serif" font-size="10">W6_mutation_corridor</text>
+<text x="233.3" y="311.0" text-anchor="middle" font-family="sans-serif" font-size="10">1.00</text>
+<rect x="411.1" y="315.0" width="217.9" height="85.0" fill="#0f766e"/>
+<text x="520.0" y="414" transform="rotate(45 520.0 414)" font-family="sans-serif" font-size="10">W3_catastrophe_ambiguity</text>
+<text x="520.0" y="311.0" text-anchor="middle" font-family="sans-serif" font-size="10">1.00</text>
+<rect x="697.7" y="60.0" width="217.9" height="340.0" fill="#0f766e"/>
+<text x="806.7" y="414" transform="rotate(45 806.7 414)" font-family="sans-serif" font-size="10">W4_scavenger_catastrophe</text>
+<text x="806.7" y="56.0" text-anchor="middle" font-family="sans-serif" font-size="10">4.00</text>
+</svg>
