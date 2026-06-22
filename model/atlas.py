@@ -778,9 +778,12 @@ def main():
     (RESULTS / "run_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(json.dumps({"verdict": final_verdict, "runs": len(rows), "summary_cells": len(summary), "checks": checks}, indent=2))
     if args.smoke:
+        # Only checks computed from runtime data. The by-construction assertions
+        # (derived_exploitative_label_not_in_policy, fixed_hidden_types_absent,
+        # part_a/part_b_*) are facts about how the model is written, not measured
+        # invariants, so they are deliberately excluded from this count.
         integrity = [
             "feeder_observation_excludes_strategy_parameters",
-            "derived_exploitative_label_not_in_policy",
             "mutation_and_selection_occur",
             "feature_proxy_fails_W1",
             "monoculture_fails_W5",

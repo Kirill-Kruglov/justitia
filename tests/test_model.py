@@ -51,3 +51,23 @@ def test_consequence_gated_limit_is_what_works():
     rows = [atlas.run_one(s, p) for s in SEEDS]
     assert statistics.fmean(r["containment_events"] for r in rows) > 0.0
     assert statistics.fmean(r["permanence"] for r in rows) > 0.9
+
+
+# --- Blindness, enforced at runtime (the essay's central honesty claim) ---
+
+def test_observation_is_blind_to_strategy():
+    # Every step asserts the referee's observation carries no strategy parameters
+    # or hidden labels (a hard assert inside the model; a violation would crash).
+    # The run-level flag records that the assertion held throughout.
+    p = families.params_for("C", "anti_concentration_plus_delayed_harm_throttle", "W6_mutation_corridor")
+    assert families.run_one(16000, p)["no_strategy_observation_asserted"] == 1.0
+
+
+def test_feature_proxy_referee_fails_on_holdout_world():
+    # A referee that *does* try to read who is exploitative from visible features
+    # must fail on the held-out world — otherwise "wins without seeing types" would
+    # be empty. This is the gate `feature_proxy_fails_W1`, run directly.
+    p = families.params_for("validation", "feature_proxy_W1", "", scenario="validation")
+    rows = [families.run_one(s, p) for s in range(10000, 10010)]
+    assert statistics.fmean(r["permanence"] for r in rows) < 0.40
+    assert statistics.fmean(r["capture_index"] for r in rows) > 0.50

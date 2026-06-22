@@ -16,5 +16,5 @@ def test_smoke_pipeline_runs_and_integrity_passes():
         timeout=600,
     )
     assert proc.returncode == 0, proc.stderr[-2000:]
-    # the blindness / selection / decoupling gates that a coarse pass can evaluate
-    assert "smoke: integrity checks PASS (8/8)." in proc.stdout
+    # the runtime gates (blindness / selection / decoupling) a coarse pass can evaluate
+    assert "smoke: integrity checks PASS (7/7)." in proc.stdout

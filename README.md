@@ -93,6 +93,48 @@ hand-written SVG). Every run records git head, a spec hash, and a battery of
 validation checks (blindness, that mutation/selection actually occur, that a
 naive feature-proxy fails on a held-out world).
 
+## What is enforced vs asserted
+
+The difference is exactly what a skeptic should check, so it is stated plainly.
+
+**Enforced at runtime** (computed every run; `pytest` checks the blindness ones by
+name in seconds):
+
+- *Blind observation* — every step asserts the referee's observation excludes the
+  hidden strategy parameters; a violation crashes the run
+  (`test_observation_is_blind_to_strategy`).
+- *A feature-reading referee fails* — a proxy that tries to read who is
+  exploitative from visible features is run and shown to fail on a held-out world
+  (`test_feature_proxy_referee_fails_on_holdout_world`).
+- Mutation and selection actually occur; exploitation rises under no control; the
+  coupled mechanism strictly dominates each lever alone; decoupling identifies the
+  load-bearing anti-concentration.
+
+**True by construction** (facts about how the model is written, not measurements —
+flagged as such, never counted among the runtime checks):
+
+- There is no fixed hidden "type": exploitativeness is a derived, continuous
+  property of an evolving strategy vector, bucketed only for metrics.
+- The policy never reads that derived score (the scoring functions reference only
+  observations and zone concentration).
+- Family A uses no consequence trigger; Family B uses no fixed cap.
+
+`python run.py --smoke` prints `integrity checks PASS (7/7)` — the seven runtime
+checks only.
+
+## Reading the boundary atlas
+
+In [`results/boundary_atlas.md`](results/boundary_atlas.md) each axis is labelled:
+
+- **`none_in_range`** — the kernel did **not** break anywhere in the swept range of
+  that axis. This is *wide robustness*, not a failure.
+- **`bracketed`** — the kernel broke between two listed values; the boundary lies in
+  that interval.
+
+A world is **robust** when its held-out permanence clears the bar across seeds and
+survives threshold perturbation. "Robust" (about a world) and `none_in_range`
+(about an axis) agree; they are not in tension.
+
 ## License
 
 MIT — see [`LICENSE`](LICENSE).
