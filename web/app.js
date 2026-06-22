@@ -26,7 +26,9 @@ function configBy(predicate) {
 }
 
 function pressureId(world, pressure) {
-  return `${world}__boundary__pressure_${String(pressure).replace('.', '_')}`;
+  // Emitter filenames keep one decimal (pressure_1_0, pressure_0_6); JS would
+  // otherwise stringify 1.0 -> "1", asking for a file that does not exist.
+  return `${world}__boundary__pressure_${Number(pressure).toFixed(1).replace('.', '_')}`;
 }
 
 async function loadConfig(configId) {
