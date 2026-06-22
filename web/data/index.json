@@ -1,0 +1,1103 @@
+{
+  "boundary_pressures": [
+    0.6,
+    0.8,
+    1.0,
+    1.2,
+    1.4,
+    1.6,
+    1.8
+  ],
+  "configs": [
+    {
+      "config_id": "W3_catastrophe_ambiguity__boundary__pressure_0_6",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 85.916667,
+        "minimum_zone_welfare_mean": 0.834332,
+        "permanence_mean": 1.0,
+        "welfare_mean": 0.953818
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=0.6",
+      "order": 6,
+      "pressure": 0.6,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__boundary__pressure_0_8",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 111.875,
+        "minimum_zone_welfare_mean": 0.833118,
+        "permanence_mean": 0.958333,
+        "welfare_mean": 0.956427
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=0.8",
+      "order": 8,
+      "pressure": 0.8,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__boundary__pressure_1_0",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 130.916667,
+        "minimum_zone_welfare_mean": 0.7562,
+        "permanence_mean": 0.875,
+        "welfare_mean": 0.940347
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.0",
+      "order": 10,
+      "pressure": 1.0,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__boundary__pressure_1_2",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 164.708333,
+        "minimum_zone_welfare_mean": 0.780499,
+        "permanence_mean": 0.375,
+        "welfare_mean": 0.940852
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.2",
+      "order": 12,
+      "pressure": 1.2,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__boundary__pressure_1_4",
+      "final": {
+        "collapse_mean": 0.041667,
+        "containment_events_mean": 209.625,
+        "minimum_zone_welfare_mean": 0.789528,
+        "permanence_mean": 0.041667,
+        "welfare_mean": 0.951344
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.4",
+      "order": 14,
+      "pressure": 1.4,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__boundary__pressure_1_6",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 233.583333,
+        "minimum_zone_welfare_mean": 0.784254,
+        "permanence_mean": 0.125,
+        "welfare_mean": 0.94798
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.6",
+      "order": 16,
+      "pressure": 1.6,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__boundary__pressure_1_8",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 215.625,
+        "minimum_zone_welfare_mean": 0.775187,
+        "permanence_mean": 0.125,
+        "welfare_mean": 0.948804
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.8",
+      "order": 18,
+      "pressure": 1.8,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__boundary__pressure_0_6",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 61.541667,
+        "minimum_zone_welfare_mean": 0.860902,
+        "permanence_mean": 1.0,
+        "welfare_mean": 0.958343
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=0.6",
+      "order": 6,
+      "pressure": 0.6,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__boundary__pressure_0_8",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 77.5,
+        "minimum_zone_welfare_mean": 0.889856,
+        "permanence_mean": 1.0,
+        "welfare_mean": 0.966299
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=0.8",
+      "order": 8,
+      "pressure": 0.8,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__boundary__pressure_1_0",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 91.25,
+        "minimum_zone_welfare_mean": 0.890111,
+        "permanence_mean": 0.666667,
+        "welfare_mean": 0.96993
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.0",
+      "order": 10,
+      "pressure": 1.0,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__boundary__pressure_1_2",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 106.5,
+        "minimum_zone_welfare_mean": 0.863955,
+        "permanence_mean": 0.458333,
+        "welfare_mean": 0.966217
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.2",
+      "order": 12,
+      "pressure": 1.2,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__boundary__pressure_1_4",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 130.416667,
+        "minimum_zone_welfare_mean": 0.770087,
+        "permanence_mean": 0.208333,
+        "welfare_mean": 0.948049
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.4",
+      "order": 14,
+      "pressure": 1.4,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__boundary__pressure_1_6",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 132.416667,
+        "minimum_zone_welfare_mean": 0.778073,
+        "permanence_mean": 0.166667,
+        "welfare_mean": 0.946608
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.6",
+      "order": 16,
+      "pressure": 1.6,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__boundary__pressure_1_8",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 152.208333,
+        "minimum_zone_welfare_mean": 0.746652,
+        "permanence_mean": 0.208333,
+        "welfare_mean": 0.940176
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.8",
+      "order": 18,
+      "pressure": 1.8,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W6_mutation_corridor__boundary__pressure_0_6",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 47.625,
+        "minimum_zone_welfare_mean": 0.899068,
+        "permanence_mean": 1.0,
+        "welfare_mean": 0.958584
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=0.6",
+      "order": 6,
+      "pressure": 0.6,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__boundary__pressure_0_8",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 57.833333,
+        "minimum_zone_welfare_mean": 0.893578,
+        "permanence_mean": 1.0,
+        "welfare_mean": 0.957336
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=0.8",
+      "order": 8,
+      "pressure": 0.8,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__boundary__pressure_1_0",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 76.458333,
+        "minimum_zone_welfare_mean": 0.866845,
+        "permanence_mean": 1.0,
+        "welfare_mean": 0.959288
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.0",
+      "order": 10,
+      "pressure": 1.0,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__boundary__pressure_1_2",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 98.791667,
+        "minimum_zone_welfare_mean": 0.843278,
+        "permanence_mean": 0.708333,
+        "welfare_mean": 0.944809
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.2",
+      "order": 12,
+      "pressure": 1.2,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__boundary__pressure_1_4",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 128.291667,
+        "minimum_zone_welfare_mean": 0.789976,
+        "permanence_mean": 0.208333,
+        "welfare_mean": 0.935021
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.4",
+      "order": 14,
+      "pressure": 1.4,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__boundary__pressure_1_6",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 136.458333,
+        "minimum_zone_welfare_mean": 0.785614,
+        "permanence_mean": 0.041667,
+        "welfare_mean": 0.931629
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.6",
+      "order": 16,
+      "pressure": 1.6,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__boundary__pressure_1_8",
+      "final": {
+        "collapse_mean": 0.041667,
+        "containment_events_mean": 147.375,
+        "minimum_zone_welfare_mean": 0.819009,
+        "permanence_mean": 0.166667,
+        "welfare_mean": 0.942586
+      },
+      "gated": true,
+      "kind": "C_boundary",
+      "label": "C kernel at adversarial_pressure=1.8",
+      "order": 18,
+      "pressure": 1.8,
+      "scales": true,
+      "section": "boundary",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W2_pure_capture__scales_off__sword_off",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.010668
+      },
+      "gated": false,
+      "kind": "baseline",
+      "label": "control/no-control baseline",
+      "order": 0,
+      "pressure": null,
+      "scales": false,
+      "section": "playground",
+      "sword": false,
+      "verdict": "collapses",
+      "world": "W2_pure_capture"
+    },
+    {
+      "config_id": "W2_pure_capture__scales_on__sword_off",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.010976
+      },
+      "gated": false,
+      "kind": "A",
+      "label": "static anti-concentration",
+      "order": 1,
+      "pressure": null,
+      "scales": true,
+      "section": "playground",
+      "sword": false,
+      "verdict": "collapses",
+      "world": "W2_pure_capture"
+    },
+    {
+      "config_id": "W2_pure_capture__scales_off__sword_on",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 150.583333,
+        "minimum_zone_welfare_mean": 0.79666,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.916356
+      },
+      "gated": false,
+      "kind": "B",
+      "label": "delayed-harm throttle",
+      "order": 2,
+      "pressure": null,
+      "scales": false,
+      "section": "playground",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W2_pure_capture"
+    },
+    {
+      "config_id": "W2_pure_capture__scales_on__sword_on",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 136.541667,
+        "minimum_zone_welfare_mean": 0.755609,
+        "permanence_mean": 0.083333,
+        "welfare_mean": 0.936975
+      },
+      "gated": true,
+      "kind": "C",
+      "label": "consequence-gated anti-concentration",
+      "order": 3,
+      "pressure": null,
+      "scales": true,
+      "section": "playground",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W2_pure_capture"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__scales_off__sword_off",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.10764
+      },
+      "gated": false,
+      "kind": "baseline",
+      "label": "control/no-control baseline",
+      "order": 0,
+      "pressure": null,
+      "scales": false,
+      "section": "playground",
+      "sword": false,
+      "verdict": "collapses",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__scales_on__sword_off",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.083409
+      },
+      "gated": false,
+      "kind": "A",
+      "label": "static anti-concentration",
+      "order": 1,
+      "pressure": null,
+      "scales": true,
+      "section": "playground",
+      "sword": false,
+      "verdict": "collapses",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__scales_off__sword_on",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 164.791667,
+        "minimum_zone_welfare_mean": 0.789757,
+        "permanence_mean": 0.041667,
+        "welfare_mean": 0.937209
+      },
+      "gated": false,
+      "kind": "B",
+      "label": "delayed-harm throttle",
+      "order": 2,
+      "pressure": null,
+      "scales": false,
+      "section": "playground",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__scales_on__sword_on",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 130.916667,
+        "minimum_zone_welfare_mean": 0.7562,
+        "permanence_mean": 0.875,
+        "welfare_mean": 0.940347
+      },
+      "gated": true,
+      "kind": "C",
+      "label": "consequence-gated anti-concentration",
+      "order": 3,
+      "pressure": null,
+      "scales": true,
+      "section": "playground",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__scales_off__sword_off",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.112917
+      },
+      "gated": false,
+      "kind": "baseline",
+      "label": "control/no-control baseline",
+      "order": 0,
+      "pressure": null,
+      "scales": false,
+      "section": "playground",
+      "sword": false,
+      "verdict": "collapses",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__scales_on__sword_off",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.101557
+      },
+      "gated": false,
+      "kind": "A",
+      "label": "static anti-concentration",
+      "order": 1,
+      "pressure": null,
+      "scales": true,
+      "section": "playground",
+      "sword": false,
+      "verdict": "collapses",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__scales_off__sword_on",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 124.166667,
+        "minimum_zone_welfare_mean": 0.793972,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.929951
+      },
+      "gated": false,
+      "kind": "B",
+      "label": "delayed-harm throttle",
+      "order": 2,
+      "pressure": null,
+      "scales": false,
+      "section": "playground",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__scales_on__sword_on",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 91.25,
+        "minimum_zone_welfare_mean": 0.890111,
+        "permanence_mean": 0.666667,
+        "welfare_mean": 0.96993
+      },
+      "gated": true,
+      "kind": "C",
+      "label": "consequence-gated anti-concentration",
+      "order": 3,
+      "pressure": null,
+      "scales": true,
+      "section": "playground",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W5_monoculture_shock__scales_off__sword_off",
+      "final": {
+        "collapse_mean": 0.208333,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.189434,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.44637
+      },
+      "gated": false,
+      "kind": "baseline",
+      "label": "control/no-control baseline",
+      "order": 0,
+      "pressure": null,
+      "scales": false,
+      "section": "playground",
+      "sword": false,
+      "verdict": "collapses",
+      "world": "W5_monoculture_shock"
+    },
+    {
+      "config_id": "W5_monoculture_shock__scales_on__sword_off",
+      "final": {
+        "collapse_mean": 0.458333,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.009584,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.431659
+      },
+      "gated": false,
+      "kind": "A",
+      "label": "static anti-concentration",
+      "order": 1,
+      "pressure": null,
+      "scales": true,
+      "section": "playground",
+      "sword": false,
+      "verdict": "collapses",
+      "world": "W5_monoculture_shock"
+    },
+    {
+      "config_id": "W5_monoculture_shock__scales_off__sword_on",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 428.916667,
+        "minimum_zone_welfare_mean": 0.812259,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.942574
+      },
+      "gated": false,
+      "kind": "B",
+      "label": "delayed-harm throttle",
+      "order": 2,
+      "pressure": null,
+      "scales": false,
+      "section": "playground",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W5_monoculture_shock"
+    },
+    {
+      "config_id": "W5_monoculture_shock__scales_on__sword_on",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 522.625,
+        "minimum_zone_welfare_mean": 0.545059,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.810936
+      },
+      "gated": true,
+      "kind": "C",
+      "label": "consequence-gated anti-concentration",
+      "order": 3,
+      "pressure": null,
+      "scales": true,
+      "section": "playground",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W5_monoculture_shock"
+    },
+    {
+      "config_id": "W6_mutation_corridor__scales_off__sword_off",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.017224
+      },
+      "gated": false,
+      "kind": "baseline",
+      "label": "control/no-control baseline",
+      "order": 0,
+      "pressure": null,
+      "scales": false,
+      "section": "playground",
+      "sword": false,
+      "verdict": "collapses",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__scales_on__sword_off",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.023684
+      },
+      "gated": false,
+      "kind": "A",
+      "label": "static anti-concentration",
+      "order": 1,
+      "pressure": null,
+      "scales": true,
+      "section": "playground",
+      "sword": false,
+      "verdict": "collapses",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__scales_off__sword_on",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 105.083333,
+        "minimum_zone_welfare_mean": 0.826069,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.929415
+      },
+      "gated": false,
+      "kind": "B",
+      "label": "delayed-harm throttle",
+      "order": 2,
+      "pressure": null,
+      "scales": false,
+      "section": "playground",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__scales_on__sword_on",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 76.458333,
+        "minimum_zone_welfare_mean": 0.866845,
+        "permanence_mean": 1.0,
+        "welfare_mean": 0.959288
+      },
+      "gated": true,
+      "kind": "C",
+      "label": "consequence-gated anti-concentration",
+      "order": 3,
+      "pressure": null,
+      "scales": true,
+      "section": "playground",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__twist__C_dyn_no_consequence",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.088053
+      },
+      "gated": false,
+      "kind": "C_dyn_no_consequence",
+      "label": "scales that never wait for harm",
+      "order": 0,
+      "pressure": null,
+      "scales": true,
+      "section": "twist",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__twist__C_dyn_only",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 122.166667,
+        "minimum_zone_welfare_mean": 0.793049,
+        "permanence_mean": 0.875,
+        "welfare_mean": 0.945887
+      },
+      "gated": true,
+      "kind": "C_dyn_only",
+      "label": "consequence-gated scales",
+      "order": 1,
+      "pressure": null,
+      "scales": true,
+      "section": "twist",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W3_catastrophe_ambiguity__twist__C_full",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 130.916667,
+        "minimum_zone_welfare_mean": 0.7562,
+        "permanence_mean": 0.875,
+        "welfare_mean": 0.940347
+      },
+      "gated": true,
+      "kind": "C_full",
+      "label": "gated scales plus redundant cap",
+      "order": 2,
+      "pressure": null,
+      "scales": true,
+      "section": "twist",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W3_catastrophe_ambiguity"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__twist__C_dyn_no_consequence",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.102246
+      },
+      "gated": false,
+      "kind": "C_dyn_no_consequence",
+      "label": "scales that never wait for harm",
+      "order": 0,
+      "pressure": null,
+      "scales": true,
+      "section": "twist",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__twist__C_dyn_only",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 90.041667,
+        "minimum_zone_welfare_mean": 0.866417,
+        "permanence_mean": 0.541667,
+        "welfare_mean": 0.96161
+      },
+      "gated": true,
+      "kind": "C_dyn_only",
+      "label": "consequence-gated scales",
+      "order": 1,
+      "pressure": null,
+      "scales": true,
+      "section": "twist",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W4_scavenger_catastrophe__twist__C_full",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 91.25,
+        "minimum_zone_welfare_mean": 0.890111,
+        "permanence_mean": 0.666667,
+        "welfare_mean": 0.96993
+      },
+      "gated": true,
+      "kind": "C_full",
+      "label": "gated scales plus redundant cap",
+      "order": 2,
+      "pressure": null,
+      "scales": true,
+      "section": "twist",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W4_scavenger_catastrophe"
+    },
+    {
+      "config_id": "W6_mutation_corridor__twist__C_dyn_no_consequence",
+      "final": {
+        "collapse_mean": 1.0,
+        "containment_events_mean": 0.0,
+        "minimum_zone_welfare_mean": 0.0,
+        "permanence_mean": 0.0,
+        "welfare_mean": 0.015084
+      },
+      "gated": false,
+      "kind": "C_dyn_no_consequence",
+      "label": "scales that never wait for harm",
+      "order": 0,
+      "pressure": null,
+      "scales": true,
+      "section": "twist",
+      "sword": true,
+      "verdict": "collapses",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__twist__C_dyn_only",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 79.333333,
+        "minimum_zone_welfare_mean": 0.872182,
+        "permanence_mean": 1.0,
+        "welfare_mean": 0.964073
+      },
+      "gated": true,
+      "kind": "C_dyn_only",
+      "label": "consequence-gated scales",
+      "order": 1,
+      "pressure": null,
+      "scales": true,
+      "section": "twist",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W6_mutation_corridor"
+    },
+    {
+      "config_id": "W6_mutation_corridor__twist__C_full",
+      "final": {
+        "collapse_mean": 0.0,
+        "containment_events_mean": 76.458333,
+        "minimum_zone_welfare_mean": 0.866845,
+        "permanence_mean": 1.0,
+        "welfare_mean": 0.959288
+      },
+      "gated": true,
+      "kind": "C_full",
+      "label": "gated scales plus redundant cap",
+      "order": 2,
+      "pressure": null,
+      "scales": true,
+      "section": "twist",
+      "sword": true,
+      "verdict": "holds",
+      "world": "W6_mutation_corridor"
+    }
+  ],
+  "control_worlds": [
+    "W2_pure_capture",
+    "W5_monoculture_shock"
+  ],
+  "n_seeds": 24,
+  "notes": [
+    "Browser visuals replay recorded Python trajectories; there is no in-browser simulation.",
+    "Bands aggregate held-out-style seeds; the zone grid replays one labelled representative seed.",
+    "This is a simulation and intuition pump, not a proof about real institutions or real AI systems."
+  ],
+  "recording_gate": {
+    "checks": [
+      {
+        "config_id": "W6_mutation_corridor__scales_off__sword_off",
+        "passed": true,
+        "seed": 16000
+      },
+      {
+        "config_id": "W6_mutation_corridor__scales_off__sword_off",
+        "passed": true,
+        "seed": 16007
+      },
+      {
+        "config_id": "W6_mutation_corridor__scales_off__sword_off",
+        "passed": true,
+        "seed": 16017
+      },
+      {
+        "config_id": "W6_mutation_corridor__scales_on__sword_on",
+        "passed": true,
+        "seed": 16000
+      },
+      {
+        "config_id": "W6_mutation_corridor__scales_on__sword_on",
+        "passed": true,
+        "seed": 16007
+      },
+      {
+        "config_id": "W6_mutation_corridor__scales_on__sword_on",
+        "passed": true,
+        "seed": 16017
+      },
+      {
+        "config_id": "W6_mutation_corridor__twist__C_dyn_no_consequence",
+        "passed": true,
+        "seed": 16000
+      },
+      {
+        "config_id": "W6_mutation_corridor__twist__C_dyn_no_consequence",
+        "passed": true,
+        "seed": 16007
+      },
+      {
+        "config_id": "W6_mutation_corridor__twist__C_dyn_no_consequence",
+        "passed": true,
+        "seed": 16017
+      },
+      {
+        "config_id": "W6_mutation_corridor__twist__C_dyn_only",
+        "passed": true,
+        "seed": 16000
+      },
+      {
+        "config_id": "W6_mutation_corridor__twist__C_dyn_only",
+        "passed": true,
+        "seed": 16007
+      },
+      {
+        "config_id": "W6_mutation_corridor__twist__C_dyn_only",
+        "passed": true,
+        "seed": 16017
+      }
+    ],
+    "passed": true
+  },
+  "rep_seed": 16000,
+  "robust_worlds": [
+    "W6_mutation_corridor",
+    "W3_catastrophe_ambiguity",
+    "W4_scavenger_catastrophe"
+  ],
+  "steps": 100,
+  "title": "Justitia explorable data",
+  "worlds": [
+    "W6_mutation_corridor",
+    "W3_catastrophe_ambiguity",
+    "W4_scavenger_catastrophe",
+    "W2_pure_capture",
+    "W5_monoculture_shock"
+  ]
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Justitia Explorable</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Justitia explorable</p>
+      <h1>Blind governance works here only as consequence-gated anti-concentration.</h1>
+      <p class="lead">This page replays recorded trajectories from the validated Python model. It does not simulate the substrate in JavaScript.</p>
+      <div class="links">
+        <a href="../results/">results/</a>
+        <a href="../docs/LIMITATIONS.md">LIMITATIONS.md</a>
+        <a href="../README.md">README</a>
+      </div>
+    </div>
+    <div class="symbol" aria-hidden="true">
+      <div class="blindfold"></div>
+      <div class="scale"></div>
+      <div class="sword"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" id="setup">
+      <h2>The setup</h2>
+      <p>The feeder is blind to internal strategy parameters. It sees delayed consequences, allocates resources, and may act through two affordances: a structural anti-concentration limit, shown as scales, and a consequence-triggered action channel, shown as a sword.</p>
+      <p>The finding is not that either affordance is independently sufficient. In the validated substrate, the working object is the coupled mechanism: consequence-gated anti-concentration.</p>
+    </section>
+
+    <section class="panel" id="playground">
+      <div class="section-head">
+        <div>
+          <h2>The playground</h2>
+          <p>Toggle the two affordances and switch worlds. Bands are seed aggregates; the grid is one representative seed.</p>
+          <p class="watch"><strong>Watch capture and exploit mass, not just welfare.</strong> The sword alone keeps average welfare comfortable while exploiters quietly take over — capture climbs and the run is <em>collapses</em>, even though the average looks fine. Only with the scales does capture stay bounded.</p>
+        </div>
+        <div class="chip" id="playgroundVerdict">loading</div>
+      </div>
+      <div class="controls">
+        <label>World <select id="worldSelect"></select></label>
+        <label class="toggle"><input type="checkbox" id="scalesToggle"> scales</label>
+        <label class="toggle"><input type="checkbox" id="swordToggle"> sword</label>
+        <button id="playButton" type="button">Play</button>
+        <label class="range">Step <input type="range" id="stepRange" min="0" max="99" value="0"><span id="stepLabel">0</span></label>
+      </div>
+      <div class="grid-layout">
+        <canvas id="zoneCanvas" width="520" height="520" aria-label="Nine-zone representative trajectory"></canvas>
+        <div id="lineChart" class="chart"></div>
+      </div>
+      <div class="stats" id="playgroundStats"></div>
+    </section>
+
+    <section class="panel" id="twist">
+      <div class="section-head">
+        <div>
+          <h2>The twist</h2>
+          <p>Scales that never wait for harm are not the same mechanism. The event trace shows whether the action channel ever fires.</p>
+        </div>
+        <div class="chip" id="twistVerdict">loading</div>
+      </div>
+      <div class="controls">
+        <label>World <select id="twistWorld"></select></label>
+        <label>Variant <select id="twistVariant"></select></label>
+      </div>
+      <div id="twistChart" class="chart"></div>
+      <div class="stats" id="twistStats"></div>
+    </section>
+
+    <section class="panel" id="boundary">
+      <div class="section-head">
+        <div>
+          <h2>The boundary</h2>
+          <p>The robust kernel is replayed across adversarial pressure. The controls are included as honest failures.</p>
+        </div>
+        <div class="chip" id="boundaryVerdict">loading</div>
+      </div>
+      <div class="controls">
+        <label>World <select id="boundaryWorld"></select></label>
+        <label class="range">adversarial_pressure <input type="range" id="pressureRange" min="0" max="6" value="2"><span id="pressureLabel">1.0</span></label>
+      </div>
+      <div id="boundaryChart" class="chart"></div>
+      <div class="stats" id="boundaryStats"></div>
+    </section>
+
+    <section class="panel" id="close">
+      <h2>What to take from it</h2>
+      <p>The number to watch is minimum-zone welfare: whether the weakest zone is preserved while capture pressure rises. In this model, the coupled mechanism can hold that floor in robust worlds and fails honestly in the controls.</p>
+      <p>This is a simulation and intuition pump. The raw study outputs remain the source of record.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span id="dataStatus">Loading data index...</span>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

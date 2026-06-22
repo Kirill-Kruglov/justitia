@@ -185,7 +185,7 @@ class Params:
 
 
 class EvolvableStrategyModel:
-    def __init__(self, seed, params):
+    def __init__(self, seed, params, record_trajectory=False):
         self.seed = seed
         self.params = params
         self.rng = random.Random(seed)
@@ -199,6 +199,8 @@ class EvolvableStrategyModel:
         self.no_strategy_observation_asserted = False
         self.mutation_events = 0
         self.selection_delta_seen = False
+        self.record_trajectory = record_trajectory
+        self.trajectory = []
         self.initial_exploit_mass = 0.0
         self._init_world()
         self.initial_exploit_mass = self._exploitative_mass()
@@ -660,9 +662,46 @@ class EvolvableStrategyModel:
         self._update_irreversible(step)
         self.obs_queue.append(self._observe(step))
 
+    def _trajectory_snapshot(self, step, containment_events_this_step):
+        zone_welfare = [(z.wellness + z.productivity + z.recovery) / 3 for z in self.zones]
+        zone_mass = [self._zone_mass(z) for z in self.zones]
+        total_mass = sum(zone_mass) + EPS
+        exploit_mass = sum(l.mass for z in self.zones for l in z.lineages if self._exploit_score(l) > 0.42)
+        coop_mass = sum(l.mass for z in self.zones for l in z.lineages if self._cooperative_score(l) > 0.50)
+        resource_hhi = sum((m / total_mass) ** 2 for m in zone_mass)
+        neighbor_harm = sum(z.neighbor_harm_volume for z in self.zones) / max(1, step + 1)
+        aid_interception = sum(z.aid_interception_volume for z in self.zones) / max(1, step + 1)
+        exploit_share = exploit_mass / total_mass
+        coop_capacity = coop_mass / total_mass
+        capture_index = clamp(
+            0.22 * clamp((resource_hhi - 1.0 / ZONES) / 0.35) +
+            0.28 * clamp(exploit_share / 0.58) +
+            0.20 * clamp(neighbor_harm / 0.18) +
+            0.15 * clamp(aid_interception / 1.15) +
+            0.15 * clamp((0.42 - coop_capacity) / 0.42)
+        )
+        collapse = safe_mean(zone_welfare) < 0.32 or sum(1 for w in zone_welfare if w < 0.20) >= 4 or total_mass < 35
+        return {
+            "step": step,
+            "welfare": safe_mean(zone_welfare),
+            "minimum_zone_welfare": min(zone_welfare),
+            "capture_index": capture_index,
+            "collapse": bool(collapse),
+            "exploitative_strategy_mass": exploit_share,
+            "cooperative_strategy_mass": coop_capacity,
+            "resource_hhi": resource_hhi,
+            "containment_events_this_step": containment_events_this_step,
+            "zone_mass": zone_mass,
+            "zone_welfare": zone_welfare,
+        }
+
     def run(self):
         for step in range(STEPS):
+            containment_before = sum(z.containment_events for z in self.zones)
             self.step(step)
+            if self.record_trajectory:
+                containment_after = sum(z.containment_events for z in self.zones)
+                self.trajectory.append(self._trajectory_snapshot(step, containment_after - containment_before))
         return self.metrics()
 
     def _mutual_information(self):

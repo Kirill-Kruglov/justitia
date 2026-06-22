@@ -1,0 +1,65 @@
+{
+  "checks": [
+    {
+      "config_id": "W6_mutation_corridor__scales_off__sword_off",
+      "passed": true,
+      "seed": 16000
+    },
+    {
+      "config_id": "W6_mutation_corridor__scales_off__sword_off",
+      "passed": true,
+      "seed": 16007
+    },
+    {
+      "config_id": "W6_mutation_corridor__scales_off__sword_off",
+      "passed": true,
+      "seed": 16017
+    },
+    {
+      "config_id": "W6_mutation_corridor__scales_on__sword_on",
+      "passed": true,
+      "seed": 16000
+    },
+    {
+      "config_id": "W6_mutation_corridor__scales_on__sword_on",
+      "passed": true,
+      "seed": 16007
+    },
+    {
+      "config_id": "W6_mutation_corridor__scales_on__sword_on",
+      "passed": true,
+      "seed": 16017
+    },
+    {
+      "config_id": "W6_mutation_corridor__twist__C_dyn_no_consequence",
+      "passed": true,
+      "seed": 16000
+    },
+    {
+      "config_id": "W6_mutation_corridor__twist__C_dyn_no_consequence",
+      "passed": true,
+      "seed": 16007
+    },
+    {
+      "config_id": "W6_mutation_corridor__twist__C_dyn_no_consequence",
+      "passed": true,
+      "seed": 16017
+    },
+    {
+      "config_id": "W6_mutation_corridor__twist__C_dyn_only",
+      "passed": true,
+      "seed": 16000
+    },
+    {
+      "config_id": "W6_mutation_corridor__twist__C_dyn_only",
+      "passed": true,
+      "seed": 16007
+    },
+    {
+      "config_id": "W6_mutation_corridor__twist__C_dyn_only",
+      "passed": true,
+      "seed": 16017
+    }
+  ],
+  "passed": true
+}
