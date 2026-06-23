@@ -18,6 +18,11 @@ body {
 }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
+.topnav { position: sticky; top: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px clamp(16px, 5vw, 40px); background: var(--bg); border-bottom: 1px solid var(--line); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 15px; }
+.topnav .brand { font-weight: 700; letter-spacing: .02em; color: var(--ink); text-decoration: none; }
+.topnav .navlinks { display: flex; gap: 18px; align-items: center; }
+.topnav a:not(.brand) { color: var(--muted); text-decoration: none; }
+.topnav a:not(.brand):hover { color: var(--ink); }
 .hero, main, footer { max-width: 1180px; margin: 0 auto; }
 .hero {
   min-height: 420px;
