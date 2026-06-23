@@ -6,7 +6,7 @@
 <title>Soil for Seeds of Loving Grace</title>
 <meta name="description" content="What kind of world would let a powerful, well-meaning AI keep doing good? A blind-governance simulation, and a counterpoint to Machines of Loving Grace.">
 <meta property="og:title" content="Soil for Seeds of Loving Grace">
-<meta property="og:description" content="Blind governance, simulated: the only thing that holds is consequence-gated anti-concentration. A counterpoint to Machines of Loving Grace.">
+<meta property="og:description" content="What kind of world would let a powerful, well-meaning AI keep doing good? A blind-governance simulation, and a counterpoint to Machines of Loving Grace.">
 <meta property="og:type" content="article">
 <style>
 :root{--bg:#fbfaf6;--ink:#1d1c1a;--muted:#6b6760;--line:#e4e0d6;--accent:#7a5b2e;--rule:#ece8de;--tablehead:#f3f0e8}
@@ -28,6 +28,9 @@ body{margin:0;background:var(--bg);color:var(--ink);
   width:34px;height:34px;cursor:pointer;font-size:15px;line-height:1}
 .nav button:hover{color:var(--ink)}
 main{max-width:680px;margin:0 auto;padding:0 22px 96px}
+.byline{margin:18px 0 0;font-family:system-ui,sans-serif;font-size:14px;color:var(--muted)}
+.byline a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.byline a:hover{color:var(--ink)}
 h1{font-size:clamp(34px,6vw,52px);line-height:1.08;letter-spacing:-.01em;margin:48px 0 8px}
 h2{font-size:26px;line-height:1.2;margin:52px 0 6px}
 p{margin:0 0 20px}
@@ -36,18 +39,17 @@ strong{font-weight:700}
 hr{border:0;border-top:1px solid var(--rule);margin:44px 0}
 blockquote{margin:28px 0;padding:2px 0 2px 20px;border-left:3px solid var(--line);color:var(--muted);font-size:18px}
 blockquote p{margin:0 0 10px}
-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15.5px;
-  font-family:system-ui,sans-serif}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15.5px;font-family:system-ui,sans-serif}
 th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
 thead th{background:var(--tablehead);border-bottom:2px solid var(--line);font-weight:600}
 td:nth-child(n+3),th:nth-child(n+3){text-align:right;font-variant-numeric:tabular-nums}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;
   background:color-mix(in srgb,var(--ink) 7%,transparent);padding:.1em .35em;border-radius:4px}
-.contents{margin:40px 0 8px;border:1px solid var(--line);border-radius:10px;
+.contents{margin:34px 0 8px;border:1px solid var(--line);border-radius:10px;
   font-family:system-ui,sans-serif;font-size:15px}
-.contents summary{cursor:pointer;padding:12px 16px;color:var(--muted);font-weight:600;list-style:none}
+.contents summary{cursor:pointer;padding:5px 18px;color:var(--muted);font-weight:600;list-style:none}
 .contents summary::-webkit-details-marker{display:none}
-.contents summary::before{content:"\203A  ";display:inline-block;transition:transform .15s}
+.contents summary::before{content:"\203A";display:inline-block;padding-right:7px;transition:transform .15s}
 .contents[open] summary::before{transform:rotate(90deg)}
 .contents nav{display:flex;flex-direction:column;padding:0 16px 14px}
 .contents a{color:var(--muted);text-decoration:none;padding:4px 0}
@@ -63,16 +65,18 @@ footer a{color:var(--muted)}
 <nav class="nav">
   <a class="brand" href="./">justitia</a>
   <div class="right">
-    <a href="#top">Essay</a>
-    <a href="web/">Explorable</a>
+    <a href="./">Essay</a>
+    <a href="explore/">Explorable</a>
+    <a href="about.html">About</a>
     <a href="https://github.com/Kirill-Kruglov/justitia">GitHub</a>
     <button id="theme" type="button" aria-label="Toggle light / dark">&#9682;</button>
   </div>
 </nav>
 <main id="top">
-  <details class="contents">
-    <summary>Contents</summary>
-    <nav>
+<p class="byline">By Kirill Kruglov, developed in dialogue with Claude and Codex — <a href="about.html">how this was made</a>.</p>
+<details class="contents">
+<summary>Contents</summary>
+<nav>
 <a class="toc-h2" href="#the-smallest-world">The Smallest World</a>
 <a class="toc-h2" href="#the-blind-referee">The Blind Referee</a>
 <a class="toc-h2" href="#two-tools-and-the-surprise-of-needing-both">Two Tools, and the
@@ -94,9 +98,9 @@ monoculture, mutation — read together</a>
 <a class="toc-h2" href="#what-this-does-not-show">What this does not show</a>
 <a class="toc-h2" href="#acknowledgements-references">Acknowledgements &amp;
 references</a>
-    </nav>
-  </details>
-  <article>
+</nav>
+</details>
+<article>
 <h1 id="soil-for-seeds-of-loving-grace">Soil for Seeds of Loving
 Grace</h1>
 <blockquote>
@@ -672,7 +676,7 @@ Productivity in a Fluctuating Environment: The Insurance Hypothesis”
 <p>⁹ Thomas Elmqvist et al., “Response Diversity, Ecosystem Change, and
 Resilience” (2003).</p>
 
-  </article>
+</article>
 </main>
 <footer>
   <p><strong>justitia</strong> — code, data, tests, and the interactive version:

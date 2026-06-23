@@ -1,45 +1,14 @@
-#!/usr/bin/env python3
-"""Build the GitHub Pages site (docs/) from the canonical markdown.
-
-Renders the essay and the About page into self-contained, dependency-free
-editorial HTML that shares one nav, stylesheet, and theme toggle. The essay
-markdown stays the single source of truth. Re-run after editing either file:
-
-    python scripts/build_landing.py
-
-GitHub Pages serves the `docs/` folder: docs/index.html is the home (the essay),
-docs/about.html is "How this was made", docs/explore/ is the interactive page.
-"""
-import re
-import subprocess
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent.parent
-DOCS = ROOT / "docs"
-REPO = "https://github.com/Kirill-Kruglov/justitia"
-
-
-def pandoc(md_path):
-    return subprocess.run(
-        ["pandoc", str(md_path), "-t", "html", "--no-highlight"],
-        capture_output=True, text=True, check=True,
-    ).stdout
-
-
-def toc_from(body):
-    heads = re.findall(r'<h([12]) id="([^"]+)">(.*?)</h[12]>', body, re.DOTALL)
-    items, first_h1 = [], False
-    for level, hid, text in heads:
-        text = re.sub(r"<[^>]+>", "", text).strip()
-        if level == "1" and not first_h1:
-            first_h1 = True
-            continue
-        cls = "toc-h1" if level == "1" else "toc-h2"
-        items.append(f'<a class="{cls}" href="#{hid}">{text}</a>')
-    return "\n".join(items)
-
-
-CSS = """
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How this was made — justitia</title>
+<meta name="description" content="How justitia was built: one person in adversarial dialogue with Claude and Codex.">
+<meta property="og:title" content="How this was made — justitia">
+<meta property="og:description" content="How justitia was built: one person in adversarial dialogue with Claude and Codex.">
+<meta property="og:type" content="article">
+<style>
 :root{--bg:#fbfaf6;--ink:#1d1c1a;--muted:#6b6760;--line:#e4e0d6;--accent:#7a5b2e;--rule:#ece8de;--tablehead:#f3f0e8}
 :root[data-theme=dark]{--bg:#15171c;--ink:#dfdcd4;--muted:#9a958c;--line:#2a2d34;--accent:#cdb079;--rule:#23262d;--tablehead:#1c1f25}
 @media (prefers-color-scheme:dark){:root:not([data-theme]){--bg:#15171c;--ink:#dfdcd4;--muted:#9a958c;--line:#2a2d34;--accent:#cdb079;--rule:#23262d;--tablehead:#1c1f25}}
@@ -80,7 +49,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;
   font-family:system-ui,sans-serif;font-size:15px}
 .contents summary{cursor:pointer;padding:5px 18px;color:var(--muted);font-weight:600;list-style:none}
 .contents summary::-webkit-details-marker{display:none}
-.contents summary::before{content:"\\203A";display:inline-block;padding-right:7px;transition:transform .15s}
+.contents summary::before{content:"\203A";display:inline-block;padding-right:7px;transition:transform .15s}
 .contents[open] summary::before{transform:rotate(90deg)}
 .contents nav{display:flex;flex-direction:column;padding:0 16px 14px}
 .contents a{color:var(--muted);text-decoration:none;padding:4px 0}
@@ -90,20 +59,78 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;
 footer{max-width:680px;margin:0 auto;padding:28px 22px 64px;border-top:1px solid var(--rule);
   color:var(--muted);font-family:system-ui,sans-serif;font-size:14px}
 footer a{color:var(--muted)}
-"""
-
-NAV = """<nav class="nav">
+</style>
+</head>
+<body>
+<nav class="nav">
   <a class="brand" href="./">justitia</a>
   <div class="right">
     <a href="./">Essay</a>
     <a href="explore/">Explorable</a>
     <a href="about.html">About</a>
-    <a href="REPO">GitHub</a>
+    <a href="https://github.com/Kirill-Kruglov/justitia">GitHub</a>
     <button id="theme" type="button" aria-label="Toggle light / dark">&#9682;</button>
   </div>
-</nav>""".replace("REPO", REPO)
+</nav>
+<main id="top">
 
-THEME_JS = """<script>
+
+<article>
+<h1 id="how-this-was-made">How this was made</h1>
+<p>This project was built by one person, in extended dialogue with two
+AI systems — Claude (Anthropic) and Codex (OpenAI). I want to be clear
+about that, and clear about what it did and did not mean, because “made
+with AI” now covers everything from honest collaboration to hiding the
+absence of work.</p>
+<p>It was not used to write this for me.</p>
+<p>It was used to argue against me.</p>
+<h2 id="the-working-method">The working method</h2>
+<p>The shape of the work was adversarial on purpose. I would bring a
+hypothesis — about what kind of environment stays stable, what a blind
+referee can and cannot do, why a result held or failed — and the job of
+the models was to try to break it. Most hypotheses did break. The ones
+that survived being attacked are the ones that made it into the essay
+and the experiments.</p>
+<p>Concretely, the division of labour looked like this:</p>
+<ul>
+<li><p><strong>Claude</strong> was the reasoning partner — used to
+stress-test ideas, find where an argument quietly assumed its own
+conclusion, surface prior work I should have known, and push on the
+writing until it said what I actually meant. When a claim in the essay
+is careful — “this looks like a limit, not a proof” — that caution is
+usually the residue of an argument I lost to it first.</p></li>
+<li><p><strong>Codex</strong> was the engineering partner — used to
+build, run, and audit the simulations: the worlds, the blind referee,
+the validation checks designed to ensure the referee never reads hidden
+labels, and the thousands of seeded runs behind every reported
+result.</p></li>
+</ul>
+<p>Neither model was treated as an authority. A claim survived only when
+it was still standing after repeated attempts to break it — sometimes by
+me, sometimes by the models, often by both. The two were used the way
+you would use sharp colleagues who do not care about your feelings: to
+make weak ideas harder to keep, not easier.</p>
+<h2 id="what-stayed-mine">What stayed mine</h2>
+<p>The questions were mine, and so were the constraints. The framing —
+soil rather than seed, blindness as the constraint rather than a
+handicap — was mine. The decisions about what counted as a result, what
+to keep, and what to throw away were mine. And the responsibility for
+every claim on these pages is mine: if something here is wrong, it is
+wrong because I let it through, not because a model said it.</p>
+<p>I think that is the honest way to describe this kind of work right
+now — not authored by AI, not done without it. Built by a person who
+used very capable tools to be wrong less often, and who remains
+accountable for whatever wrongness survives.</p>
+<p>— Kirill Kruglov</p>
+
+</article>
+</main>
+<footer>
+  <p><strong>justitia</strong> — code, data, tests, and the interactive version:
+  <a href="https://github.com/Kirill-Kruglov/justitia">github.com/Kirill-Kruglov/justitia</a>.
+  A response to Dario Amodei's <a href="https://www.darioamodei.com/essay/machines-of-loving-grace">Machines of Loving Grace</a>.</p>
+</footer>
+<script>
 (function(){
   var root=document.documentElement, KEY="justitia-theme";
   var saved=localStorage.getItem(KEY);
@@ -116,52 +143,6 @@ THEME_JS = """<script>
     localStorage.setItem(KEY,next);
   });
 })();
-</script>"""
-
-FOOTER = f"""<footer>
-  <p><strong>justitia</strong> — code, data, tests, and the interactive version:
-  <a href="{REPO}">github.com/Kirill-Kruglov/justitia</a>.
-  A response to Dario Amodei's <a href="https://www.darioamodei.com/essay/machines-of-loving-grace">Machines of Loving Grace</a>.</p>
-</footer>"""
-
-BYLINE = ('<p class="byline">By Kirill Kruglov, developed in dialogue with Claude and Codex'
-          ' — <a href="about.html">how this was made</a>.</p>')
-
-
-def page(title, description, body, *, contents="", byline=""):
-    head = (
-        '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
-        '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-        f"<title>{title}</title>\n"
-        f'<meta name="description" content="{description}">\n'
-        f'<meta property="og:title" content="{title}">\n'
-        f'<meta property="og:description" content="{description}">\n'
-        '<meta property="og:type" content="article">\n'
-        f"<style>{CSS}</style>\n</head>\n<body>\n"
-    )
-    main = f'<main id="top">\n{byline}\n{contents}\n<article>\n{body}\n</article>\n</main>\n'
-    return head + NAV + "\n" + main + FOOTER + "\n" + THEME_JS + "\n</body>\n</html>\n"
-
-
-def main():
-    DOCS.mkdir(exist_ok=True)
-    essay = pandoc(ROOT / "essay" / "soil-for-seeds-of-loving-grace.md")
-    contents = (f'<details class="contents">\n<summary>Contents</summary>\n'
-                f'<nav>\n{toc_from(essay)}\n</nav>\n</details>')
-    (DOCS / "index.html").write_text(page(
-        "Soil for Seeds of Loving Grace",
-        "What kind of world would let a powerful, well-meaning AI keep doing good? "
-        "A blind-governance simulation, and a counterpoint to Machines of Loving Grace.",
-        essay, contents=contents, byline=BYLINE,
-    ), encoding="utf-8")
-    about = pandoc(ROOT / "essay" / "about.md")
-    (DOCS / "about.html").write_text(page(
-        "How this was made — justitia",
-        "How justitia was built: one person in adversarial dialogue with Claude and Codex.",
-        about,
-    ), encoding="utf-8")
-    print(f"wrote {DOCS/'index.html'} and {DOCS/'about.html'}")
-
-
-if __name__ == "__main__":
-    main()
+</script>
+</body>
+</html>
