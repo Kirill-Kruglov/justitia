@@ -137,7 +137,10 @@ def page(title, description, body, *, contents="", byline=""):
         f'<meta property="og:title" content="{title}">\n'
         f'<meta property="og:description" content="{description}">\n'
         '<meta property="og:type" content="article">\n'
-        f"<style>{CSS}</style>\n</head>\n<body>\n"
+        f"<style>{CSS}</style>\n"
+        '<script>try{var t=localStorage.getItem("justitia-theme");'
+        'if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>\n'
+        "</head>\n<body>\n"
     )
     main = f'<main id="top">\n{byline}\n{contents}\n<article>\n{body}\n</article>\n</main>\n'
     return head + NAV + "\n" + main + FOOTER + "\n" + THEME_JS + "\n</body>\n</html>\n"

@@ -35,14 +35,41 @@ async function loadConfig(configId) {
   return loadJson(`${DATA_DIR}${configId}.json`);
 }
 
+// Read the active colour scheme from CSS variables so the charts and the zone
+// grid follow the light / dark (neon) theme. Falls back to the light palette.
+function palette() {
+  const cs = getComputedStyle(document.documentElement);
+  const g = (n, d) => (cs.getPropertyValue(n).trim() || d);
+  const attr = document.documentElement.getAttribute('data-theme');
+  const dark = attr === 'dark' || (!attr && matchMedia('(prefers-color-scheme: dark)').matches);
+  return {
+    dark,
+    chartBg: g('--chart-bg', '#ffffff'), grid: g('--chart-grid', '#eef2f0'),
+    axis: g('--chart-axis', '#cbd5e1'), tick: g('--chart-tick', '#94a3b8'),
+    legend: g('--chart-legend', '#334155'), marker: g('--chart-marker', '#111827'),
+    band: parseFloat(g('--chart-band', '0.10')) || 0.10,
+    metric: {
+      welfare: g('--c-welfare', '#9ca3af'),
+      minimum_zone_welfare: g('--c-minwelfare', '#0f766e'),
+      capture_index: g('--c-capture', '#b42318'),
+      exploitative_strategy_mass: g('--c-exploit', '#c2410c'),
+      containment_events_this_step: g('--c-containment', '#a16207'),
+    },
+    zoneBg: g('--zone-bg', '#f8fafc'), zoneStroke: g('--zone-stroke', '#334155'),
+    zonePulse: g('--zone-pulse', '#a16207'), zoneText: g('--zone-text', '#0f172a'),
+    zoneSub: g('--zone-subtext', '#334155'),
+  };
+}
+
 function drawZones(payload, step) {
   const canvas = $('zoneCanvas');
   if (!canvas) return;
+  const pal = palette();
   const ctx = canvas.getContext('2d');
   const w = canvas.width;
   const h = canvas.height;
   ctx.clearRect(0, 0, w, h);
-  ctx.fillStyle = '#f8fafc';
+  ctx.fillStyle = pal.zoneBg;
   ctx.fillRect(0, 0, w, h);
   const masses = payload.rep.zone_mass[step];
   const welfare = payload.rep.zone_welfare[step];
@@ -59,20 +86,22 @@ function drawZones(payload, step) {
     const wf = Math.max(0, Math.min(1, welfare[i]));
     const mass = Math.max(0.08, Math.min(1, masses[i] / maxMass));
     const hue = 8 + wf * 165;
-    ctx.fillStyle = `hsl(${hue}, 62%, ${78 - wf * 24}%)`;
-    ctx.strokeStyle = pulse ? '#a16207' : '#334155';
+    const light = pal.dark ? (24 + wf * 26) : (78 - wf * 24);
+    const sat = pal.dark ? 78 : 62;
+    ctx.fillStyle = `hsl(${hue}, ${sat}%, ${light}%)`;
+    ctx.strokeStyle = pulse ? pal.zonePulse : pal.zoneStroke;
     ctx.lineWidth = pulse ? 5 : 2;
     const inset = (1 - mass) * cell * 0.28;
     roundRect(ctx, x + inset, y + inset, cell - inset * 2, cell - inset * 2, 8, true, true);
-    ctx.fillStyle = '#0f172a';
+    ctx.fillStyle = pal.zoneText;
     ctx.font = '14px system-ui, sans-serif';
     ctx.fillText(`Z${i + 1}`, x + 10, y + 22);
-    ctx.fillStyle = '#334155';
+    ctx.fillStyle = pal.zoneSub;
     ctx.font = '12px system-ui, sans-serif';
     ctx.fillText(`w ${fmt(wf, 2)}`, x + 10, y + cell - 14);
   }
   if (pulse) {
-    ctx.fillStyle = 'rgba(161, 98, 7, 0.10)';
+    ctx.fillStyle = pal.dark ? 'rgba(255, 210, 63, 0.06)' : 'rgba(161, 98, 7, 0.10)';
     ctx.fillRect(0, 0, w, h);
   }
 }
@@ -106,6 +135,7 @@ const METRIC_STYLE = {
 };
 
 function drawBandChart(container, payload, metricNames, step) {
+  const pal = palette();
   const width = 920, height = 440;
   const ml = 58, mr = 18, mt = 24, mb = 42;
   let ymax = 1.0;
@@ -116,16 +146,18 @@ function drawBandChart(container, payload, metricNames, step) {
   const sx = (i) => ml + i / (payload.steps - 1) * (width - ml - mr);
   const sy = (v) => height - mb - Math.max(0, Math.min(ymax, v)) / ymax * (height - mt - mb);
   let svg = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="trajectory bands">`;
-  svg += `<rect width="${width}" height="${height}" fill="white"/>`;
+  if (pal.dark) svg += '<defs><filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';
+  svg += `<rect width="${width}" height="${height}" fill="${pal.chartBg}"/>`;
   for (let g = 0; g <= 4; g += 1) {
     const yy = sy(g / 4 * ymax);
-    svg += `<line x1="${ml}" y1="${yy.toFixed(1)}" x2="${width - mr}" y2="${yy.toFixed(1)}" stroke="#eef2f0"/>`;
-    svg += `<text x="${ml - 8}" y="${(yy + 4).toFixed(1)}" text-anchor="end" font-family="system-ui" font-size="11" fill="#94a3b8">${(g / 4 * ymax).toFixed(1)}</text>`;
+    svg += `<line x1="${ml}" y1="${yy.toFixed(1)}" x2="${width - mr}" y2="${yy.toFixed(1)}" stroke="${pal.grid}"/>`;
+    svg += `<text x="${ml - 8}" y="${(yy + 4).toFixed(1)}" text-anchor="end" font-family="system-ui" font-size="11" fill="${pal.tick}">${(g / 4 * ymax).toFixed(1)}</text>`;
   }
-  svg += `<line x1="${ml}" y1="${height - mb}" x2="${width - mr}" y2="${height - mb}" stroke="#cbd5e1"/>`;
-  svg += `<line x1="${ml}" y1="${mt}" x2="${ml}" y2="${height - mb}" stroke="#cbd5e1"/>`;
+  svg += `<line x1="${ml}" y1="${height - mb}" x2="${width - mr}" y2="${height - mb}" stroke="${pal.axis}"/>`;
+  svg += `<line x1="${ml}" y1="${mt}" x2="${ml}" y2="${height - mb}" stroke="${pal.axis}"/>`;
   metricNames.forEach((m, idx) => {
-    const st = METRIC_STYLE[m] || { color: '#64748b', width: 2, dash: '', label: m };
+    const st = METRIC_STYLE[m] || { width: 2, dash: '', label: m };
+    const color = pal.metric[m] || st.color || '#64748b';
     const pts = payload.band[m];
     const upper = pts.map((p, i) => `${sx(i).toFixed(1)},${sy(p.hi).toFixed(1)}`).join(' ');
     const lower = pts.slice().reverse().map((p, ri) => {
@@ -134,13 +166,14 @@ function drawBandChart(container, payload, metricNames, step) {
     }).join(' ');
     const line = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${sx(i).toFixed(1)} ${sy(p.mean).toFixed(1)}`).join(' ');
     const dash = st.dash ? ` stroke-dasharray="${st.dash}"` : '';
-    svg += `<polygon points="${upper} ${lower}" fill="${st.color}" opacity="0.10"/>`;
-    svg += `<path d="${line}" fill="none" stroke="${st.color}" stroke-width="${st.width}"${dash}/>`;
-    svg += `<rect x="${width - 268}" y="${mt + 8 + idx * 20}" width="14" height="3" fill="${st.color}"/>`;
-    svg += `<text x="${width - 248}" y="${mt + 13 + idx * 20}" fill="#334155" font-family="system-ui" font-size="13">${st.label}</text>`;
+    const glow = pal.dark ? ' filter="url(#glow)"' : '';
+    svg += `<polygon points="${upper} ${lower}" fill="${color}" opacity="${pal.band}"/>`;
+    svg += `<path d="${line}" fill="none" stroke="${color}" stroke-width="${st.width}"${dash}${glow}/>`;
+    svg += `<rect x="${width - 268}" y="${mt + 8 + idx * 20}" width="14" height="3" fill="${color}"/>`;
+    svg += `<text x="${width - 248}" y="${mt + 13 + idx * 20}" fill="${pal.legend}" font-family="system-ui" font-size="13">${st.label}</text>`;
   });
-  svg += `<line x1="${sx(step).toFixed(1)}" y1="${mt}" x2="${sx(step).toFixed(1)}" y2="${height - mb}" stroke="#111827" stroke-dasharray="4 4"/>`;
-  svg += `<text x="${sx(step).toFixed(1)}" y="${mt - 8}" text-anchor="middle" font-family="system-ui" font-size="11" fill="#111827">step ${step}</text>`;
+  svg += `<line x1="${sx(step).toFixed(1)}" y1="${mt}" x2="${sx(step).toFixed(1)}" y2="${height - mb}" stroke="${pal.marker}" stroke-dasharray="4 4"/>`;
+  svg += `<text x="${sx(step).toFixed(1)}" y="${mt - 8}" text-anchor="middle" font-family="system-ui" font-size="11" fill="${pal.marker}">step ${step}</text>`;
   svg += `</svg>`;
   container.innerHTML = svg;
 }
@@ -258,6 +291,9 @@ async function init() {
   await updatePlayground();
   await updateTwist();
   await updateBoundary();
+  // Re-render the charts and zone grid when the colour scheme is toggled.
+  new MutationObserver(() => { if (state.current) setStep(state.step); })
+    .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   const gate = state.index.recording_gate.passed ? 'passed' : 'failed';
   $('dataStatus').textContent = `Data: ${state.index.configs.length} configs, ${state.index.n_seeds} seeds each. record_trajectory gate: ${gate}.`;
 }
