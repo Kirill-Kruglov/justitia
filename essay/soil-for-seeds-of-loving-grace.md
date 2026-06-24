@@ -6,7 +6,7 @@
 > [**What the Little Worlds Actually Showed**](#what-the-little-worlds-actually-showed).
 > The story will still be here when you come back.
 
-*Machines of Loving Grace* asks a hopeful question:
+[*Machines of Loving Grace*](https://www.darioamodei.com/essay/machines-of-loving-grace) asks a hopeful question:
 
 What could a powerful and well-intentioned AI do for humanity?
 
@@ -48,7 +48,7 @@ Then I watched. Would the world stay shared — or would it end up belonging to 
 
 The world is small on purpose — not because small worlds are realistic, but because they can be interrogated. Each one has regions, resources, and agents whose strategies change over time. Successful strategies spread; unsuccessful ones vanish. Some strategies create value. Some find ways to extract it. Some learn to live alongside others; some learn to live off them. Nothing in the code marks them as heroes or villains. They survive for the same reason organisms do in nature: because they keep reproducing.
 
-To keep score, the number I kept coming back to was the welfare of the worst-off region. Not average welfare. Not total wealth. The weakest place in the world — because a society can look prosperous while quietly becoming unlivable for those with the least leverage. (The formal verdict in the study rests on a broader survival measure; this is simply the number I cared about most, because it is what the whole question is about.) "Paradise for the powerless" is, here, a number you can watch fall.
+To keep score, the number I kept coming back to was the welfare of the worst-off region. Not average welfare. Not total wealth. The weakest place in the world — because a society can look prosperous while quietly becoming unlivable for those with the least leverage. (The formal verdict in the study rests on a broader survival measure; this is simply the number I cared about most, because it is what the whole question is about.) "Paradise for the powerless" is, here, a number you can [watch fall](https://kirill-kruglov.github.io/justitia/explore/).
 
 This is not a model of reality. It is an intuition pump — a small world built to ask one specific question: *can a blind referee keep such a world both alive and shared?*
 
@@ -144,7 +144,7 @@ If that is true, then Loving Grace is not only a property of the machine. It is 
 
 # What the Little Worlds Actually Showed
 
-*This section is the evidence behind the story: what the metaphors map to, the numbers, and exactly where the mechanism holds and where it breaks. Everything here is regenerable from the simulation code; nothing rests on the prose above.*
+*This section is the evidence behind the story: what the metaphors map to, the numbers, and exactly where the mechanism holds and where it breaks. Everything here is regenerable from the [simulation code](https://github.com/Kirill-Kruglov/justitia/tree/main/model); nothing rests on the prose above.*
 
 ## What the metaphors mean
 
@@ -152,7 +152,7 @@ If that is true, then Loving Grace is not only a property of the machine. It is 
 
 **The sword** is not punishment. It is a delayed response to *observed harm*. The referee never reads hidden intentions, hidden strategy parameters, or moral labels — only consequences. When harm appears in neighbouring regions, when recovery repeatedly fails to arrive, when concentration starts producing visible damage, the referee can throttle the *channels* the harm is moving through. The sword acts on flows, never on identities.
 
-**Blindness** is enforced where it can be measured, and asserted by construction where it cannot — and I want to keep those two honest, because the difference is exactly the kind of thing a careful reader should check. Two guarantees are enforced at runtime: on every step the simulation asserts that the referee's observation excludes the hidden strategy parameters (a hard assertion that crashes the run if it is ever violated), and a naive feature-proxy — a referee that *does* try to read who is bad from visible features — is run and shown to fail on a held-out world. A third is true by construction rather than measured: no derived "exploitative" score enters the policy, because the policy code reads only observations and concentration, never that score. The feature-proxy failing is the real evidence that the working mechanism is not secretly cheating by reading types; the rest I flag as design facts, not measurements.
+**Blindness** is enforced where it can be measured, and asserted by construction where it cannot — and I want to keep those two honest, because the difference is exactly the kind of thing a careful reader should check. Two guarantees are enforced at runtime: on every step the simulation asserts that the referee's observation [excludes the hidden strategy parameters](https://github.com/Kirill-Kruglov/justitia/blob/main/model/substrate.py#L378-L382) (a hard assertion that crashes the run if it is ever violated), and a naive feature-proxy — a referee that *does* try to read who is bad from visible features — is run and [shown to fail on a held-out world](https://github.com/Kirill-Kruglov/justitia/blob/main/model/atlas.py#L531). A third is true by construction rather than measured: no derived "exploitative" score enters the policy, because the policy code reads only observations and concentration, never that score. The feature-proxy failing is the real evidence that the working mechanism is not secretly cheating by reading types; the rest I flag as design facts, not measurements.
 
 ## The two halves, separately, both fail
 

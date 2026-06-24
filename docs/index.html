@@ -113,7 +113,9 @@ href="#what-the-little-worlds-actually-showed"><strong>What the Little
 Worlds Actually Showed</strong></a>. The story will still be here when
 you come back.</p>
 </blockquote>
-<p><em>Machines of Loving Grace</em> asks a hopeful question:</p>
+<p><a
+href="https://www.darioamodei.com/essay/machines-of-loving-grace"><em>Machines
+of Loving Grace</em></a> asks a hopeful question:</p>
 <p>What could a powerful and well-intentioned AI do for humanity?</p>
 <p>This essay asks a different one:</p>
 <p>What kind of world would let it keep doing so?</p>
@@ -178,8 +180,9 @@ place in the world — because a society can look prosperous while quietly
 becoming unlivable for those with the least leverage. (The formal
 verdict in the study rests on a broader survival measure; this is simply
 the number I cared about most, because it is what the whole question is
-about.) “Paradise for the powerless” is, here, a number you can watch
-fall.</p>
+about.) “Paradise for the powerless” is, here, a number you can <a
+href="https://kirill-kruglov.github.io/justitia/explore/">watch
+fall</a>.</p>
 <p>This is not a model of reality. It is an intuition pump — a small
 world built to ask one specific question: <em>can a blind referee keep
 such a world both alive and shared?</em></p>
@@ -411,8 +414,9 @@ what grows beside it.</p>
 Actually Showed</h1>
 <p><em>This section is the evidence behind the story: what the metaphors
 map to, the numbers, and exactly where the mechanism holds and where it
-breaks. Everything here is regenerable from the simulation code; nothing
-rests on the prose above.</em></p>
+breaks. Everything here is regenerable from the <a
+href="https://github.com/Kirill-Kruglov/justitia/tree/main/model">simulation
+code</a>; nothing rests on the prose above.</em></p>
 <h2 id="what-the-metaphors-mean">What the metaphors mean</h2>
 <p><strong>The scales</strong> are not equality. They are resistance to
 concentration: a successful strategy may succeed, but it may not
@@ -430,12 +434,15 @@ moving through. The sword acts on flows, never on identities.</p>
 asserted by construction where it cannot — and I want to keep those two
 honest, because the difference is exactly the kind of thing a careful
 reader should check. Two guarantees are enforced at runtime: on every
-step the simulation asserts that the referee’s observation excludes the
-hidden strategy parameters (a hard assertion that crashes the run if it
-is ever violated), and a naive feature-proxy — a referee that
+step the simulation asserts that the referee’s observation <a
+href="https://github.com/Kirill-Kruglov/justitia/blob/main/model/substrate.py#L378-L382">excludes
+the hidden strategy parameters</a> (a hard assertion that crashes the
+run if it is ever violated), and a naive feature-proxy — a referee that
 <em>does</em> try to read who is bad from visible features — is run and
-shown to fail on a held-out world. A third is true by construction
-rather than measured: no derived “exploitative” score enters the policy,
+<a
+href="https://github.com/Kirill-Kruglov/justitia/blob/main/model/atlas.py#L531">shown
+to fail on a held-out world</a>. A third is true by construction rather
+than measured: no derived “exploitative” score enters the policy,
 because the policy code reads only observations and concentration, never
 that score. The feature-proxy failing is the real evidence that the
 working mechanism is not secretly cheating by reading types; the rest I
