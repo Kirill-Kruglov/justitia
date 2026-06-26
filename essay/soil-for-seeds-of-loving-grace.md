@@ -22,7 +22,7 @@ Our world is a hard place.
 
 Every living thing around us is the product of billions of years of selection, and evolution does not optimize for kindness, wisdom, or fairness. It optimizes for persistence. The oak, the wolf, the bacterium, and the human being are all descendants of lineages that survived long enough to leave copies of themselves behind.
 
-In that sense, life is full of what AI researchers would call reward hackers — not because organisms are malicious, but because strategies that successfully exploit the rules of a game tend to spread. Whatever takes more than it gives, and gets away with it, gets copied.
+In that sense, life is full of what AI researchers would call [reward hackers](https://arxiv.org/abs/2209.13085) — not because organisms are malicious, but because strategies that successfully exploit the rules of a game tend to spread. Whatever takes more than it gives, and gets away with it, gets copied.
 
 And yet evolution did not produce only predators. Forests exist. Coral reefs exist. Human societies exist. The same process that produced competition also produced cooperation, symbiosis, and forms of mutual dependence that would have seemed impossible to simpler organisms.
 
@@ -188,7 +188,7 @@ Two worlds defeated every blind configuration I could build. The README is blunt
 
 **The adversarial ceiling.** Even in the three worlds that hold, there is a sharp boundary along one axis above all others: adversarial pressure — how hard and how fast exploitation adapts against the referee. Each robust world holds up to roughly 1.0–1.2× pressure and then breaks hard (permanence falling from the 0.7–0.86 range down toward 0.18–0.35) by ~1.2–1.4×. Notably, almost every *other* axis I swept (cost, severity, mutation, delay, concentration) never broke within range — the mechanism is wide along those. It is narrow along adversarial pressure specifically.
 
-That last boundary is the one I find most suggestive. A blind referee can only act on harm it can observe, and a consequence cannot be observed before its cause has finished producing it. Past some rate of adversarial adaptation, harm becomes irreversible inside the delay between act and observation — so the failure is not the referee being unintelligent, but information about the damage arriving after the damage is locked in. It behaves less like a tuning problem and more like a limit: there is a ratio between how fast harm becomes irreversible and how far ahead the world can be read at all, and below that ratio no blind mechanism — however cleverly built — can keep up.
+That last boundary is the one I find most suggestive. A blind referee can only act on harm it can observe, and a consequence cannot be observed before its cause has finished producing it. Past some rate of adversarial adaptation, harm becomes irreversible inside [the delay between act and observation](https://doi.org/10.1109/JPROC.2006.887288) — so the failure is not the referee being unintelligent, but information about the damage arriving after the damage is locked in. It behaves less like a tuning problem and more like a limit: there is a ratio between how fast harm becomes irreversible and how far ahead the world can be read at all, and below that ratio no blind mechanism — however cleverly built — can keep up.
 
 ## Catastrophes, monoculture, mutation — read together
 
@@ -196,7 +196,7 @@ These three were separate stressors in the study, but they tell one connected st
 
 Not every failure came from exploitation. Some worlds included random shocks — resource collapse, local disasters, recovery failures, environmental change. These matter because a perfectly optimized system tends to be a fragile one: a world that survives only under ideal conditions is not actually stable. Catastrophe is the test of whether stability was real or just unstressed.
 
-Monoculture is what makes catastrophe lethal. The most persistent non-adversarial failure mode was a single highly successful strategy taking over, improving short-term performance, and leaving the system unable to face a shock it had never needed to face before. This mirrors the familiar ecological fact that the most productive ecosystem is not the most resilient one. In these worlds, the configurations that survived shocks tended to be the ones that had kept some adaptive diversity — though, per the caveat above, that is partly because diversity was written into the bar for survival.
+Monoculture is what makes catastrophe lethal. The most persistent non-adversarial failure mode was a single highly successful strategy taking over, improving short-term performance, and leaving the system unable to face a shock it had never needed to face before. This mirrors the familiar ecological fact that [the most productive ecosystem is not the most resilient one](https://www.pnas.org/doi/10.1073/pnas.96.4.1463). In these worlds, the configurations that survived shocks tended to be the ones that had kept some adaptive diversity — though, per the caveat above, that is partly because diversity was written into the bar for survival.
 
 And mutation is why this is a knife that cuts both ways. Mutation is not a bug in the model; it is the source of *both* innovation and exploitation. Without it the worlds go static. With it, new cooperative strategies can emerge — but so can new predatory ones, and a referee cannot tell them apart at birth, because at birth an undesirable mutation and a brilliant one look identical: both are just deviation from the norm. A referee that suppressed all deviation to stamp out exploitation would also sterilize the population into the very monoculture that the next catastrophe destroys. The goal is not to eliminate mutation, or even to minimize exploitation to zero. It is to keep the world in the narrow band where adaptation does not inevitably converge toward domination — diverse enough to survive shocks, governed enough not to be eaten.
 
@@ -233,12 +233,12 @@ In particular, the background I had in mind includes Aubin’s *Viability Theory
 
 ⁴ Wei Zhang, Michael S. Branicky, and Stephen M. Phillips, “Stability of Networked Control Systems” (2001).
 
-⁵ João P. Hespanha, Payam Naghshtabrizi, and Yonggang Xu, “A Survey of Recent Results in Networked Control Systems” (2007).
+⁵ João P. Hespanha, Payam Naghshtabrizi, and Yonggang Xu, “A Survey of Recent Results in Networked Control Systems” (2007) — https://doi.org/10.1109/JPROC.2006.887288
 
-⁶ Joar Skalse et al., “Defining and Characterizing Reward Hacking” (2022).
+⁶ Joar Skalse et al., “Defining and Characterizing Reward Hacking” (2022) — https://arxiv.org/abs/2209.13085
 
 ⁷ Jeremiah Blocki et al., “Audit Games” (2013).
 
-⁸ Shigeo Yachi and Michel Loreau, “Biodiversity and Ecosystem Productivity in a Fluctuating Environment: The Insurance Hypothesis” (1999).
+⁸ Shigeo Yachi and Michel Loreau, “Biodiversity and Ecosystem Productivity in a Fluctuating Environment: The Insurance Hypothesis” (1999) — https://www.pnas.org/doi/10.1073/pnas.96.4.1463
 
 ⁹ Thomas Elmqvist et al., “Response Diversity, Ecosystem Change, and Resilience” (2003).
