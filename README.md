@@ -16,9 +16,9 @@ two things: a **structural limit on concentration** (the *scales*) and a
 are "exploitative"; that label is hidden, and the code is checked to prove it.
 
 The result is sharper than "you need both." The scales and the sword are **not
-two independent dials** — the only configuration that holds is a single coupled
-act: **consequence-gated anti-concentration**, where the structural limit engages
-*only* where observed harm has triggered it. An always-on cap is redundant; a
+two independent dials** — of the policy families tested, the only configuration
+that holds is a single coupled act: **consequence-gated anti-concentration**,
+where the structural limit engages *only* where observed harm has triggered it. An always-on cap is redundant; a
 structural limit that never waits for a consequence never even fires.
 
 > **Status: thesis locked.** Distilled and hardened from a research sandbox of
@@ -134,6 +134,21 @@ In [`results/boundary_atlas.md`](results/boundary_atlas.md) each axis is labelle
 A world is **robust** when its held-out permanence clears the bar across seeds and
 survives threshold perturbation. "Robust" (about a world) and `none_in_range`
 (about an axis) agree; they are not in tension.
+
+## The triptych
+
+This repository is one panel of three, sharing a single thesis — *do not try to
+certify intentions; build contact, consequences, and constraints that can be
+checked* — and a single honest caveat: all three come from one forge, one author,
+the same AI partners. Independent replication is invited and would outweigh any
+further internal check.
+
+- **justitia** (this repo) — what keeps a world of powerful, evolving agents
+  livable when no one can read anyone's soul.
+- [**proxylimen**](https://github.com/Kirill-Kruglov/proxylimen) — where a mind's
+  world comes from, and where blind derivation measurably breaks.
+- [**fallacy-cutter**](https://github.com/Kirill-Kruglov/fallacy-cutter) — the
+  fail-closed instrument both were cut with.
 
 ## License
 

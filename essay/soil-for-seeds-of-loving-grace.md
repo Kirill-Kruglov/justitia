@@ -36,7 +36,7 @@ I did not know. So instead of arguing about it, I tried to build the smallest wo
 
 In each simulated world, simple agents live, compete, adapt, and copy whatever seems to be working. Most just persist. Some drift toward taking more than they contribute — crowding others out, intercepting resources meant for someone else, turning a local win into leverage over everyone nearby. Nothing labels them as villains. They spread because spreading works.
 
-Then I added a single referee, under one strict rule: it must stay blind. It cannot see intentions. It cannot see hidden identities. It cannot decide who is virtuous. The code is checked to prove it never can.
+Then I added a single referee, under one strict rule: it must stay blind. It cannot see intentions. It cannot see hidden identities. It cannot decide who is virtuous. The code is checked, on every step, so it never does.
 
 That leaves it two powers. It can limit how much influence piles up in any one place. And it can respond to harm once that harm becomes visible.
 
@@ -122,7 +122,7 @@ And even in the worlds that held, there was a ceiling. As I turned up adversaria
 
 This is the part I most want to be precise about, because it is the bridge back to the soil. The mechanism did not fail because the referee was too simple, or because I had not tuned it well. It failed because of properties *of the world* — whether there was any uncaptured ground to stand on, whether diversity had survived, how hard the adversary could push before harm became irreversible. The referee was the same in the worlds that held and the worlds that broke. **What changed was the soil.**
 
-There is something almost physical about that ceiling. A blind referee can only act on harm it can observe, and it can only observe harm that has already happened. Push the adversary fast enough, and the damage becomes irreversible before the trace of it is even legible — not because the referee is slow, but because no observer can see a consequence before the cause has finished producing it. Past a certain speed, the future arrives faster than any blind mechanism can read the present. That is not an engineering shortfall. It is closer to a speed limit — a property of the world, not of the judge.
+There is something almost physical about that ceiling. A blind referee can only act on harm it can observe, and it can only observe harm that has already happened. Push the adversary fast enough, and the damage becomes irreversible before the trace of it is even legible — not because the referee is slow, but because no observer can see a consequence before the cause has finished producing it. Past a certain speed, the future arrives faster than any blind mechanism can read the present. That is not an engineering shortfall. It *reads like* a speed limit — a property of the world, not of the judge. I say *reads like*, because what the experiments pin down is a boundary along one composite dial, adversarial pressure; whether its cause is truly observation arriving after irreversibility is the next experiment, not this one.
 
 ## Back to the Soil
 
@@ -190,6 +190,8 @@ Two worlds defeated every blind configuration I could build. The README is blunt
 
 That last boundary is the one I find most suggestive. A blind referee can only act on harm it can observe, and a consequence cannot be observed before its cause has finished producing it. Past some rate of adversarial adaptation, harm becomes irreversible inside [the delay between act and observation](https://doi.org/10.1109/JPROC.2006.887288) — so the failure is not the referee being unintelligent, but information about the damage arriving after the damage is locked in. It behaves less like a tuning problem and more like a limit: there is a ratio between how fast harm becomes irreversible and how far ahead the world can be read at all, and below that ratio no blind mechanism — however cleverly built — can keep up.
 
+I owe the reader the status of that claim: it is an interpretation, not an isolated measurement. The sweeps establish the boundary along adversarial pressure — a composite dial; delay and irreversibility time, varied separately, did not break the two most robust worlds in the ranges tested. To earn the name *speed limit*, the next experiment must vary propagation speed, observation latency, intervention latency, and irreversibility time independently, and show that collapse tracks the dimensionless ratio (time-to-observe + time-to-act) / time-to-irreversible. Until it does, the speed limit is the best theory of this boundary — not its established cause.
+
 ## Catastrophes, monoculture, mutation — read together
 
 These three were separate stressors in the study, but they tell one connected story about diversity. A caveat before I tell it: this section is a *reading* of the results above, not a separate measurement — and diversity is doubly entangled here, because keeping some adaptive variety was part of how I *defined* a healthy world in the first place. So treat what follows as interpretation, with that circularity named out loud.
@@ -205,6 +207,10 @@ And mutation is why this is a knife that cuts both ways. Mutation is not a bug i
 The simulations do not demonstrate how to align AGI. They do not predict real societies. They do not prove a future of Loving Grace is achievable. They are an intuition pump you can run, not a policy proof.
 
 What they suggest is narrower and, I think, more durable than a grand claim would be: that stability may depend less on identifying good actors and more on shaping the environment so that harmful strategies cannot easily convert success into permanent leverage — and that this shaping has a domain. It works where the soil permits: where there is uncaptured ground to stand on, where diversity has survived, and where the adversary cannot push past the speed at which the world can be read. Inside that domain, a blind referee is enough. Outside it, the question was never about the referee.
+
+---
+
+*This essay is one panel of a triptych. It asks what keeps a world of powerful, evolving agents livable when no one can read anyone's soul — trust in identities replaced by consequences and structure. [**proxylimen**](https://kirill-kruglov.github.io/proxylimen/) asks the question one step earlier: where a mind's world comes from — trust in inherited text replaced by calibrated contact. And [**fallacy-cutter**](https://kirill-kruglov.github.io/fallacy-cutter/) is the knife both were cut with — trust in the researcher, me included, replaced by an instrument that fails closed. One thesis underneath all three: do not try to certify intentions; build contact, consequences, and constraints that can be checked.*
 
 ---
 
