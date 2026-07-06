@@ -1,0 +1,155 @@
+#!/usr/bin/env python3
+"""gate_harness pre-commit hook — enforces two-phase pre-registration.
+
+Rejects a commit if, for any gate directory (any dir containing PREREG.json):
+
+  RULE 1 (finding #1): the staged changes include that gate's PREREG.json or
+          PREREG.lock AND any file under that gate's outputs/. Prereg and results
+          must live in separate commits.
+
+  RULE 2 (finding #2): a staged PREREG.json whose SHA256 no longer matches the
+          prereg_sha256 recorded in the committed PREREG.lock. A locked prereg
+          cannot be silently edited post-hoc.
+
+Exit non-zero -> commit blocked. Fail closed: if the hook cannot decide, it
+blocks and prints why.
+"""
+
+import hashlib
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+PREREG_NAME = "PREREG.json"
+LOCK_NAME = "PREREG.lock"
+
+
+def git(*args):
+    out = subprocess.run(["git", *args], capture_output=True, text=True)
+    if out.returncode != 0:
+        print(f"[gate_harness] git {' '.join(args)} failed: {out.stderr.strip()}", file=sys.stderr)
+        sys.exit(1)  # fail closed
+    return out.stdout
+
+
+def staged_files():
+    text = git("diff", "--cached", "--name-only", "--diff-filter=ACM")
+    return [line for line in text.splitlines() if line.strip()]
+
+
+def staged_blob(path):
+    """Content of a path as staged in the index."""
+    out = subprocess.run(["git", "show", f":{path}"], capture_output=True)
+    if out.returncode != 0:
+        return None
+    return out.stdout
+
+
+def committed_text(path):
+    """Content of a path as committed at HEAD (None if not present)."""
+    out = subprocess.run(["git", "show", f"HEAD:{path}"], capture_output=True, text=True)
+    if out.returncode != 0:
+        return None
+    return out.stdout
+
+
+def gate_dir_for(path, repo_root):
+    """Nearest ancestor directory (within repo) that is a gate, or None.
+
+    A directory is a 'gate' if it contains PREREG.json in the working tree, or
+    if PREREG.json is being added in this commit.
+    """
+    p = (repo_root / path).parent
+    while True:
+        if (p / PREREG_NAME).exists():
+            return p
+        if p == repo_root:
+            return None
+        p = p.parent
+
+
+def rel(p, repo_root):
+    return str(Path(p).relative_to(repo_root))
+
+
+def main():
+    repo_root = Path(git("rev-parse", "--show-toplevel").strip())
+    files = staged_files()
+    if not files:
+        return 0
+
+    # Group staged files by gate dir.
+    by_gate = {}
+    prereg_dirs = set()
+    for f in files:
+        name = Path(f).name
+        gdir = gate_dir_for(f, repo_root)
+        # A newly-added PREREG.json marks its own directory as a gate even if the
+        # working-tree lookup above missed it.
+        if name in (PREREG_NAME, LOCK_NAME):
+            gdir = (repo_root / f).parent
+        if gdir is None:
+            continue
+        by_gate.setdefault(gdir, []).append(f)
+        if name == PREREG_NAME:
+            prereg_dirs.add(gdir)
+
+    violations = []
+
+    for gdir, gfiles in by_gate.items():
+        names = {Path(f).name for f in gfiles}
+        touches_prereg = bool(names & {PREREG_NAME, LOCK_NAME})
+        touches_outputs = any(
+            Path(f).parts[len(Path(rel(gdir, repo_root)).parts):][:1] == ("outputs",)
+            for f in gfiles
+        )
+        # RULE 1
+        if touches_prereg and touches_outputs:
+            violations.append(
+                f"[{rel(gdir, repo_root)}] stages PREREG.* AND outputs/ in one commit "
+                f"— prereg and results must be committed separately (audit finding #1)."
+            )
+
+    # RULE 2 — locked prereg edited
+    for f in files:
+        if Path(f).name != PREREG_NAME:
+            continue
+        gdir = (repo_root / f).parent
+        lock_path = rel(gdir / LOCK_NAME, repo_root)
+        lock_text = committed_text(lock_path)
+        if lock_text is None:
+            # lock added in this same commit (initial paired add) -> allowed
+            continue
+        try:
+            recorded = json.loads(lock_text).get("prereg_sha256")
+        except json.JSONDecodeError:
+            violations.append(f"[{f}] committed PREREG.lock is not valid JSON — cannot verify (fail closed).")
+            continue
+        blob = staged_blob(f)
+        if blob is None:
+            violations.append(f"[{f}] cannot read staged content (fail closed).")
+            continue
+        actual = hashlib.sha256(blob).hexdigest()
+        if actual != recorded:
+            violations.append(
+                f"[{f}] PREREG.json edited after locking (SHA {actual[:10]} != "
+                f"locked {str(recorded)[:10]}) — thresholds cannot change post-hoc "
+                f"(audit finding #2). Re-lock deliberately via gate_harness.prereg.lock_prereg."
+            )
+
+    if violations:
+        print("gate_harness pre-commit: COMMIT BLOCKED (fail closed)\n", file=sys.stderr)
+        for v in violations:
+            print("  - " + v, file=sys.stderr)
+        print(
+            "\nIf you believe this is wrong, do NOT --no-verify silently; fix the "
+            "commit split or re-lock the prereg deliberately.",
+            file=sys.stderr,
+        )
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
