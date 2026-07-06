@@ -1,0 +1,74 @@
+{
+  "gate": "J_N2_speed_limit",
+  "metadata": {
+    "mode": "prospective; outcome unknown at lock time; decision citable under ANY outcome",
+    "question": "Does a new justitia delay/t_irrev factorial sweep support a speed-limit boundary in R = delay / t_irrev? (partial isolation over existing dials; the full five-dial isolation named in the essay remains future work)",
+    "metric": "Monotonicity in R and equal-R permanence spread on a post-lock grid over existing delay/t_irrev dials.",
+    "dial_reconnaissance": {
+      "present": [
+        "delay",
+        "t_irrev"
+      ],
+      "missing_without_model_change": [
+        "propagation_speed",
+        "observation_latency_separate_from_delay",
+        "intervention_latency_separate_from_delay",
+        "recovery_rate"
+      ],
+      "author_decision_needed": "Approve this as an existing-dials J-N2, or specify a separate substrate-change phase before lock."
+    },
+    "outcome_branches": {
+      "PASS": "No monotonicity violation above tolerance and equal-R permanence spread <= tolerance; cite only existing-dials speed-ratio support.",
+      "FAIL": "Any monotonicity violation above tolerance or equal-R spread > tolerance; speed-limit account fails under this existing-dials protocol.",
+      "INCONCLUSIVE": "Seed policy inadmissible or run failure; publish as-is."
+    },
+    "what_was_not_shown": "Independent variation of propagation speed, observation latency, intervention latency, and recovery rate is not shown unless new substrate dials are specified before lock."
+  },
+  "threshold_change_rationale": {},
+  "thresholds": {
+    "worlds": [
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W6_mutation_corridor"
+    ],
+    "delay_grid": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "t_irrev_grid": [
+      4,
+      8,
+      16
+    ],
+    "seeds": [
+      18000,
+      18001,
+      18002,
+      18003,
+      18004,
+      18005,
+      18006,
+      18007,
+      18008,
+      18009,
+      18010,
+      18011,
+      18012,
+      18013,
+      18014,
+      18015,
+      18016,
+      18017,
+      18018,
+      18019,
+      18020,
+      18021,
+      18022,
+      18023
+    ],
+    "monotonicity_tolerance": 0.08,
+    "equal_r_permanence_tolerance": 0.12
+  }
+}

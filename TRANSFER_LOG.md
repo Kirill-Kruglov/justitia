@@ -56,3 +56,19 @@ plus `justitia_harnessed_replay_design.md`.
      `__pycache__` and treated a raw `diff -r` showing only source-side pycache as
      non-substantive. The substantive check should use an explicit pycache
      exclusion unless the source repo is cleaned by its owner.
+
+6. Runner tautology ordering gap (fail-open caught by review).
+   - Looked for: how to compute a domain tautology report when the baseline
+     data is produced by the same long experiment that the gate will analyze.
+   - Not found: a documented runner pattern for experiments whose tautology
+     baseline only exists after the study run, while `runner.run_gate` requires
+     `tautology_report` before `experiment_fn` executes.
+   - What went wrong: the first J-G1 wrapper defaulted to a hardcoded
+     `construction_may_be_tautological: false` on a first run, and could read
+     stale snapshot data on repeat runs. That is exactly the fail-open audit
+     anti-pattern described by fallacy-cutter finding #3.
+   - Assumption/action: split J-G1 into a two-step protocol. `--run-study`
+     creates `outputs/model_results` plus `RUN_STAMP.json` without calling the
+     runner; the gate step refuses to run without a matching stamp and computes
+     the tautology report from that snapshot before `run_gate`. Honest note:
+     this defect was caught by external review, not mechanically by the harness.

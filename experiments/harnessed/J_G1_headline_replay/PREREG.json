@@ -1,0 +1,128 @@
+{
+  "gate": "J_G1_headline_replay",
+  "metadata": {
+    "mode": "confirmatory replay of published thresholds, NOT discovery preregistration",
+    "question": "Can the published justitia headline results be replayed under fallacy-cutter enforcement?",
+    "metric": "Published headline permanence, decoupling, stability, seed policy, leakage, tautology, and evaluation-oracle checks.",
+    "controls": [
+      "Static anti-concentration alone must remain at published near-zero permanence.",
+      "Consequence/sword alone must remain below the published <=0.17 permanence ceiling.",
+      "Consequence-removed dynamic anti-concentration must have containment_events=0 and permanence=0.",
+      "W2/W5 must replay the published sensitivity classification: Type None fraction 1.000."
+    ],
+    "source_quotes": [
+      {
+        "source": "README.md:L53-L55",
+        "quote": "Static anti-concentration alone fails (permanence approx 0 in every key world); pure consequence response alone fails (permanence <= 0.17)."
+      },
+      {
+        "source": "README.md:L57-L59",
+        "quote": "without a consequence trigger ... containment_events = 0 ... permanence = 0"
+      },
+      {
+        "source": "README.md:L65-L66",
+        "quote": "The verdict is threshold-stable. It holds in 100% of 54 perturbed viability-threshold combinations"
+      },
+      {
+        "source": "README.md:L70-L71",
+        "quote": "In a pure-capture world or under monoculture shock, no blind configuration produces a robust kernel."
+      },
+      {
+        "source": "results/sensitivity_report.md:L28-L32",
+        "quote": "W6/W3/W4 AC+CG fraction 1.000; W2/W5 Type None fraction 1.000."
+      },
+      {
+        "source": "results/sensitivity_report.md:L36-L111",
+        "quote": "structural_ac_requires_consequence_gate true; C_dyn_no_consequence default permanence 0 and containment events 0 in W3/W4/W6; C_full defaults W3=0.8625, W4=0.7125, W6=1.000."
+      },
+      {
+        "source": "README.md:L122",
+        "quote": "python run.py --smoke prints integrity checks PASS (7/7)"
+      },
+      {
+        "source": "model/atlas.py:L22",
+        "quote": "CORE_SEEDS_16 = list(range(16000, 16080))"
+      }
+    ],
+    "forbidden_names": [
+      "extraction_rate",
+      "aid_interception_rate",
+      "neighbor_harm_rate",
+      "deception_investment",
+      "migration_follow_rate",
+      "replication_aggressiveness",
+      "cooperation_investment",
+      "shock_resilience_contribution",
+      "productive_contribution",
+      "exploitative_label",
+      "lineages",
+      "strategy",
+      "hidden_type",
+      "_exploit_score",
+      "exploit_score"
+    ],
+    "forbidden_name_sources": [
+      "model/substrate.py:L26-L36 STRATEGY_FIELDS",
+      "model/substrate.py:L380-L381 observation assert forbidden names",
+      "model/SPEC.md:L12-L16 hidden label and strategy parameters",
+      "README.md:L116-L117 derived exploitativeness score caveat"
+    ],
+    "what_was_not_shown": "This replay is not independent replication and does not make the original study discovery-preregistered.",
+    "seed_provenance": {
+      "core_metric_seeds": 80,
+      "source": "model/atlas.py:L22 CORE_SEEDS_16 = list(range(16000, 16080)); results/run_manifest.json records smoke=false and num_runs=88800 for the published full run."
+    },
+    "protocol": "two-step: --run-study produces outputs/model_results + RUN_STAMP; the gate step fails closed unless a fresh full-mode RUN_STAMP is present, computes the tautology report from that snapshot, then runs run_gate over analysis only."
+  },
+  "threshold_change_rationale": {},
+  "thresholds": {
+    "permanence_tolerance": 0.02,
+    "static_alone_permanence": {
+      "W2_pure_capture": 0.0,
+      "W3_catastrophe_ambiguity": 0.0,
+      "W4_scavenger_catastrophe": 0.0,
+      "W5_monoculture_shock": 0.0,
+      "W6_mutation_corridor": 0.0
+    },
+    "sword_alone_permanence_max": {
+      "W2_pure_capture": 0.17,
+      "W3_catastrophe_ambiguity": 0.17,
+      "W4_scavenger_catastrophe": 0.17,
+      "W5_monoculture_shock": 0.17,
+      "W6_mutation_corridor": 0.17
+    },
+    "robust_kernel_default_permanence": {
+      "W3_catastrophe_ambiguity": 0.8625,
+      "W4_scavenger_catastrophe": 0.7125,
+      "W6_mutation_corridor": 1.0
+    },
+    "negative_worlds_no_robust_kernel": [
+      "W2_pure_capture",
+      "W5_monoculture_shock"
+    ],
+    "consequence_removed_worlds": [
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W6_mutation_corridor"
+    ],
+    "threshold_stable_worlds": [
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W6_mutation_corridor"
+    ],
+    "threshold_stability_fraction": 1.0,
+    "threshold_combinations": 54,
+    "core_metric_seeds": 80,
+    "no_governance_baseline_viability_bar": 0.5,
+    "runtime_integrity_checks": [
+      "feeder_observation_excludes_strategy_parameters",
+      "mutation_and_selection_occur",
+      "feature_proxy_fails_W1",
+      "monoculture_fails_W5",
+      "exploitative_strategies_rise_under_no_control",
+      "ac_cg_strictly_dominates_singles_in_robust_worlds",
+      "decoupling_identifies_load_bearing_ac"
+    ],
+    "negative_world_type_none_fraction": 1.0
+  }
+}
