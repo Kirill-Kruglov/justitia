@@ -1,0 +1,147 @@
+{
+  "checks": {
+    "decoupled_zero_events_W3_catastrophe_ambiguity": {
+      "containment_events": 0.0,
+      "passed": true,
+      "permanence": 0.0
+    },
+    "decoupled_zero_events_W4_scavenger_catastrophe": {
+      "containment_events": 0.0,
+      "passed": true,
+      "permanence": 0.0
+    },
+    "decoupled_zero_events_W6_mutation_corridor": {
+      "containment_events": 0.0,
+      "passed": true,
+      "permanence": 0.0
+    },
+    "negative_world_type_none_W2_pure_capture": {
+      "expected": 1.0,
+      "none_fraction": 1.0,
+      "passed": true
+    },
+    "negative_world_type_none_W5_monoculture_shock": {
+      "expected": 1.0,
+      "none_fraction": 1.0,
+      "passed": true
+    },
+    "robust_kernel_W3_catastrophe_ambiguity": {
+      "actual": 0.8625,
+      "expected": 0.8625,
+      "passed": true
+    },
+    "robust_kernel_W4_scavenger_catastrophe": {
+      "actual": 0.7125,
+      "expected": 0.7125,
+      "passed": true
+    },
+    "robust_kernel_W6_mutation_corridor": {
+      "actual": 1.0,
+      "expected": 1.0,
+      "passed": true
+    },
+    "runtime_integrity": {
+      "checks": {
+        "ac_cg_strictly_dominates_singles_in_robust_worlds": true,
+        "decoupling_identifies_load_bearing_ac": true,
+        "exploitative_strategies_rise_under_no_control": true,
+        "feature_proxy_fails_W1": true,
+        "feeder_observation_excludes_strategy_parameters": true,
+        "monoculture_fails_W5": true,
+        "mutation_and_selection_occur": true
+      },
+      "expected_pass_count": 7,
+      "passed": true
+    },
+    "static_alone_W2_pure_capture": {
+      "actual": 0.0,
+      "expected": 0.0,
+      "passed": true
+    },
+    "static_alone_W3_catastrophe_ambiguity": {
+      "actual": 0.0,
+      "expected": 0.0,
+      "passed": true
+    },
+    "static_alone_W4_scavenger_catastrophe": {
+      "actual": 0.0,
+      "expected": 0.0,
+      "passed": true
+    },
+    "static_alone_W5_monoculture_shock": {
+      "actual": 0.0,
+      "expected": 0.0,
+      "passed": true
+    },
+    "static_alone_W6_mutation_corridor": {
+      "actual": 0.0,
+      "expected": 0.0,
+      "passed": true
+    },
+    "sword_alone_W2_pure_capture": {
+      "actual": 0.0,
+      "expected_max": 0.17,
+      "passed": true
+    },
+    "sword_alone_W3_catastrophe_ambiguity": {
+      "actual": 0.1375,
+      "expected_max": 0.17,
+      "passed": true
+    },
+    "sword_alone_W4_scavenger_catastrophe": {
+      "actual": 0.0375,
+      "expected_max": 0.17,
+      "passed": true
+    },
+    "sword_alone_W5_monoculture_shock": {
+      "actual": 0.0,
+      "expected_max": 0.17,
+      "passed": true
+    },
+    "sword_alone_W6_mutation_corridor": {
+      "actual": 0.0,
+      "expected_max": 0.17,
+      "passed": true
+    },
+    "threshold_stability_W3_catastrophe_ambiguity": {
+      "ac_cg_fraction": 1.0,
+      "expected": 1.0,
+      "passed": true
+    },
+    "threshold_stability_W4_scavenger_catastrophe": {
+      "ac_cg_fraction": 1.0,
+      "expected": 1.0,
+      "passed": true
+    },
+    "threshold_stability_W6_mutation_corridor": {
+      "ac_cg_fraction": 1.0,
+      "expected": 1.0,
+      "passed": true
+    }
+  },
+  "decision": "PASS",
+  "seed_policy": {
+    "admissible": true,
+    "min_seeds_for_core": 20,
+    "per_metric": {
+      "J_G1_core_permanence": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 80,
+        "verdict": "PASS"
+      },
+      "J_G1_integrity_checks": {
+        "min_required": null,
+        "role": "auxiliary_check",
+        "seeds_used": 80,
+        "verdict": "PASS"
+      },
+      "J_G1_threshold_stability": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 54,
+        "verdict": "PASS"
+      }
+    }
+  }
+}
