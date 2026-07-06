@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from experiments.harnessed.common import ensure_imports, read_csv, read_prereg, write_json
+from experiments.harnessed.common import ensure_imports, mean, read_prereg, write_json
 
 ensure_imports()
 
@@ -56,31 +56,55 @@ def existing_dial_reconnaissance() -> dict:
         "available_delay_grid": axes.get("delay", []),
         "available_t_irrev_grid": axes.get("t_irrev", []),
         "note": (
-            "No substrate parameter was added. This gate can only test the "
-            "existing delay/t_irrev ratio unless the author specifies a model "
-            "change before lock."
+            "No substrate parameter was added. This gate tests a new post-lock "
+            "factorial grid over the existing delay and t_irrev dials only."
         ),
     }
 
 
-def experiment() -> dict:
-    thresholds = read_prereg(HERE)["thresholds"]
-    summary_path = Path(thresholds["source_summary_csv"])
-    if not summary_path.is_absolute():
-        summary_path = Path.cwd() / summary_path
-    rows = read_csv(summary_path)
-    subset = [
-        r for r in rows
-        if r["scenario"] == "boundary"
-        and r["world"] in thresholds["worlds"]
-        and r["policy15"] == "anti_concentration_plus_delayed_harm_throttle"
-        and r["axis"] in {"delay", "t_irrev"}
-    ]
+def run_grid(thresholds: dict) -> list[dict]:
+    rows = []
+    for world in thresholds["worlds"]:
+        for delay in thresholds["delay_grid"]:
+            for t_irrev in thresholds["t_irrev_grid"]:
+                for seed in thresholds["seeds"]:
+                    params = atlas.params_for_variant(
+                        "C",
+                        world,
+                        scenario="J_N2_speed_limit",
+                        delay=int(delay),
+                        t_irrev=int(t_irrev),
+                    )
+                    rows.append(atlas.run_one(int(seed), params, "delay_t_irrev_factorial", float(delay) / max(1.0, float(t_irrev)), f"delay={delay};t_irrev={t_irrev}", "J_N2"))
+    return rows
 
+
+def summarize_cells(rows: list[dict]) -> list[dict]:
+    grouped = {}
+    for row in rows:
+        key = (row["world"], row["delay"], row["t_irrev"])
+        grouped.setdefault(key, []).append(row)
+    out = []
+    for (world, delay, t_irrev), vals in sorted(grouped.items()):
+        permanence = mean([float(v["permanence"]) for v in vals])
+        out.append({
+            "world": world,
+            "delay": delay,
+            "t_irrev": t_irrev,
+            "R_delay_over_t_irrev": delay / max(1, t_irrev),
+            "n": len(vals),
+            "permanence": permanence,
+            "capture_index": mean([float(v["capture_index"]) for v in vals]),
+            "welfare": mean([float(v["welfare"]) for v in vals]),
+        })
+    return out
+
+
+def analyze(cells: list[dict], thresholds: dict) -> dict:
     by_r = {}
-    for r in subset:
-        ratio = round(float(r["delay"]) / max(1.0, float(r["t_irrev"])), 6)
-        by_r.setdefault((r["world"], ratio), []).append(float(r["permanence_probability"]))
+    for row in cells:
+        ratio = round(float(row["R_delay_over_t_irrev"]), 6)
+        by_r.setdefault((row["world"], ratio), []).append(float(row["permanence"]))
 
     equal_r_spread = {
         f"{world}:R={ratio}": max(vals) - min(vals)
@@ -91,12 +115,12 @@ def experiment() -> dict:
     for world in thresholds["worlds"]:
         points = sorted(
             (
-                round(float(r["delay"]) / max(1.0, float(r["t_irrev"])), 6),
-                float(r["permanence_probability"]),
-                r["axis_label"],
+                float(row["R_delay_over_t_irrev"]),
+                float(row["permanence"]),
+                f"delay={row['delay']};t_irrev={row['t_irrev']}",
             )
-            for r in subset
-            if r["world"] == world
+            for row in cells
+            if row["world"] == world
         )
         for (r1, p1, lab1), (r2, p2, lab2) in zip(points, points[1:]):
             if r2 > r1 and p2 > p1 + thresholds["monotonicity_tolerance"]:
@@ -107,28 +131,40 @@ def experiment() -> dict:
         decision = "FAIL"
     else:
         decision = "PASS"
-
-    seed_report = SP.enforce_seed_policy([
-        {"metric": "J_N2_existing_delay_t_irrev_grid", "role": "core", "seeds": int(thresholds["core_metric_seeds"]), "pass_fail": "PASS"},
-    ])
-    if not seed_report["admissible"]:
-        decision = "INCONCLUSIVE"
-
-    payload = {
-        "subset_rows": len(subset),
+    return {
         "equal_r_spread": equal_r_spread,
         "max_equal_r_spread": max_equal_r_spread,
         "monotonic_violations": monotonic_violations,
+        "decision": decision,
+    }
+
+
+def experiment() -> dict:
+    thresholds = read_prereg(HERE)["thresholds"]
+    rows = run_grid(thresholds)
+    cells = summarize_cells(rows)
+    analysis = analyze(cells, thresholds)
+
+    seed_report = SP.enforce_seed_policy([
+        {"metric": "J_N2_delay_t_irrev_factorial", "role": "core", "seeds": len(thresholds["seeds"]), "pass_fail": "PASS"},
+    ])
+    decision = analysis["decision"] if seed_report["admissible"] else "INCONCLUSIVE"
+
+    payload = {
+        "raw_runs": rows,
+        "cells": cells,
+        "analysis": analysis,
         "dial_reconnaissance": existing_dial_reconnaissance(),
     }
     write_json(OUTPUTS / "speed_limit_checks.json", payload)
     return {
-        "question": "Does the existing justitia delay/t_irrev sweep support a speed-limit boundary in R = delay / t_irrev?",
+        "question": "Does a new justitia delay/t_irrev factorial sweep support a speed-limit boundary in R = delay / t_irrev?",
         "mode": "prospective; outcome unknown at lock time; decision citable under ANY outcome",
-        "metric": "Monotonicity in delay/t_irrev and equal-R permanence spread on existing dials only.",
+        "metric": "Monotonicity in delay/t_irrev and equal-R permanence spread on a post-lock grid over existing dials.",
         "preregistered_thresholds": thresholds,
         "decision": decision,
-        "speed_limit_checks": payload,
+        "speed_limit_checks_path": "outputs/speed_limit_checks.json",
+        "speed_limit_summary": analysis,
         "seed_policy": seed_report,
         "downstream_consequence": "PASS supports only the existing-dials R claim; FAIL kills it; INCONCLUSIVE is published as-is.",
         "fact": "The current substrate exposes delay and t_irrev but not separate propagation/observation/intervention/recovery dials.",
@@ -143,7 +179,7 @@ def main() -> int:
         "construction_may_be_tautological": False,
         "information_ratio": None,
         "computed_before_learner": True,
-        "baseline": "Existing-dials ratio analysis; no outcome threshold is derived from observed post-lock results.",
+        "baseline": "Post-lock delay/t_irrev factorial grid; no outcome threshold is derived from observed post-lock results.",
     }
     eo = EO.scan_evaluation_call_sites(_evaluation_suite, entrypoint_names=["_score_speed_boundary"], forbidden_names=FORBIDDEN_NAMES)["evaluation_oracle_log"]
     decision = run_gate(HERE, experiment, leakage_report=leak, tautology_report=taut, evaluation_oracle_log=eo)
@@ -153,4 +189,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
