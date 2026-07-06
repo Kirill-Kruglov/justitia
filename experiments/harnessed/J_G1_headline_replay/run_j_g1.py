@@ -117,19 +117,11 @@ def evaluate(summary: list[dict[str, str]], cg: list[dict[str, str]], manifest: 
         checks[f"robust_kernel_{world}"] = {"actual": actual, "expected": expected, "passed": abs(actual - expected) <= tol}
 
     for world in thresholds["negative_worlds_no_robust_kernel"]:
-        rows = [
-            r for r in summary
-            if r["scenario"] == "boundary"
-            and r["world"] == world
-            and r["policy15"] == "anti_concentration_plus_delayed_harm_throttle"
-            and r["axis"] == "adversarial_pressure"
-            and r["axis_label"] == "adversarial_pressure=1.00"
-        ]
-        actual = fnum(rows[0]["permanence_probability"]) if rows else None
-        checks[f"negative_world_{world}"] = {
-            "actual": actual,
-            "expected_max": thresholds["negative_world_permanence_max"],
-            "passed": actual is not None and actual <= thresholds["negative_world_permanence_max"] + tol,
+        row = next(r for r in manifest["threshold_stability"] if r["world"] == world)
+        checks[f"negative_world_type_none_{world}"] = {
+            "none_fraction": row["none_fraction"],
+            "expected": thresholds["negative_world_type_none_fraction"],
+            "passed": row["none_fraction"] >= thresholds["negative_world_type_none_fraction"],
         }
 
     for world in thresholds["consequence_removed_worlds"]:
