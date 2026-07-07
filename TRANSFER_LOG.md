@@ -4,6 +4,18 @@ Transfer test: apply fallacy-cutter to justitia using only fallacy-cutter docs
 (`README.md`, `methodology/`, `examples/hello_gate/`, `gate_harness/README.md`)
 plus `justitia_harnessed_replay_design.md`.
 
+## 2026-07-07 (wave 4)
+
+1. Wave-4 durable worktree and phase boundary.
+   - Looked for: where to run FW-2b seeded adoption without touching the
+     `epub-export` checkout or previous wave artifacts.
+   - Found: `justitia_wave4_design.md` requires branch `harnessed-wave4` from
+     `main` in `/home/master/llm_projects/justitia-wave4`; main already contains
+     the merged wave-3 artifact channel and J-N5 decisions.
+   - Assumption/action: created the requested worktree from `main`; future edits
+     will keep `gate_harness/`, published `results/`, and previous harnessed
+     gate directories unchanged, with model changes limited to `model/artifacts.py`.
+
 ## 2026-07-07 (wave 3)
 
 1. Wave-3 durable worktree and phase boundary.
