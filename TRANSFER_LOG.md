@@ -41,6 +41,27 @@ plus `justitia_harnessed_replay_design.md`.
      `PREREG_DRAFT.json` files for author review only; they are not locks and
      no J-N7/J-N7b scientific runs have been started.
 
+4. J-N7/J-N7b locked results.
+   - Looked for: whether a bonded declaration envelope can recover pressure
+     parity/extension and W7 specificity where free verified artifacts and seeded
+     adoption failed.
+   - Found: J-N7 decision FAIL. H-P1 FAIL, H-P2 L1 FAIL, H-P2 L2 FAIL,
+     H-P4 FAIL, while H-P5 classified P0/P1-low/P1-high as RETAINED. Pressure
+     ceilings were W6 A0=1.2, F1=1.0, P0=None, P1-low=1.0, P1-high=1.0; W3
+     and W4 had no robust grid point for any arm. The P0 preregistered pattern
+     is P0 fails while P1 works only weakly in W6, supporting the contingent-
+     confiscation reading over pure price in this run.
+   - Found: J-N7b decision FAIL on imported W7. A0 false_containment was 0.5305;
+     P1-low false_containment was 0.497125 with directional delta 0.033375;
+     P1-high false_containment was 0.497625 with directional delta 0.032875.
+     Both are below the preregistered 0.10 directional mark and far above the
+     0.20 false-containment bar, despite permanence 0.775/0.800.
+   - Assumption/action: recorded both failures as citable locked outcomes. Since
+     P1-low and P1-high fail J-N7 H-P2 L1 parity and fail the J-N7b H-P3
+     directional condition, the FW-3 kill condition fires: the bonded-envelope
+     path is empty in this substrate under the locked definitions. Large outputs
+     are committed as `.json.gz`; compact checks were gzip-packed before commit.
+
 ## 2026-07-07 (wave 4)
 
 1. Wave-4 durable worktree and phase boundary.
