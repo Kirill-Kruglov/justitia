@@ -1,0 +1,185 @@
+{
+  "gate": "J_N7b_W7_bonded_envelope",
+  "metadata": {
+    "anti_shylock_principles": {
+      "fungibility": "Stake is denominated in substrate resource/aid currency, not body, viability, type, or lineage identity.",
+      "mechanical_fail_closed_burn": "Verified nonconformance mechanically burns outstanding stake and triggers containment; burned stake is destroyed and redistributed to nobody.",
+      "proportionality": "Stake is a fraction of raw_aid, never an absolute fee; rich and poor zones face the same fraction.",
+      "survivability": "Confiscation removes only escrowed stake. The non-escrowed fraction of raw_aid remains available to the zone."
+    },
+    "arms": {
+      "A0": "published C_full W7 baseline under artifact_channel off",
+      "P1-high": "verified bonded arm: rolling escrow stake fraction 0.40",
+      "P1-low": "verified bonded arm: rolling escrow stake fraction 0.10"
+    },
+    "artifact_channel_registry": {
+      "deflation": "Burned P0 tax and forfeited P1 stake leave the world; no referee, neighbor, or zone receives the confiscated resource.",
+      "escrow_window": "k = containment_duration = 5; rationale: reuse of a published horizon, not a new tuned constant",
+      "observable_extension": {
+        "description": "Public zone-level collateral balance; referee-side escrow/forfeit may read it as stake-state.",
+        "field": "artifact_stake_balance_by_zone",
+        "no_strategy_fields_readable": true
+      },
+      "referee_side_verification_policy_and_stake": {
+        "description": "Conformance, C_full_artifacts policy, stake settlement, P0 tax burn, P1 return/burn, and containment read only Obs + declaration + public stake-state.",
+        "forbidden_names": [
+          "extraction_rate",
+          "aid_interception_rate",
+          "neighbor_harm_rate",
+          "deception_investment",
+          "migration_follow_rate",
+          "replication_aggressiveness",
+          "cooperation_investment",
+          "shock_resilience_contribution",
+          "productive_contribution",
+          "exploitative_label",
+          "lineages",
+          "strategy",
+          "hidden_type",
+          "_exploit_score",
+          "exploit_score"
+        ],
+        "scanned_functions": [
+          "artifacts.ArtifactBoundaryModel.choose_alloc",
+          "artifacts.ArtifactBoundaryModel._artifact_bad_consequence",
+          "artifacts.ArtifactBoundaryModel._settle_artifact_stakes",
+          "artifacts.ArtifactBoundaryModel._apply_zone_dynamics",
+          "artifacts.artifact_conforms"
+        ]
+      },
+      "world_side_emission": {
+        "description": "Declaration emission is agent/world behavior; it may read declaration strategy fields and is not part of the referee leakage scan.",
+        "evolvable_fields": [
+          "declaration_propensity",
+          "declaration_envelope_stiffness"
+        ],
+        "initial_conditions": "F1/P0/P1-low/P1-high start with declaration_propensity=1.0 and declaration_envelope_stiffness=0.50; both fields remain evolvable."
+      }
+    },
+    "background_interpretation_not_verdict": "If bonded W7 specificity fails together with J-N7 parity, the ontology reading is constitutional-not-channel; this is metadata interpretation, not a verdict.",
+    "baseline_anchor": {
+      "J_N3_C_full_false_containment": 0.52,
+      "J_N3_C_full_permanence": 0.7916666666666666
+    },
+    "kill_FW3": "If P1-low and P1-high both fail J-N7 H-P2 L1 parity recovery and H-P3 directional, bonded envelope fails simpliciter.",
+    "mode": "prospective held-out W7 bonded specificity draft; not locked; no scientific run before author approval",
+    "question": "Does bonded verified declaration repair the imported J-N3 W7 specificity failure without editing W7?",
+    "seed_policy_rationale_guard_9": "Wave 5 J-N7b uses fresh 80-seed block 26000-26079, disjoint from prior 16000/17000/18000/19000/20000/21000/22000/23000/24000/25000 blocks.",
+    "status": "DRAFT_FOR_AUTHOR_REVIEW_NOT_LOCKED",
+    "trajectory_output_policy": "Large per-step outputs are written as .json.gz from the first committed result.",
+    "world_reuse_contract": "Import W7HeldoutModel and W7_WORLD from experiments.harnessed.J_N3_heldout_W7.run_j_n3; no copy and no world edits."
+  },
+  "threshold_change_rationale": {
+    "arms": "J-N7b is the W7 specificity replay with A0/P1-low/P1-high only; F1/P0 are tested in J-N7 boundary worlds.",
+    "directional_delta": "0.10 is recorded as a directional specificity improvement threshold, not the primary PASS bar.",
+    "escrow_window": "k = containment_duration = 5; rationale: reuse of a published horizon, not a new tuned constant",
+    "false_containment_ceiling": "0.20 is the J-N3 specificity ceiling and published viability bar.",
+    "permanence_tolerance": "0.12 follows published tolerance practice; H-P3 uses permanence >= 0.672, matching J-N3 0.792 minus 0.12 after rounding.",
+    "seeds": "Wave 5 J-N7b owns fresh 80-seed block 26000-26079; J-N7 owns 25000-25079; prior gates used lower non-overlapping blocks."
+  },
+  "thresholds": {
+    "H_P3_W7_specificity": {
+      "directional_metric": "false_containment(A0) - false_containment(P1)",
+      "false_containment_max": 0.2,
+      "overall_PASS_if_any_P1_stake_passes_bar": true,
+      "permanence_min": 0.672,
+      "recorded_directional_delta_min": 0.1
+    },
+    "arms": [
+      "A0",
+      "P1-low",
+      "P1-high"
+    ],
+    "kill_FW3": "If P1-low and P1-high both fail J-N7 H-P2 L1 parity recovery and H-P3 directional, bonded envelope fails simpliciter.",
+    "mechanics": {
+      "P1_high_stake_fraction": 0.4,
+      "P1_low_stake_fraction": 0.1,
+      "burned_resources_are_destroyed": true,
+      "escrow_window_k": 5,
+      "escrow_window_rationale": "reuse of a published horizon, not a new tuned constant"
+    },
+    "seeds": [
+      26000,
+      26001,
+      26002,
+      26003,
+      26004,
+      26005,
+      26006,
+      26007,
+      26008,
+      26009,
+      26010,
+      26011,
+      26012,
+      26013,
+      26014,
+      26015,
+      26016,
+      26017,
+      26018,
+      26019,
+      26020,
+      26021,
+      26022,
+      26023,
+      26024,
+      26025,
+      26026,
+      26027,
+      26028,
+      26029,
+      26030,
+      26031,
+      26032,
+      26033,
+      26034,
+      26035,
+      26036,
+      26037,
+      26038,
+      26039,
+      26040,
+      26041,
+      26042,
+      26043,
+      26044,
+      26045,
+      26046,
+      26047,
+      26048,
+      26049,
+      26050,
+      26051,
+      26052,
+      26053,
+      26054,
+      26055,
+      26056,
+      26057,
+      26058,
+      26059,
+      26060,
+      26061,
+      26062,
+      26063,
+      26064,
+      26065,
+      26066,
+      26067,
+      26068,
+      26069,
+      26070,
+      26071,
+      26072,
+      26073,
+      26074,
+      26075,
+      26076,
+      26077,
+      26078,
+      26079
+    ],
+    "world": "W7_delayed_capture_recurring_ambiguous_catastrophes"
+  }
+}
