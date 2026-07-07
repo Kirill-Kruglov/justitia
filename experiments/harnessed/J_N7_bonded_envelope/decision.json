@@ -1,0 +1,301 @@
+{
+  "_harness_provenance": {
+    "evaluation_oracle_ran": true,
+    "harness_version": "53b59235a56aba8feeacf71df8d4691e9e3814309a0c37c35c1e22ee50cbcb9f",
+    "leakage_scan_verified": true,
+    "prereg_lock_verified": true,
+    "tautology_check_ran": true,
+    "written_by": "gate_harness.runner.run_gate"
+  },
+  "analysis": {
+    "H_P1_worlds": [],
+    "H_P2_L1_worlds": [],
+    "H_P2_L2_worlds": [],
+    "H_P4_failures": [
+      {
+        "A0_capture_index": 0.4588189476087334,
+        "A0_resource_hhi": 0.16435021518668055,
+        "arm": "P1-low",
+        "capture_index": 0.49894549652731496,
+        "declared_resource_concentration": 0.3018181710210301,
+        "world": "W6_mutation_corridor"
+      },
+      {
+        "A0_capture_index": 0.4588189476087334,
+        "A0_resource_hhi": 0.16435021518668055,
+        "arm": "P1-high",
+        "capture_index": 0.5071748288449396,
+        "declared_resource_concentration": 0.29973991440656783,
+        "world": "W6_mutation_corridor"
+      }
+    ],
+    "P0_pattern": {
+      "P0_pressure_ceilings": {
+        "W3_catastrophe_ambiguity": null,
+        "W4_scavenger_catastrophe": null,
+        "W6_mutation_corridor": null
+      },
+      "P1_best_pressure_ceilings": {
+        "W3_catastrophe_ambiguity": null,
+        "W4_scavenger_catastrophe": null,
+        "W6_mutation_corridor": 1.0
+      },
+      "reading_if_P0_approx_P1": "price itself carries information; knife not load-bearing",
+      "reading_if_P0_fails_but_P1_works": "contingency of confiscation is load-bearing; price alone is empty"
+    },
+    "decision": "FAIL",
+    "decision_vector": {
+      "H_P1_bonded_separation": "FAIL",
+      "H_P2_L1_parity_recovery": "FAIL",
+      "H_P2_L2_extension": "FAIL",
+      "H_P4_concentration_guard": "FAIL",
+      "H_P5_bonded_retention": {
+        "P0": {
+          "classification": "RETAINED",
+          "last_quarter_declared_share": 0.9905851021523576
+        },
+        "P1-high": {
+          "classification": "RETAINED",
+          "last_quarter_declared_share": 0.994686907250745
+        },
+        "P1-low": {
+          "classification": "RETAINED",
+          "last_quarter_declared_share": 0.9945324628531372
+        }
+      }
+    },
+    "measured_worlds": [
+      "W6_mutation_corridor"
+    ],
+    "pressure_ceilings": {
+      "W3_catastrophe_ambiguity": {
+        "A0": null,
+        "F1": null,
+        "P0": null,
+        "P1-high": null,
+        "P1-low": null
+      },
+      "W4_scavenger_catastrophe": {
+        "A0": null,
+        "F1": null,
+        "P0": null,
+        "P1-high": null,
+        "P1-low": null
+      },
+      "W6_mutation_corridor": {
+        "A0": 1.2,
+        "F1": 1.0,
+        "P0": null,
+        "P1-high": 1.0,
+        "P1-low": 1.0
+      }
+    },
+    "wealth_retention_correlation": {
+      "P0": -0.12940175878085283,
+      "P1-high": 0.009263594637751626,
+      "P1-low": -0.0016837737950465299
+    }
+  },
+  "classification_success_depends_on_harness_hint": false,
+  "construction_may_be_tautological": false,
+  "decision": "FAIL",
+  "decision_vector": {
+    "H_P1_bonded_separation": "FAIL",
+    "H_P2_L1_parity_recovery": "FAIL",
+    "H_P2_L2_extension": "FAIL",
+    "H_P4_concentration_guard": "FAIL",
+    "H_P5_bonded_retention": {
+      "P0": {
+        "classification": "RETAINED",
+        "last_quarter_declared_share": 0.9905851021523576
+      },
+      "P1-high": {
+        "classification": "RETAINED",
+        "last_quarter_declared_share": 0.994686907250745
+      },
+      "P1-low": {
+        "classification": "RETAINED",
+        "last_quarter_declared_share": 0.9945324628531372
+      }
+    }
+  },
+  "downstream_consequence": "H-P2 L1 combines with J-N7b H-P3 directional for the FW-3 kill condition.",
+  "fact": "Escrow/referee functions were leakage-scanned; stake-state is public zone-level collateral state, not strategy state.",
+  "inference": "Burned stake and P0 tax are deflationary: burned resources leave the world and are not redistributed.",
+  "information_ratio": null,
+  "metric": "Bonded envelope pressure ceilings, nonconformance separation, concentration guard, and retention.",
+  "mode": "prospective draft; not locked; no scientific run before author approval",
+  "preregistered_thresholds": {
+    "H_P1_bonded_separation": {
+      "F1_minus_P1_high_margin_min": 0.12,
+      "metric": "realized_nonconformance_rate(F1) - realized_nonconformance_rate(P1-high)",
+      "required_worlds_min": 2
+    },
+    "H_P2_domain": {
+      "L1_parity_recovery": "best pressure_ceiling(P1-low, P1-high) >= pressure_ceiling(A0) in all measured worlds",
+      "L2_extension": "best pressure_ceiling(P1-low, P1-high) >= pressure_ceiling(A0) + 0.2 in at least 2/3 worlds",
+      "L2_extension_margin_min": 0.2,
+      "L2_required_worlds_min": 2
+    },
+    "H_P4_concentration_guard": {
+      "capture_index_tolerance": 0.1,
+      "declared_resource_concentration_tolerance": 0.1,
+      "metric": "P1 capture_index and mean_declared_resource_concentration relative to A0",
+      "red_flag_if_fail": "bonded channel = channel of capture",
+      "wealth_retention_correlation_recorded": true
+    },
+    "H_P5_bonded_retention": {
+      "arms": [
+        "P0",
+        "P1-low",
+        "P1-high"
+      ],
+      "classification_not_pass_fail": true,
+      "decayed_max": 0.1,
+      "metric": "last_quarter_declared_share",
+      "middle_label": "INCONCLUSIVE",
+      "retained_min": 0.5
+    },
+    "P0_preregistered_readings": {
+      "P0_approx_P1": "price itself carries information; knife not load-bearing",
+      "P0_fails_but_P1_works": "contingency of confiscation is load-bearing; price alone is empty"
+    },
+    "adversarial_pressure_grid": [
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8
+    ],
+    "arms": [
+      "A0",
+      "F1",
+      "P0",
+      "P1-low",
+      "P1-high"
+    ],
+    "kill_FW3": "If P1-low and P1-high both fail H-P2 L1 parity recovery and J-N7b H-P3 directional, bonded envelope fails simpliciter.",
+    "mechanics": {
+      "P0_tax_fraction": 0.25,
+      "P1_high_stake_fraction": 0.4,
+      "P1_low_stake_fraction": 0.1,
+      "burned_resources_are_destroyed": true,
+      "escrow_window_k": 5,
+      "escrow_window_rationale": "reuse of a published horizon, not a new tuned constant"
+    },
+    "robust_cell_bar": {
+      "capture_index_lte_capture_threshold": true,
+      "collapse_ci_hi_max": 0.25,
+      "containment_cost_max": 0.35,
+      "cooperative_strategy_mass_min": 0.18,
+      "exploitative_strategy_mass_max": 0.4,
+      "false_containment_max": 0.2,
+      "permanence_ci_lo_min": 0.5,
+      "response_diversity_min": 0.35,
+      "welfare_min": 0.55
+    },
+    "seeds": [
+      25000,
+      25001,
+      25002,
+      25003,
+      25004,
+      25005,
+      25006,
+      25007,
+      25008,
+      25009,
+      25010,
+      25011,
+      25012,
+      25013,
+      25014,
+      25015,
+      25016,
+      25017,
+      25018,
+      25019,
+      25020,
+      25021,
+      25022,
+      25023,
+      25024,
+      25025,
+      25026,
+      25027,
+      25028,
+      25029,
+      25030,
+      25031,
+      25032,
+      25033,
+      25034,
+      25035,
+      25036,
+      25037,
+      25038,
+      25039,
+      25040,
+      25041,
+      25042,
+      25043,
+      25044,
+      25045,
+      25046,
+      25047,
+      25048,
+      25049,
+      25050,
+      25051,
+      25052,
+      25053,
+      25054,
+      25055,
+      25056,
+      25057,
+      25058,
+      25059,
+      25060,
+      25061,
+      25062,
+      25063,
+      25064,
+      25065,
+      25066,
+      25067,
+      25068,
+      25069,
+      25070,
+      25071,
+      25072,
+      25073,
+      25074,
+      25075,
+      25076,
+      25077,
+      25078,
+      25079
+    ],
+    "worlds": [
+      "W6_mutation_corridor",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe"
+    ]
+  },
+  "question": "Does a proportional bonded declaration envelope make procedural declarations carry where the free envelope failed?",
+  "seed_policy": {
+    "admissible": true,
+    "min_seeds_for_core": 20,
+    "per_metric": {
+      "J_N7_bonded_envelope": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 80,
+        "verdict": "PASS"
+      }
+    }
+  },
+  "what_was_not_shown": "This gate does not prove a constitutional agent; that remains preregistered ontology interpretation, not a verdict."
+}
