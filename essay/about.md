@@ -1,9 +1,10 @@
 # How this was made
 
-This project was built by one person, in extended dialogue with two AI systems —
-Claude (Anthropic) and Codex (OpenAI). I want to be clear about that, and clear
-about what it did and did not mean, because "made with AI" now covers everything
-from honest collaboration to hiding the absence of work.
+This project was built by one person, in extended dialogue with several AI
+systems — Claude (Anthropic, Opus 4.8), Codex (OpenAI, GPT-5.5), and Fable. I
+want to be clear about that, and clear about what it did and did not mean,
+because "made with AI" now covers everything from honest collaboration to
+hiding the absence of work.
 
 It was not used to write this for me.
 

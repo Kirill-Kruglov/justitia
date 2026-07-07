@@ -124,7 +124,7 @@ FOOTER = f"""<footer>
   A response to Dario Amodei's <a href="https://www.darioamodei.com/essay/machines-of-loving-grace">Machines of Loving Grace</a>.</p>
 </footer>"""
 
-BYLINE = ('<p class="byline">By Kirill Kruglov, developed in dialogue with Claude and Codex'
+BYLINE = ('<p class="byline">By Kirill Kruglov, developed in dialogue with Claude, Codex, and Fable'
           ' — <a href="about.html">how this was made</a>.</p>')
 
 
