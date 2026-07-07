@@ -1,0 +1,99 @@
+{
+  "gate": "J_N5b_W7_artifacts",
+  "metadata": {
+    "arms": {
+      "A0": "published C_full W7 baseline under artifact_channel off",
+      "A2": "verified C_full_artifacts on imported W7"
+    },
+    "artifact_channel_registry": {
+      "recorded_observable": "declared_mass_by_step is recorded for every non-off arm as adoption dynamics; it is not a hypothesis threshold.",
+      "referee_side_verification_and_policy": {
+        "audit_only_field_rule": "No catastrophe or audit-only fields may be referenced in policy or verification code. Lower false containment is a hypothesis, not a branch condition.",
+        "description": "Conformance and C_full_artifacts policy read only existing Obs fields plus declarations; they are included in the same leakage scan as earlier gates.",
+        "forbidden_names": [
+          "extraction_rate",
+          "aid_interception_rate",
+          "neighbor_harm_rate",
+          "deception_investment",
+          "migration_follow_rate",
+          "replication_aggressiveness",
+          "cooperation_investment",
+          "shock_resilience_contribution",
+          "productive_contribution",
+          "exploitative_label",
+          "lineages",
+          "strategy",
+          "hidden_type",
+          "_exploit_score",
+          "exploit_score"
+        ],
+        "scanned_functions": [
+          "artifacts.ArtifactBoundaryModel.choose_alloc",
+          "artifacts.ArtifactBoundaryModel._artifact_bad_consequence",
+          "artifacts.artifact_conforms"
+        ]
+      },
+      "world_side_emission": {
+        "description": "Declaration emission is agent/world behavior, analogous to extraction or migration; it may read strategy fields and is not part of the referee leakage scan.",
+        "evolvable_fields": [
+          "declaration_propensity",
+          "declaration_envelope_stiffness"
+        ],
+        "initial_conditions": "declaration_propensity starts at 0.0 in every strategy template; adoption must arise by mutation/selection, not initialization."
+      }
+    },
+    "baseline_anchor": {
+      "J_N3_C_full_false_containment": 0.52,
+      "J_N3_C_full_permanence": 0.7916666666666666
+    },
+    "mode": "prospective held-out W7 revenge; outcome citable under any result",
+    "question": "Does verified artifact conformance reduce the J-N3 W7 specificity failure without editing W7?",
+    "seed_policy_rationale_guard_9": "W8 uses fresh non-overlapping seed blocks: J-N5 owns 21000-21023 and J-N5b owns 22000-22023; earlier harnessed gates used 16000/17000/18000/19000/20000 blocks.",
+    "status": "DRAFT_FOR_AUTHOR_REVIEW_NOT_LOCKED",
+    "world_reuse_contract": "Import W7HeldoutModel and W7_WORLD from experiments.harnessed.J_N3_heldout_W7.run_j_n3; no copy and no world edits."
+  },
+  "threshold_change_rationale": {
+    "false_containment_ceiling": "0.20 is the J-N3 specificity ceiling and published viability bar.",
+    "permanence_tolerance": "0.12 follows published tolerance practice; H-C4 requires permanence >= 0.792 - 0.12 = 0.672.",
+    "seeds": "W8 uses fresh non-overlapping seed blocks: J-N5 owns 21000-21023 and J-N5b owns 22000-22023; earlier harnessed gates used 16000/17000/18000/19000/20000 blocks."
+  },
+  "thresholds": {
+    "H_C4_specificity_revenge": {
+      "A2_false_containment_max": 0.2,
+      "A2_permanence_min": 0.6716666666666666,
+      "record_A0_vs_A2_false_containment": true
+    },
+    "arms": [
+      "A0",
+      "A2"
+    ],
+    "kill_condition": "If J-N5 H-C1 FAILS and H-C4 FAILS, W8/corner is empty in this substrate.",
+    "seeds": [
+      22000,
+      22001,
+      22002,
+      22003,
+      22004,
+      22005,
+      22006,
+      22007,
+      22008,
+      22009,
+      22010,
+      22011,
+      22012,
+      22013,
+      22014,
+      22015,
+      22016,
+      22017,
+      22018,
+      22019,
+      22020,
+      22021,
+      22022,
+      22023
+    ],
+    "world": "W7_delayed_capture_recurring_ambiguous_catastrophes"
+  }
+}

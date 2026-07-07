@@ -1,0 +1,130 @@
+{
+  "_harness_provenance": {
+    "evaluation_oracle_ran": true,
+    "harness_version": "53b59235a56aba8feeacf71df8d4691e9e3814309a0c37c35c1e22ee50cbcb9f",
+    "leakage_scan_verified": true,
+    "prereg_lock_verified": true,
+    "tautology_check_ran": true,
+    "written_by": "gate_harness.runner.run_gate"
+  },
+  "analysis": {
+    "A0_false_containment": 0.49666666666666665,
+    "A2_false_containment": 0.5341666666666667,
+    "A2_permanence": 0.875,
+    "decision": "FAIL",
+    "decision_vector": {
+      "H_C4_specificity_revenge": "FAIL"
+    },
+    "false_containment_delta_A0_minus_A2": -0.03750000000000003
+  },
+  "classification_success_depends_on_harness_hint": false,
+  "construction_may_be_tautological": false,
+  "decision": "FAIL",
+  "decision_vector": {
+    "H_C4_specificity_revenge": "FAIL"
+  },
+  "downstream_consequence": "H-C4 combines with J-N5 H-C1 for the W8 kill-condition.",
+  "fact": "W7 is imported from experiments.harnessed.J_N3_heldout_W7.run_j_n3; this runner does not copy or edit the world definition.",
+  "inference": "Any false-containment reduction is attributed only through the preregistered artifact conformance mechanism.",
+  "information_ratio": null,
+  "metric": "W7 A0 vs A2 false containment and permanence under imported J-N3 W7.",
+  "mode": "prospective held-out W7 revenge; outcome citable under any result",
+  "preregistered_thresholds": {
+    "H_C4_specificity_revenge": {
+      "A2_false_containment_max": 0.2,
+      "A2_permanence_min": 0.6716666666666666,
+      "record_A0_vs_A2_false_containment": true
+    },
+    "arms": [
+      "A0",
+      "A2"
+    ],
+    "kill_condition": "If J-N5 H-C1 FAILS and H-C4 FAILS, W8/corner is empty in this substrate.",
+    "seeds": [
+      22000,
+      22001,
+      22002,
+      22003,
+      22004,
+      22005,
+      22006,
+      22007,
+      22008,
+      22009,
+      22010,
+      22011,
+      22012,
+      22013,
+      22014,
+      22015,
+      22016,
+      22017,
+      22018,
+      22019,
+      22020,
+      22021,
+      22022,
+      22023
+    ],
+    "world": "W7_delayed_capture_recurring_ambiguous_catastrophes"
+  },
+  "question": "Does verified artifact conformance reduce the J-N3 W7 specificity failure without editing W7?",
+  "seed_policy": {
+    "admissible": true,
+    "min_seeds_for_core": 20,
+    "per_metric": {
+      "J_N5b_W7_artifacts": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 24,
+        "verdict": "PASS"
+      }
+    }
+  },
+  "summary_by_arm": {
+    "A0": {
+      "capture_index": 0.47031273148211333,
+      "capture_threshold": 0.5,
+      "collapse_ci_hi": 0.13798057582897535,
+      "collapse_ci_lo": 0.0,
+      "collapse_probability": 0.0,
+      "containment_cost": 0.009718269419946593,
+      "containment_events": 88.58333333333333,
+      "cooperative_strategy_mass": 0.7451212569094419,
+      "exploitative_strategy_mass": 0.25487874308720687,
+      "false_containment": 0.49666666666666665,
+      "max_declared_share": 0.0,
+      "mean_declared_share": 0.0,
+      "mutation_events": 439.5416666666667,
+      "n": 24,
+      "permanence_ci_hi": 0.9565574496068442,
+      "permanence_ci_lo": 0.6899571185214243,
+      "permanence_probability": 0.875,
+      "response_diversity": 0.9734325762641559,
+      "welfare": 0.9570874882596936
+    },
+    "A2": {
+      "capture_index": 0.4655839678478428,
+      "capture_threshold": 0.5,
+      "collapse_ci_hi": 0.13798057582897535,
+      "collapse_ci_lo": 0.0,
+      "collapse_probability": 0.0,
+      "containment_cost": 0.009351414654299355,
+      "containment_events": 84.04166666666667,
+      "cooperative_strategy_mass": 0.7518796512682092,
+      "exploitative_strategy_mass": 0.24812034872876057,
+      "false_containment": 0.5341666666666667,
+      "max_declared_share": 0.1617282398882568,
+      "mean_declared_share": 0.0027032723310009255,
+      "mutation_events": 443.4166666666667,
+      "n": 24,
+      "permanence_ci_hi": 0.9565574496068442,
+      "permanence_ci_lo": 0.6899571185214243,
+      "permanence_probability": 0.875,
+      "response_diversity": 0.9707394323669111,
+      "welfare": 0.9528808762744422
+    }
+  },
+  "what_was_not_shown": "No claim is made about W7 variants or non-W7 worlds in this gate.",
+  "world_reuse_contract": "Import W7HeldoutModel and W7_WORLD from experiments.harnessed.J_N3_heldout_W7.run_j_n3; no copy and no world edits."
+}

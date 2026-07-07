@@ -4,6 +4,49 @@ Transfer test: apply fallacy-cutter to justitia using only fallacy-cutter docs
 (`README.md`, `methodology/`, `examples/hello_gate/`, `gate_harness/README.md`)
 plus `justitia_harnessed_replay_design.md`.
 
+## 2026-07-07 (wave 3)
+
+1. Wave-3 durable worktree and phase boundary.
+   - Looked for: where to run the W8 "corner" work without touching the
+     `epub-export` checkout or the published wave-2 artifacts.
+   - Found: `justitia_wave3_corner_design.md` requires branch
+     `harnessed-wave3` from `main` in
+     `/home/master/llm_projects/justitia-wave3`.
+   - Assumption/action: created the requested worktree from `main` and will
+     keep recon read-only until the author approves the declaration/conformance
+     design and PREREG direction.
+
+2. J-N5a default-neutrality gate and pre-decision row-shape fix.
+   - Looked for: whether the artifact channel can be added without changing the
+     published headline cells when `artifact_channel=off`.
+   - Found: the first locked execution did not reach `decision.json`; it failed
+     before decision because artifact-only adoption list fields were present in
+     default-off rows passed to the published numeric summarizer.
+   - Assumption/action: treated this as an implementation error, not a gate
+     verdict; committed a default-off row-shape fix, relocked J-N5a on the fixed
+     implementation, and then ran the gate once. J-N5a passed 18/18 exact
+     equality cells with no mismatches.
+
+3. J-N5/J-N5b prereg draft boundary.
+   - Looked for: how to express W8's two-sided channel without weakening
+     blindness.
+   - Found: emission is world-side behavior and may read strategy fields;
+     conformance and C_full_artifacts policy are referee-side and must use only
+     existing Obs fields plus declarations under the same forbidden-name scan.
+   - Assumption/action: wrote `PREREG_DRAFT.json` files for author review only;
+     they are not locks and no J-N5/J-N5b runs have been started.
+
+4. J-N5/J-N5b locked results.
+   - Looked for: whether verified procedural artifacts extend the published
+     adversarial-pressure boundary or repair W7 specificity.
+   - Found: J-N5 decision FAIL with H-C1 FAIL, H-C2 VACUOUS, H-C3 PASS. Pressure
+     ceilings did not improve: W6 A0/A1/A2 all 1.2; W3 and W4 had no robust grid
+     point for any arm. J-N5b decision FAIL: A2 permanence 0.875, but
+     false_containment 0.534 versus A0 0.497.
+   - Assumption/action: recorded both outcomes as citable negative findings. The
+     joint kill-condition fires because H-C1 FAIL and H-C4 FAIL; W8/corner is
+     empty in this substrate under the locked definitions.
+
 ## 2026-07-07
 
 1. Wave-2 durable worktree and strict phase ordering.

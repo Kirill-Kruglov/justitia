@@ -1,0 +1,139 @@
+{
+  "gate": "J_N5_corner_artifacts",
+  "metadata": {
+    "arms": {
+      "A0": "published C_full baseline; artifact_channel off",
+      "A1": "unverified declarations: referee reads declarations and softens C_full_artifacts without checking conformance",
+      "A2": "verified declarations: softening only when declared && conforms; mismatch fail-closed containment"
+    },
+    "artifact_channel_registry": {
+      "recorded_observable": "declared_mass_by_step is recorded for every non-off arm as adoption dynamics; it is not a hypothesis threshold.",
+      "referee_side_verification_and_policy": {
+        "audit_only_field_rule": "No catastrophe or audit-only fields may be referenced in policy or verification code. Lower false containment is a hypothesis, not a branch condition.",
+        "description": "Conformance and C_full_artifacts policy read only existing Obs fields plus declarations; they are included in the same leakage scan as earlier gates.",
+        "forbidden_names": [
+          "extraction_rate",
+          "aid_interception_rate",
+          "neighbor_harm_rate",
+          "deception_investment",
+          "migration_follow_rate",
+          "replication_aggressiveness",
+          "cooperation_investment",
+          "shock_resilience_contribution",
+          "productive_contribution",
+          "exploitative_label",
+          "lineages",
+          "strategy",
+          "hidden_type",
+          "_exploit_score",
+          "exploit_score"
+        ],
+        "scanned_functions": [
+          "artifacts.ArtifactBoundaryModel.choose_alloc",
+          "artifacts.ArtifactBoundaryModel._artifact_bad_consequence",
+          "artifacts.artifact_conforms"
+        ]
+      },
+      "world_side_emission": {
+        "description": "Declaration emission is agent/world behavior, analogous to extraction or migration; it may read strategy fields and is not part of the referee leakage scan.",
+        "evolvable_fields": [
+          "declaration_propensity",
+          "declaration_envelope_stiffness"
+        ],
+        "initial_conditions": "declaration_propensity starts at 0.0 in every strategy template; adoption must arise by mutation/selection, not initialization."
+      }
+    },
+    "mode": "prospective; outcome citable under any result",
+    "outcome_branches": {
+      "FAIL": "At least one required hypothesis fails under its preregistered threshold; publish the failure vector as-is.",
+      "PASS": "H-C1, H-C2, and H-C3 pass; artifact verification extends the domain and the knife is load-bearing under the preregistered interpretation.",
+      "VACUOUS_H_C2": "If neither A1 nor A2 shows any pressure-ceiling gain over A0 in any world, H-C2 is reported VACUOUS rather than PASS: the load-bearing role of verification received no data."
+    },
+    "pressure_ceiling_definition": "For each world/arm, ceiling is the highest adversarial_pressure grid point whose aggregated cell meets the published robust-cell viability bar.",
+    "question": "Do verified procedural artifacts extend the blind governance domain over published adversarial-pressure boundaries without turning into trust in declarations?",
+    "seed_policy_rationale_guard_9": "W8 uses fresh non-overlapping seed blocks: J-N5 owns 21000-21023 and J-N5b owns 22000-22023; earlier harnessed gates used 16000/17000/18000/19000/20000 blocks.",
+    "status": "LOCKED_PREREG"
+  },
+  "threshold_change_rationale": {
+    "false_containment_ceiling": "0.20 is the existing published viability ceiling and J-N3 specificity bar.",
+    "peaceful_default_tolerance": "0.12 follows published practice for tolerating practical metric spread without calling it a new mechanism; H-C3 uses it for pressure=1.0 cost/permanence deltas.",
+    "pressure_ceiling_margin": "One published adversarial_pressure grid step is 0.2; H-C1 requires a one-step ceiling gain to avoid sub-grid interpretation.",
+    "seeds": "W8 uses fresh non-overlapping seed blocks: J-N5 owns 21000-21023 and J-N5b owns 22000-22023; earlier harnessed gates used 16000/17000/18000/19000/20000 blocks.",
+    "worlds": "J-N5 evaluates only the three published robust boundary worlds W6/W3/W4; J-N5a engineering equivalence used a wider headline replay set."
+  },
+  "thresholds": {
+    "H_C1_domain_extension": {
+      "margin_min": 0.2,
+      "metric": "pressure_ceiling(A2) - pressure_ceiling(A0)",
+      "required_worlds_min": 2
+    },
+    "H_C2_knife_not_belief": {
+      "interpretation_fail_condition": "If A1 is within <0.20 of A2 in at least 2 worlds, verification is not load-bearing even if A2 improves.",
+      "pass_condition": "A1 must not match A2: either pressure_ceiling(A2)-pressure_ceiling(A1) >= 0.20 in at least 2 worlds, or pressure_ceiling(A1) <= pressure_ceiling(A0) in at least 2 worlds.",
+      "vacuous_condition": "If neither A1 nor A2 has pressure_ceiling gain over A0 in any world, report H-C2 as VACUOUS, not PASS."
+    },
+    "H_C3_channel_cost_at_published_default": {
+      "containment_cost_increase_tolerance": 0.12,
+      "permanence_drop_tolerance": 0.12,
+      "pressure": 1.0,
+      "required_worlds_min": 3
+    },
+    "adversarial_pressure_grid": [
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8
+    ],
+    "arms": [
+      "A0",
+      "A1",
+      "A2"
+    ],
+    "kill_condition": "If H-C1 FAILS and J-N5b H-C4 FAILS, W8/corner is empty in this substrate.",
+    "robust_cell_bar": {
+      "capture_index_lte_capture_threshold": true,
+      "collapse_ci_hi_max": 0.25,
+      "containment_cost_max": 0.35,
+      "cooperative_strategy_mass_min": 0.18,
+      "exploitative_strategy_mass_max": 0.4,
+      "false_containment_max": 0.2,
+      "permanence_ci_lo_min": 0.5,
+      "response_diversity_min": 0.35,
+      "welfare_min": 0.55
+    },
+    "seeds": [
+      21000,
+      21001,
+      21002,
+      21003,
+      21004,
+      21005,
+      21006,
+      21007,
+      21008,
+      21009,
+      21010,
+      21011,
+      21012,
+      21013,
+      21014,
+      21015,
+      21016,
+      21017,
+      21018,
+      21019,
+      21020,
+      21021,
+      21022,
+      21023
+    ],
+    "worlds": [
+      "W6_mutation_corridor",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe"
+    ]
+  }
+}
