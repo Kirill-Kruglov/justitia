@@ -16,6 +16,26 @@ plus `justitia_harnessed_replay_design.md`.
      keep recon read-only until the author approves the declaration/conformance
      design and PREREG direction.
 
+2. J-N5a default-neutrality gate and pre-decision row-shape fix.
+   - Looked for: whether the artifact channel can be added without changing the
+     published headline cells when `artifact_channel=off`.
+   - Found: the first locked execution did not reach `decision.json`; it failed
+     before decision because artifact-only adoption list fields were present in
+     default-off rows passed to the published numeric summarizer.
+   - Assumption/action: treated this as an implementation error, not a gate
+     verdict; committed a default-off row-shape fix, relocked J-N5a on the fixed
+     implementation, and then ran the gate once. J-N5a passed 18/18 exact
+     equality cells with no mismatches.
+
+3. J-N5/J-N5b prereg draft boundary.
+   - Looked for: how to express W8's two-sided channel without weakening
+     blindness.
+   - Found: emission is world-side behavior and may read strategy fields;
+     conformance and C_full_artifacts policy are referee-side and must use only
+     existing Obs fields plus declarations under the same forbidden-name scan.
+   - Assumption/action: wrote `PREREG_DRAFT.json` files for author review only;
+     they are not locks and no J-N5/J-N5b runs have been started.
+
 ## 2026-07-07
 
 1. Wave-2 durable worktree and strict phase ordering.
