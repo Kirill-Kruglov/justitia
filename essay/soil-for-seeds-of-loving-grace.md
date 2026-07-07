@@ -122,7 +122,7 @@ And even in the worlds that held, there was a ceiling. As I turned up adversaria
 
 This is the part I most want to be precise about, because it is the bridge back to the soil. The mechanism did not fail because the referee was too simple, or because I had not tuned it well. It failed because of properties *of the world* — whether there was any uncaptured ground to stand on, whether diversity had survived, how hard the adversary could push before harm became irreversible. The referee was the same in the worlds that held and the worlds that broke. **What changed was the soil.**
 
-There is something almost physical about that ceiling. A blind referee can only act on harm it can observe, and it can only observe harm that has already happened. Push the adversary fast enough, and the damage becomes irreversible before the trace of it is even legible — not because the referee is slow, but because no observer can see a consequence before the cause has finished producing it. Past a certain speed, the future arrives faster than any blind mechanism can read the present. That is not an engineering shortfall. It *reads like* a speed limit — a property of the world, not of the judge. I say *reads like*, because what the experiments pin down is a boundary along one composite dial, adversarial pressure; whether its cause is truly observation arriving after irreversibility is the next experiment, not this one.
+There is something almost physical about that ceiling. A blind referee can only act on harm it can observe, and it can only observe harm that has already happened. Push the adversary fast enough, and the damage becomes irreversible before the trace of it is even legible — not because the referee is slow, but because no observer can see a consequence before the cause has finished producing it. Past a certain speed, the future arrives faster than any blind mechanism can read the present. That is not an engineering shortfall. It *reads like* a speed limit — a property of the world, not of the judge. I say *reads like*, because what the experiments pin down is a boundary along one composite dial, adversarial pressure; whether its cause is truly observation arriving after irreversibility is the next experiment, not this one. *Update (July 2026): a first, partial form of that experiment has now run — preregistered, with its kill-condition set in advance — and the simplest version of this reading did not survive it. The direction held; the clean ratio did not. Details below, and in Revisions.*
 
 ## Back to the Soil
 
@@ -154,6 +154,8 @@ If that is true, then Loving Grace is not only a property of the machine. It is 
 
 **Blindness** is enforced where it can be measured, and asserted by construction where it cannot — and I want to keep those two honest, because the difference is exactly the kind of thing a careful reader should check. Two guarantees are enforced at runtime: on every step the simulation asserts that the referee's observation [excludes the hidden strategy parameters](https://github.com/Kirill-Kruglov/justitia/blob/main/model/substrate.py#L378-L382) (a hard assertion that crashes the run if it is ever violated), and a naive feature-proxy — a referee that *does* try to read who is bad from visible features — is run and [shown to fail on a held-out world](https://github.com/Kirill-Kruglov/justitia/blob/main/model/atlas.py#L531). A third is true by construction rather than measured: no derived "exploitative" score enters the policy, because the policy code reads only observations and concentration, never that score. The feature-proxy failing is the real evidence that the working mechanism is not secretly cheating by reading types; the rest I flag as design facts, not measurements.
 
+*Update (July 2026).* A preregistered experiment later cut this reading down, against my expectations, and I owe you the correction. An [adversary battery](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N1_adversary_battery) of deliberately simple classifiers, trained on the referee's own delayed observations, identifies exploitative zones on held-out worlds almost perfectly — nearest-centroid reaches 0.99 balanced accuracy. So the information about who exploits *is* in the observation channel; what the proxy-referee's failure shows is narrower than I first wrote: *steering* by feature-derived identity fails as governance in the Goodhart world, but identification as such is not blocked by any wall of information. The honest form of the claim is this: blindness here is a property of the *policy*, enforced at runtime — not a property of the world. The mechanism never reads who the exploiters are, and never needs to. It does not win by seeing, even where seeing turns out to be possible. It wins by shaping. (See Revisions.)
+
 ## The two halves, separately, both fail
 
 This is the premise the whole study rests on, and it is worth showing bluntly.
@@ -176,7 +178,7 @@ Three of the five stressed worlds reach durable, fair homeostasis under the coup
 
 "Robust" here means the low end of the confidence interval clears a fixed bar (roughly: at least half the seeded runs hold, with collapse staying rare), and the verdict survives perturbation — it holds in 100% of 54 perturbed definitions of the viability thresholds, so it is not an artifact of where I drew the lines between "healthy" and "collapsed." But the word should be read against the number: scavenger catastrophe at ~0.67 *holds*, yet a third of its runs do not — robust at the fragile end, not comfortable. And across most pressure axes I swept — governance cost, catastrophe severity, mutation rate, concentration pressure, observation delay — the robust worlds never broke within the range tested.
 
-And it holds these worlds together without ever identifying the exploiters. The blindness is not decorative: the observation channel is asserted clean of strategy parameters on every step, and a referee that tries to read types from features fails on a held-out world (see *Blindness is enforced*, above). The mechanism keeps the world alive and shared while never reading who the exploiters are. This is the precise form of the claim in the essay: it does not win by seeing. It wins by shaping.
+And it holds these worlds together without ever identifying the exploiters. The blindness is not decorative: the observation channel is asserted clean of strategy parameters on every step, and a referee that tries to read types from features fails as governance on a held-out world (see *Blindness is enforced*, above — including the July 2026 update: identification from that same channel turns out to be *possible*; the mechanism simply never uses it). The mechanism keeps the world alive and shared while never reading who the exploiters are. This is the precise form of the claim in the essay: it does not win by seeing. It wins by shaping.
 
 ## Where it breaks — and why that is also the result
 
@@ -191,6 +193,8 @@ Two worlds defeated every blind configuration I could build. The README is blunt
 That last boundary is the one I find most suggestive. A blind referee can only act on harm it can observe, and a consequence cannot be observed before its cause has finished producing it. Past some rate of adversarial adaptation, harm becomes irreversible inside [the delay between act and observation](https://doi.org/10.1109/JPROC.2006.887288) — so the failure is not the referee being unintelligent, but information about the damage arriving after the damage is locked in. It behaves less like a tuning problem and more like a limit: there is a ratio between how fast harm becomes irreversible and how far ahead the world can be read at all, and below that ratio no blind mechanism — however cleverly built — can keep up.
 
 I owe the reader the status of that claim: it is an interpretation, not an isolated measurement. The sweeps establish the boundary along adversarial pressure — a composite dial; delay and irreversibility time, varied separately, did not break the two most robust worlds in the ranges tested. To earn the name *speed limit*, the next experiment must vary propagation speed, observation latency, intervention latency, and irreversibility time independently, and show that collapse tracks the dimensionless ratio (time-to-observe + time-to-act) / time-to-irreversible. Until it does, the speed limit is the best theory of this boundary — not its established cause.
+
+*Update (July 2026).* The first, partial form of that experiment has run — [preregistered](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N2_speed_limit), on the two dials the substrate already had (observation delay and irreversibility time), with fresh seeds and the kill-condition fixed before the run. The verdict is split, and the split is the finding. Permanence is monotone in the ratio R = delay/t_irrev — not one violation across three worlds — so the *direction* of the speed-limit reading survives. But configurations with the *same* ratio diverged by up to 0.42 permanence against a preregistered 0.12 tolerance: the ratio alone does not determine the boundary; absolute timescales matter, not just their proportion. Only the mutation corridor behaved ratio-like. The simple dimensionless-ratio speed limit — the version one paragraph above hoped for — is dead under this protocol, and I report its death the way this project reports everything else. The full five-dial isolation remains open.
 
 ## Catastrophes, monoculture, mutation — read together
 
@@ -211,6 +215,39 @@ What they suggest is narrower and, I think, more durable than a grand claim woul
 ---
 
 *This essay is one panel of a triptych. It asks what keeps a world of powerful, evolving agents livable when no one can read anyone's soul — trust in identities replaced by consequences and structure. [**proxylimen**](https://kirill-kruglov.github.io/proxylimen/) asks the question one step earlier: where a mind's world comes from — trust in inherited text replaced by calibrated contact. And [**fallacy-cutter**](https://kirill-kruglov.github.io/fallacy-cutter/) is the knife both were cut with — trust in the researcher, me included, replaced by an instrument that fails closed. One thesis underneath all three: do not try to certify intentions; build contact, consequences, and constraints that can be checked.*
+
+---
+
+## Revisions
+
+This essay corrects itself in public. Substantive changes to claims — never
+style — are listed here, each with the evidence that forced it. Inline *Update*
+notes mark the exact passages.
+
+**July 4, 2026 — external review pass.** Three claims resized to their evidence:
+"the code is checked to prove it never can" became enforcement, not proof; the
+speed-limit reading was demoted from property-of-the-world to best-theory-of-the-boundary,
+with the isolating experiment named; "the only configuration that holds" was
+scoped to the policy families tested.
+
+**July 7, 2026 — replayed through the knife.** The study was re-run under a
+fail-closed harness ([fallacy-cutter](https://github.com/Kirill-Kruglov/fallacy-cutter)),
+and two new preregistered experiments ran with kill-conditions fixed before the
+runs. All three decisions are provenance-signed and independently
+[verifiable](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed).
+
+- *Confirmed:* the headline results replayed exactly — 22 of 22 frozen
+  expectations, robust-kernel permanence reproduced to the digit
+  ([J-G1](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_G1_headline_replay)).
+- *Corrected:* "the feature-proxy failing shows the mechanism could not cheat by
+  reading types" — an adversary battery identifies exploitative zones from the
+  referee's own observations at 0.99 held-out accuracy; blindness is a property
+  of the policy, not of the world
+  ([J-N1](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N1_adversary_battery)).
+- *Killed:* the simple dimensionless-ratio speed limit — monotone in
+  R = delay/t_irrev, but equal-R configurations diverge far beyond the
+  preregistered tolerance; absolute timescales matter
+  ([J-N2](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N2_speed_limit)).
 
 ---
 

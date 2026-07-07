@@ -97,6 +97,7 @@ both fail</a>
 <a class="toc-h2" href="#catastrophes-monoculture-mutation-read-together">Catastrophes,
 monoculture, mutation — read together</a>
 <a class="toc-h2" href="#what-this-does-not-show">What this does not show</a>
+<a class="toc-h2" href="#revisions">Revisions</a>
 <a class="toc-h2" href="#acknowledgements-references">Acknowledgements &amp;
 references</a>
 </nav>
@@ -370,7 +371,11 @@ speed limit — a property of the world, not of the judge. I say <em>reads
 like</em>, because what the experiments pin down is a boundary along one
 composite dial, adversarial pressure; whether its cause is truly
 observation arriving after irreversibility is the next experiment, not
-this one.</p>
+this one. <em>Update (July 2026): a first, partial form of that
+experiment has now run — preregistered, with its kill-condition set in
+advance — and the simplest version of this reading did not survive it.
+The direction held; the clean ratio did not. Details below, and in
+Revisions.</em></p>
 <h2 id="back-to-the-soil">Back to the Soil</h2>
 <p>So what did the little worlds teach?</p>
 <p>Not how to build a benevolent superintelligence. Not how to solve
@@ -452,6 +457,23 @@ because the policy code reads only observations and concentration, never
 that score. The feature-proxy failing is the real evidence that the
 working mechanism is not secretly cheating by reading types; the rest I
 flag as design facts, not measurements.</p>
+<p><em>Update (July 2026).</em> A preregistered experiment later cut
+this reading down, against my expectations, and I owe you the
+correction. An <a
+href="https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N1_adversary_battery">adversary
+battery</a> of deliberately simple classifiers, trained on the referee’s
+own delayed observations, identifies exploitative zones on held-out
+worlds almost perfectly — nearest-centroid reaches 0.99 balanced
+accuracy. So the information about who exploits <em>is</em> in the
+observation channel; what the proxy-referee’s failure shows is narrower
+than I first wrote: <em>steering</em> by feature-derived identity fails
+as governance in the Goodhart world, but identification as such is not
+blocked by any wall of information. The honest form of the claim is
+this: blindness here is a property of the <em>policy</em>, enforced at
+runtime — not a property of the world. The mechanism never reads who the
+exploiters are, and never needs to. It does not win by seeing, even
+where seeing turns out to be possible. It wins by shaping. (See
+Revisions.)</p>
 <h2 id="the-two-halves-separately-both-fail">The two halves, separately,
 both fail</h2>
 <p>This is the premise the whole study rests on, and it is worth showing
@@ -525,11 +547,13 @@ range tested.</p>
 <p>And it holds these worlds together without ever identifying the
 exploiters. The blindness is not decorative: the observation channel is
 asserted clean of strategy parameters on every step, and a referee that
-tries to read types from features fails on a held-out world (see
-<em>Blindness is enforced</em>, above). The mechanism keeps the world
-alive and shared while never reading who the exploiters are. This is the
-precise form of the claim in the essay: it does not win by seeing. It
-wins by shaping.</p>
+tries to read types from features fails as governance on a held-out
+world (see <em>Blindness is enforced</em>, above — including the July
+2026 update: identification from that same channel turns out to be
+<em>possible</em>; the mechanism simply never uses it). The mechanism
+keeps the world alive and shared while never reading who the exploiters
+are. This is the precise form of the claim in the essay: it does not win
+by seeing. It wins by shaping.</p>
 <h2 id="where-it-breaks-and-why-that-is-also-the-result">Where it breaks
 — and why that is also the result</h2>
 <p>Two worlds defeated every blind configuration I could build. The
@@ -582,6 +606,22 @@ intervention latency, and irreversibility time independently, and show
 that collapse tracks the dimensionless ratio (time-to-observe +
 time-to-act) / time-to-irreversible. Until it does, the speed limit is
 the best theory of this boundary — not its established cause.</p>
+<p><em>Update (July 2026).</em> The first, partial form of that
+experiment has run — <a
+href="https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N2_speed_limit">preregistered</a>,
+on the two dials the substrate already had (observation delay and
+irreversibility time), with fresh seeds and the kill-condition fixed
+before the run. The verdict is split, and the split is the finding.
+Permanence is monotone in the ratio R = delay/t_irrev — not one
+violation across three worlds — so the <em>direction</em> of the
+speed-limit reading survives. But configurations with the <em>same</em>
+ratio diverged by up to 0.42 permanence against a preregistered 0.12
+tolerance: the ratio alone does not determine the boundary; absolute
+timescales matter, not just their proportion. Only the mutation corridor
+behaved ratio-like. The simple dimensionless-ratio speed limit — the
+version one paragraph above hoped for — is dead under this protocol, and
+I report its death the way this project reports everything else. The
+full five-dial isolation remains open.</p>
 <h2 id="catastrophes-monoculture-mutation-read-together">Catastrophes,
 monoculture, mutation — read together</h2>
 <p>These three were separate stressors in the study, but they tell one
@@ -646,6 +686,39 @@ is the knife both were cut with — trust in the researcher, me included,
 replaced by an instrument that fails closed. One thesis underneath all
 three: do not try to certify intentions; build contact, consequences,
 and constraints that can be checked.</em></p>
+<hr />
+<h2 id="revisions">Revisions</h2>
+<p>This essay corrects itself in public. Substantive changes to claims —
+never style — are listed here, each with the evidence that forced it.
+Inline <em>Update</em> notes mark the exact passages.</p>
+<p><strong>July 4, 2026 — external review pass.</strong> Three claims
+resized to their evidence: “the code is checked to prove it never can”
+became enforcement, not proof; the speed-limit reading was demoted from
+property-of-the-world to best-theory-of-the-boundary, with the isolating
+experiment named; “the only configuration that holds” was scoped to the
+policy families tested.</p>
+<p><strong>July 7, 2026 — replayed through the knife.</strong> The study
+was re-run under a fail-closed harness (<a
+href="https://github.com/Kirill-Kruglov/fallacy-cutter">fallacy-cutter</a>),
+and two new preregistered experiments ran with kill-conditions fixed
+before the runs. All three decisions are provenance-signed and
+independently <a
+href="https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed">verifiable</a>.</p>
+<ul>
+<li><em>Confirmed:</em> the headline results replayed exactly — 22 of 22
+frozen expectations, robust-kernel permanence reproduced to the digit
+(<a
+href="https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_G1_headline_replay">J-G1</a>).</li>
+<li><em>Corrected:</em> “the feature-proxy failing shows the mechanism
+could not cheat by reading types” — an adversary battery identifies
+exploitative zones from the referee’s own observations at 0.99 held-out
+accuracy; blindness is a property of the policy, not of the world (<a
+href="https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N1_adversary_battery">J-N1</a>).</li>
+<li><em>Killed:</em> the simple dimensionless-ratio speed limit —
+monotone in R = delay/t_irrev, but equal-R configurations diverge far
+beyond the preregistered tolerance; absolute timescales matter (<a
+href="https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N2_speed_limit">J-N2</a>).</li>
+</ul>
 <hr />
 <h2 id="acknowledgements-references">Acknowledgements &amp;
 references</h2>

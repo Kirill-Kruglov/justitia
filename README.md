@@ -103,9 +103,13 @@ name in seconds):
 - *Blind observation* — every step asserts the referee's observation excludes the
   hidden strategy parameters; a violation crashes the run
   (`test_observation_is_blind_to_strategy`).
-- *A feature-reading referee fails* — a proxy that tries to read who is
-  exploitative from visible features is run and shown to fail on a held-out world
-  (`test_feature_proxy_referee_fails_on_holdout_world`).
+- *A feature-reading referee fails* — a proxy that tries to *govern* by reading
+  who is exploitative from visible features is run and shown to fail on a
+  held-out world (`test_feature_proxy_referee_fails_on_holdout_world`). Note the
+  scope: a preregistered adversary battery later showed that *identification*
+  from the same observation channel is possible at 0.99 held-out accuracy — see
+  *Replayed through the knife* below. Blindness is a property of the policy,
+  enforced at runtime; it is not an information-theoretic wall.
 - Mutation and selection actually occur; exploitation rises under no control; the
   coupled mechanism strictly dominates each lever alone; decoupling identifies the
   load-bearing anti-concentration.
@@ -121,6 +125,34 @@ flagged as such, never counted among the runtime checks):
 
 `python run.py --smoke` prints `integrity checks PASS (7/7)` — the seven runtime
 checks only.
+
+## Replayed through the knife (July 2026)
+
+The study was re-run under [fallacy-cutter](https://github.com/Kirill-Kruglov/fallacy-cutter)'s
+fail-closed harness — two-phase preregistration locked in git before each run,
+an AST leakage scan of the policy path, seed policy, and provenance-signed
+decisions that an independent verifier checks. Two genuinely prospective
+experiments ran alongside the replay, with kill-conditions fixed before the
+runs, citable under any outcome. The gates live in
+[`experiments/harnessed/`](experiments/harnessed/):
+
+| gate | mode | outcome |
+|---|---|---|
+| [J-G1 headline replay](experiments/harnessed/J_G1_headline_replay/) | confirmatory replay of published thresholds | **PASS** — 22/22 frozen expectations; robust-kernel permanence reproduced exactly (0.8625 / 0.7125 / 1.0) |
+| [J-N1 adversary battery](experiments/harnessed/J_N1_adversary_battery/) | prospective | **FAIL** (= a finding): simple classifiers identify exploitative zones from the referee's own delayed observations at up to 0.994 held-out balanced accuracy — the observables carry the information; the working policy just never reads it |
+| [J-N2 speed limit](experiments/harnessed/J_N2_speed_limit/) | prospective, partial isolation | **FAIL** (= the preregistered kill firing): permanence is monotone in R = delay/t_irrev with zero violations, but equal-R configurations diverge by up to 0.417 against a 0.12 tolerance — the simple ratio account is dead |
+
+Honesty notes, stated in each preregistration: the replay is *not* independent
+replication (same forge, same hands) and does not make the original study
+discovery-preregistered — it verifies reproducibility, blindness, seed
+sufficiency, and non-tautology of the contrast. The two FAIL outcomes are
+published exactly as the kill-conditions defined them; the essay's
+[Revisions](https://kirill-kruglov.github.io/justitia/#revisions) section
+records what each one changed. Verify everything yourself:
+
+```bash
+python scripts/verify_all.py   # every harnessed decision must be VALID
+```
 
 ## Reading the boundary atlas
 
