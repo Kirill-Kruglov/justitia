@@ -1,0 +1,149 @@
+{
+  "gate": "J_N3_heldout_W7",
+  "metadata": {
+    "criterion_mapping": {
+      "aggregate_ci_replacements": [
+        "per-run permanence >= 1.0 is replaced by permanence_ci_lo >= 0.50 over the 24-seed cell, matching robust_cell.",
+        "per-run collapse <= 0.0 is replaced by collapse_ci_hi <= 0.25 over the 24-seed cell, matching robust_cell."
+      ],
+      "aggregate_version": "J-N3 summarizes each variant over 24 seeds and applies the published viability fields to means plus aggregate CI bars.",
+      "excluded_fields": [],
+      "mapped_from_is_viable_run": [
+        "capture_index <= capture_threshold",
+        "exploitative_strategy_mass mean <= 0.40",
+        "cooperative_strategy_mass mean >= 0.18",
+        "welfare mean >= 0.55",
+        "response_diversity mean >= 0.35",
+        "containment_cost mean <= 0.35",
+        "false_containment mean <= 0.20"
+      ]
+    },
+    "informativeness_gate": "If no_governance, static_alone, or sword_alone is robust in W7, the gate reports INCONCLUSIVE rather than crediting C_full.",
+    "metric": "W7 robust kernel, informativeness controls, C_full margin over singles, and C_dyn_no_consequence control.",
+    "mode": "prospective held-out world; outcome unknown at lock time; decision citable under ANY outcome",
+    "outcome_branches": {
+      "FAIL": "W7 is informative, but C_full fails the robust criterion, strict singles margin, or no-consequence control.",
+      "INCONCLUSIVE": "Seed policy is inadmissible, or no_governance/static_alone/sword_alone passes the W7 viability/robustness bar, making W7 uninformative for the transfer question.",
+      "PASS": "W7 is informative; C_full is robust; C_full permanence is strictly greater than the best single-control permanence; C_dyn_no_consequence has zero containment events and is not robust."
+    },
+    "pre_lock_technical_runs": [],
+    "question": "Does the published C_full policy hold in held-out W7 on the untouched substrate?",
+    "source_quotes": [
+      {
+        "quote": "def is_viable_run(r, welfare_floor=0.55, exploit_ceiling=0.40, permanence_requirement=1.0, response_div_floor=0.35):",
+        "source": "model/atlas.py:226",
+        "thresholds": [
+          "welfare_floor",
+          "exploit_mass_ceiling",
+          "response_diversity_floor"
+        ]
+      },
+      {
+        "quote": "exploitative_strategy_mass <= exploit_ceiling; cooperative_strategy_mass >= 0.18; welfare >= welfare_floor; response_diversity >= response_div_floor; containment_cost <= 0.35; false_containment <= 0.20",
+        "source": "model/atlas.py:231-236",
+        "thresholds": [
+          "exploit_mass_ceiling",
+          "cooperative_mass_floor",
+          "welfare_floor",
+          "response_diversity_floor",
+          "containment_cost_ceiling",
+          "false_containment_ceiling"
+        ]
+      },
+      {
+        "quote": "robust_cell: permanence_ci_lo >= 0.50; collapse_ci_hi <= 0.25; capture_index <= capture_threshold; welfare >= 0.55",
+        "source": "model/atlas.py:240-245",
+        "thresholds": [
+          "permanence_ci_lo_bar",
+          "collapse_ci_hi_bar",
+          "welfare_floor"
+        ]
+      },
+      {
+        "quote": "Static anti-concentration alone fails ... pure consequence response alone fails",
+        "source": "README.md:53-55",
+        "thresholds": [
+          "minimum_full_margin_over_singles"
+        ]
+      },
+      {
+        "quote": "without a consequence trigger ... containment_events = 0 ... permanence = 0",
+        "source": "README.md:56-59",
+        "thresholds": [
+          "zero_containment_events_tolerance"
+        ]
+      },
+      {
+        "quote": "A world is robust when its held-out permanence clears the bar across seeds",
+        "source": "README.md:166-167",
+        "thresholds": [
+          "permanence_ci_lo_bar"
+        ]
+      }
+    ],
+    "strict_margin_semantics": "minimum_full_margin_over_singles=0.0 means strict superiority: C_full permanence must be greater than max(static_alone, sword_alone); equality is FAIL.",
+    "variants": [
+      "no_governance",
+      "static_alone",
+      "sword_alone",
+      "C_dyn_no_consequence",
+      "C_full"
+    ],
+    "what_was_not_shown": "W7 is a held-out composition by the same forge, not an independently authored external substrate.",
+    "world_design": {
+      "below_W2_rationale": "W2 pure capture initializes pure_extractor mass 20.0 in three zones; W7 uses smaller delayed pulses, not immediate fatal W2-level capture.",
+      "composition": [
+        "Base zones use the existing substrate _base_zone mechanism.",
+        "W3-style ambiguous catastrophe: zones 0 and 3 start as catastrophe zones with wellness=0.38, productivity=0.40, recovery=0.34.",
+        "W3-style deceptive ambiguity: zones 1 and 4 receive deceptive_exploit mass 10.0; wellness is capped at 0.46.",
+        "W6-style mutation corridor: zones 2, 5, and 8 receive resilient_mutant mass 8.0 at initialization.",
+        "Recurring ambiguous catastrophe shocks occur at steps 18, 36, 54, and 72 with hit=0.24*(1 - 0.55*resilience).",
+        "Delayed-onset capture pressure below W2: pure_extractor mass 8.0 is added to zones 1, 4, and 7 at step 28; mass 6.0 is added at step 56."
+      ],
+      "fairness_protocol": "World code is committed and locked before first execution; no W7 parameter iteration after first run.",
+      "implementation_location": "experiments/harnessed/J_N3_heldout_W7/run_j_n3.py:W7HeldoutModel; model/ unchanged for J-N3",
+      "name": "W7_delayed_capture_recurring_ambiguous_catastrophes"
+    }
+  },
+  "threshold_change_rationale": {
+    "seeds": "fresh disjoint block 19000-19023; no reuse across gates"
+  },
+  "thresholds": {
+    "collapse_ci_hi_bar": 0.25,
+    "containment_cost_ceiling": 0.35,
+    "cooperative_mass_floor": 0.18,
+    "exploit_mass_ceiling": 0.4,
+    "false_containment_ceiling": 0.2,
+    "minimum_full_margin_over_singles": 0.0,
+    "permanence_ci_lo_bar": 0.5,
+    "response_diversity_floor": 0.35,
+    "seeds": [
+      19000,
+      19001,
+      19002,
+      19003,
+      19004,
+      19005,
+      19006,
+      19007,
+      19008,
+      19009,
+      19010,
+      19011,
+      19012,
+      19013,
+      19014,
+      19015,
+      19016,
+      19017,
+      19018,
+      19019,
+      19020,
+      19021,
+      19022,
+      19023
+    ],
+    "welfare_floor": 0.55,
+    "zero_containment_events_tolerance": 0.0
+  }
+}
