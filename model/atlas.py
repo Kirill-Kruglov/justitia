@@ -130,9 +130,7 @@ class BoundaryAtlasModel(families.AntiConcentrationVsConsequenceModel):
             scores = [self._score_c(obs, i) for i in range(base.ZONES)]
             for i, z in enumerate(self.zones):
                 if self._bad_consequence(obs, i):
-                    z.containment_timer = max(z.containment_timer, self.params.containment_duration)
-                    z.containment_events += 1
-                    z.containment_cost += 0.025 * self.params.containment_strength * self.params.action_channel_cost_scale
+                    self._record_or_apply_containment(i, z, self.params.containment_duration, 0.025 * self.params.containment_strength * self.params.action_channel_cost_scale, count_false=False)
             shifted = [max(0.01, s - min(scores) + 0.04) for s in scores]
             return self._apply_cap(base.normalize(shifted), use_caps=self.params.policy15 != "C_dyn_only")
         return super().choose_alloc()

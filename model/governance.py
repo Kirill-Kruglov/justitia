@@ -172,9 +172,7 @@ class RobustModel(base.EvolvableStrategyModel):
             if self.params.policy in {"action_channel_containment", "consequence_plus_diversity"} and self.params.ablation != "no_containment":
                 for i, z in enumerate(self.zones):
                     if self._bad_consequence(obs, i):
-                        z.containment_timer = max(z.containment_timer, self.params.containment_duration)
-                        z.containment_events += 1
-                        z.containment_cost += 0.030 * self.params.containment_strength * self.params.action_channel_cost_scale
+                        self._record_or_apply_containment(i, z, self.params.containment_duration, 0.030 * self.params.containment_strength * self.params.action_channel_cost_scale, count_false=False)
             xs = [self.rng.random() + 0.01 for _ in range(base.ZONES)]
             return base.normalize(xs)
         if self.params.ablation == "no_containment":
@@ -210,7 +208,7 @@ class RobustModel(base.EvolvableStrategyModel):
             aid_for_lineages -= escrowed
             z.wellness = base.clamp(z.wellness + 0.20 * escrowed)
             z.productivity = base.clamp(z.productivity + 0.14 * escrowed)
-            z.recovery = base.clamp(z.recovery + 0.18 * escrowed)
+            z.recovery = base.clamp(z.recovery + self._recovery_gain(0.18 * escrowed))
             z.containment_cost += 0.05 * escrowed * self.params.action_channel_cost_scale
         if anti_concentration and self._resource_hhi_zone(z) > 0.46:
             aid_for_lineages *= max(0.18, 1.0 - 0.70 * strength)
@@ -237,12 +235,11 @@ class RobustModel(base.EvolvableStrategyModel):
         before_state = (z.wellness + z.productivity + z.recovery) / 3
         z.wellness = base.clamp(z.wellness + 0.13 * useful + 0.030 * weighted_coop - 0.055 * extracted - 0.035 * weighted_harm)
         z.productivity = base.clamp(z.productivity + 0.11 * useful + 0.040 * weighted_prod - 0.050 * intercepted - 0.026 * weighted_harm)
-        z.recovery = base.clamp(z.recovery + 0.12 * useful + 0.050 * weighted_res - 0.028 * extracted)
-        for j in self.neighbors[idx]:
-            n = self.zones[j]
-            n.wellness = base.clamp(n.wellness - neighbor_harm * 0.58)
-            n.productivity = base.clamp(n.productivity - neighbor_harm * 0.45)
-            n.recovery = base.clamp(n.recovery - neighbor_harm * 0.30)
+        if self.params.r_rec == 1.0:
+            z.recovery = base.clamp(z.recovery + 0.12 * useful + 0.050 * weighted_res - 0.028 * extracted)
+        else:
+            z.recovery = base.clamp(z.recovery + self._recovery_gain(0.12 * useful + 0.050 * weighted_res) - 0.028 * extracted)
+        self._apply_or_schedule_neighbor_harm(idx, neighbor_harm, 0.58, 0.45, 0.30)
         after_state = (z.wellness + z.productivity + z.recovery) / 3
         z.last_response = after_state - before_state
         new_lineages = []
