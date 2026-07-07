@@ -4,6 +4,17 @@ Transfer test: apply fallacy-cutter to justitia using only fallacy-cutter docs
 (`README.md`, `methodology/`, `examples/hello_gate/`, `gate_harness/README.md`)
 plus `justitia_harnessed_replay_design.md`.
 
+## 2026-07-07
+
+1. Wave-2 durable worktree and strict phase ordering.
+   - Looked for: whether wave 2 should continue in the existing checkout or a
+     fresh branch/worktree.
+   - Found: justitia_wave2_design.md requires branch harnessed-wave2 from
+     main in /home/master/llm_projects/justitia-wave2, while the original
+     checkout remains on epub-export.
+   - Assumption/action: created the requested durable worktree and will keep
+     J-N3 on the untouched substrate before any J-N4 substrate extension.
+
 ## 2026-07-06
 
 1. Worktree hook installation gap.
