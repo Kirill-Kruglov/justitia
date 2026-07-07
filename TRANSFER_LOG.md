@@ -36,6 +36,17 @@ plus `justitia_harnessed_replay_design.md`.
    - Assumption/action: wrote `PREREG_DRAFT.json` files for author review only;
      they are not locks and no J-N5/J-N5b runs have been started.
 
+4. J-N5/J-N5b locked results.
+   - Looked for: whether verified procedural artifacts extend the published
+     adversarial-pressure boundary or repair W7 specificity.
+   - Found: J-N5 decision FAIL with H-C1 FAIL, H-C2 VACUOUS, H-C3 PASS. Pressure
+     ceilings did not improve: W6 A0/A1/A2 all 1.2; W3 and W4 had no robust grid
+     point for any arm. J-N5b decision FAIL: A2 permanence 0.875, but
+     false_containment 0.534 versus A0 0.497.
+   - Assumption/action: recorded both outcomes as citable negative findings. The
+     joint kill-condition fires because H-C1 FAIL and H-C4 FAIL; W8/corner is
+     empty in this substrate under the locked definitions.
+
 ## 2026-07-07
 
 1. Wave-2 durable worktree and strict phase ordering.
