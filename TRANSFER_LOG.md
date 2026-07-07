@@ -4,6 +4,18 @@ Transfer test: apply fallacy-cutter to justitia using only fallacy-cutter docs
 (`README.md`, `methodology/`, `examples/hello_gate/`, `gate_harness/README.md`)
 plus `justitia_harnessed_replay_design.md`.
 
+## 2026-07-07 (wave 3)
+
+1. Wave-3 durable worktree and phase boundary.
+   - Looked for: where to run the W8 "corner" work without touching the
+     `epub-export` checkout or the published wave-2 artifacts.
+   - Found: `justitia_wave3_corner_design.md` requires branch
+     `harnessed-wave3` from `main` in
+     `/home/master/llm_projects/justitia-wave3`.
+   - Assumption/action: created the requested worktree from `main` and will
+     keep recon read-only until the author approves the declaration/conformance
+     design and PREREG direction.
+
 ## 2026-07-07
 
 1. Wave-2 durable worktree and strict phase ordering.
