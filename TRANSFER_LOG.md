@@ -18,6 +18,34 @@ plus `justitia_harnessed_replay_design.md`.
      with `gate_harness/`, published `results/`, and previous harnessed wave
      directories unchanged.
 
+2. Predictive referee implementation and J-N8a equivalence.
+   - Looked for: whether line-11 predictive-referee machinery can be added
+     without changing the published path when `predictive_arm=R0`.
+   - Found: J-N8a passed the locked engineering replay: 18 expected headline
+     rows, 18 actual rows, exact equality true, no mismatches;
+     `verify_decision` reported VALID.
+   - Assumption/action: committed an additive `model/predictive.py` module and
+     J-N8a runner only. Existing model files, `gate_harness/`, published
+     `results/`, and previous harnessed wave directories remain unchanged.
+     Predictive arms use a self-gated observable-transition forecaster; R0
+     returns through the published path before predictor construction,
+     calibration, transition logging, or forecast policy code.
+
+3. J-N8/J-N8b prereg draft boundary.
+   - Looked for: how to express predictive governance without adding a hidden
+     truth channel or active-probing phase-2 behavior.
+   - Found: the policy scan can cover predictive trigger, calibration, rollout,
+     and containment functions under the usual forbidden names. PO is recorded
+     as a shadow-oracle upper bound: audit access may simulate next observables,
+     but policy receives only forecast fractions. The accepted semantics are
+     locked into drafts: nonintervention rollout, exclusion of confounded
+     preemptive predictions from calibration, and fail-closed insufficient
+     evidence when fewer than five non-confounded positive harm events appear in
+     the rolling window.
+   - Assumption/action: wrote executable J-N8/J-N8b runners and
+     `PREREG_DRAFT.json` files for author review only; they are not locks and
+     no J-N8/J-N8b scientific runs have been started.
+
 ## 2026-07-07 (wave 5)
 
 1. Wave-5 durable worktree and phase boundary.

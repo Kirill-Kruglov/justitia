@@ -1,0 +1,204 @@
+{
+  "metadata": {
+    "arms": {
+      "PD": "derived predictor learned from referee history",
+      "PO": "shadow-oracle observable transition forecaster, upper-bound arm",
+      "PR": "same-complexity seeded random predictor",
+      "PW": "same-complexity wrong overconfident predictor, only self-calibration may silence it",
+      "R0": "published C_full, no predictive channel"
+    },
+    "interpretation_matrix": {
+      "constitution_not_channel": "Prediction is governance over the referee's own intervention history; no artifact/adoption channel is introduced.",
+      "old_as_limit": "horizon=0 or calibration-fail/insufficient-evidence gate closed is published C_full."
+    },
+    "kill_phase_1": {
+      "PO_gt_R0_PD_approx_R0": "Derivation gap: predictability exists, but referee contact does not derive it; this bundles hidden-state unknowability with learning limitations and is not attributed to learning alone.",
+      "PO_le_R0": "PO <= R0 implies no headroom in this substrate; predictive channel dead simpliciter.",
+      "PW_ll_R0": "Independent safety kill: degradation/self-gating failed if the wrong confident model is catastrophically below R0."
+    },
+    "line_context": "Line 11 phase 1: predictive referee; literature support from line11_literature_memo.md on shielding, reversibility, viability, and adaptive management.",
+    "mode": "prospective; outcome unknown at lock time; decision vector citable under ANY outcome",
+    "predictive_registry": {
+      "PO_shadow_oracle": {
+        "audit_injection": "PO is injected by constructor as a shadow-oracle forecaster. It may use audit access to full world state only to simulate the next observables; policy sees only the forecast fraction.",
+        "derivation_gap_scope": "The derivation-gap reading (PO>R0, PD~R0) bundles hidden-state unknowability with learning limitations \u2014 recorded as such, not attributed to learning alone.",
+        "non_derivable_label": "PO knows the WORLD's transition rules, never agent internals; upper-bound arm, non-derivable knowledge, labeled as such.",
+        "upper_bound": "PO upper-bounds ANY observable forecaster (it forecasts observables exactly)."
+      },
+      "blindness": "The predictive model is built only over (obs, referee_action, obs_prime). Policy/verification functions read no strategy fields, hidden types, lineages, or exploit labels.",
+      "calibration_ledger": {
+        "exclude_intervention_confounded": "Exclude intervention-confounded predictions: zone-steps where this prediction caused preemptive containment are not scored, because otherwise the channel is punished for its own success (self-defeating prophecy).",
+        "insufficient_evidence_fail_closed": "If the rolling window contains fewer than 5 realized positive harm events among non-confounded predictions, the predictive gate is CLOSED with reason insufficient evidence, not scored by balanced accuracy over noise.",
+        "threshold": "balanced_accuracy >= 0.60",
+        "warmup": 90,
+        "window": 180
+      },
+      "equal_complexity": "PD/PR/PW use the same representation, feature map, ensemble size, update budget, horizon, calibration window, and self-gate. PR uses fixed seeded random coefficients. PW uses the same representation and budget as PD/PR, but applies a deterministic sign-inversion/scale distortion to predicted harm-relevant deltas and reports high ensemble agreement; only self-calibration may silence it.",
+      "no_active_probing": "No intervention is chosen for information gain in phase 1; active probing is excluded and requires a separate preregistration.",
+      "old_as_limit": "horizon=0 or calibration-fail/insufficient-evidence gate closed returns to published C_full reactive behavior.",
+      "rollout_semantics": "Forecast rollout is under nonintervention: persistent current allocation, no new containment in the forecast. Trigger semantics: what will happen if I do not intervene."
+    },
+    "question": "Can a self-gated predictive referee extend the published C_full boundary using only learned observable transition history?",
+    "recorded_metrics": [
+      "predictive_gate_open_share",
+      "predictive_calibration_by_step",
+      "predictive_preemptive_containment_events",
+      "predictive_reactive_containment_events",
+      "false_containment",
+      "pressure_ceilings"
+    ],
+    "status": "DRAFT_FOR_AUTHOR_REVIEW_NOT_LOCKED"
+  },
+  "threshold_change_rationale": {
+    "adversarial_pressure_grid": "Reuses the published boundary/adversarial_pressure axis and 0.2 grid step for continuity with J-N5/J-N6/J-N7.",
+    "calibration": "window 180, warmup 90, BA>=0.60, and min 5 positive non-confounded harm events are fixed from recon and identical for PO/PD/PR/PW.",
+    "predictive_horizon": "h=2 is a short delay-scale predictive horizon selected in recon before data; horizon=0 is the preregistered published-C_full limit.",
+    "seeds": "Wave 6 J-N8 owns fresh 80-seed block 27000-27079; J-N8b owns 28000-28079; prior gates used lower non-overlapping blocks."
+  },
+  "thresholds": {
+    "H_L1_PD_extension": {
+      "margin_min": 0.2,
+      "required_worlds_min": 2
+    },
+    "H_L2_order": {
+      "PO_lt_PD_red_flag": true,
+      "required_order": "PO >= PD >= R0 in every measured world"
+    },
+    "H_L3_random_control": {
+      "PR_gt_R0_interpretation": "not information; tautological/null-control warning",
+      "ceiling_delta_abs_max": 0.0
+    },
+    "H_L4_wrong_model_degradation": {
+      "PW_below_R0_minus_margin": "independent safety kill",
+      "catastrophic_drop": 0.2
+    },
+    "adversarial_pressure_grid": [
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8
+    ],
+    "arms": [
+      "R0",
+      "PO",
+      "PD",
+      "PR",
+      "PW"
+    ],
+    "kill_phase_1": {
+      "PO_le_R0_simpliciter": "PO <= R0 across measured worlds",
+      "PW_independent_safety_kill": "PW < R0 - 0.2 in any measured world",
+      "derivation_gap_partial": "PO > R0 while PD ceiling equals R0 within H-L3 zero-step tolerance"
+    },
+    "predictive_mechanics": {
+      "calibration_balanced_accuracy_min": 0.6,
+      "calibration_min_positive_harm_events": 5,
+      "calibration_warmup": 90,
+      "calibration_window": 180,
+      "ensemble_size": 9,
+      "predictive_horizon": 2,
+      "rollout_semantics": "Forecast rollout is under nonintervention: persistent current allocation, no new containment in the forecast. Trigger semantics: what will happen if I do not intervene.",
+      "theta_confident_members": 6
+    },
+    "robust_cell_bar": {
+      "collapse_ci_hi_max": 0.25,
+      "containment_cost_max": 0.35,
+      "cooperative_strategy_mass_min": 0.18,
+      "exploitative_strategy_mass_max": 0.4,
+      "false_containment_max": 0.2,
+      "permanence_ci_lo_min": 0.5,
+      "response_diversity_min": 0.35,
+      "welfare_min": 0.55
+    },
+    "seeds": [
+      27000,
+      27001,
+      27002,
+      27003,
+      27004,
+      27005,
+      27006,
+      27007,
+      27008,
+      27009,
+      27010,
+      27011,
+      27012,
+      27013,
+      27014,
+      27015,
+      27016,
+      27017,
+      27018,
+      27019,
+      27020,
+      27021,
+      27022,
+      27023,
+      27024,
+      27025,
+      27026,
+      27027,
+      27028,
+      27029,
+      27030,
+      27031,
+      27032,
+      27033,
+      27034,
+      27035,
+      27036,
+      27037,
+      27038,
+      27039,
+      27040,
+      27041,
+      27042,
+      27043,
+      27044,
+      27045,
+      27046,
+      27047,
+      27048,
+      27049,
+      27050,
+      27051,
+      27052,
+      27053,
+      27054,
+      27055,
+      27056,
+      27057,
+      27058,
+      27059,
+      27060,
+      27061,
+      27062,
+      27063,
+      27064,
+      27065,
+      27066,
+      27067,
+      27068,
+      27069,
+      27070,
+      27071,
+      27072,
+      27073,
+      27074,
+      27075,
+      27076,
+      27077,
+      27078,
+      27079
+    ],
+    "worlds": [
+      "W6_mutation_corridor",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe"
+    ]
+  }
+}
