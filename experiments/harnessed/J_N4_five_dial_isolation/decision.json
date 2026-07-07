@@ -1,0 +1,575 @@
+{
+  "_harness_provenance": {
+    "evaluation_oracle_ran": true,
+    "harness_version": "53b59235a56aba8feeacf71df8d4691e9e3814309a0c37c35c1e22ee50cbcb9f",
+    "leakage_scan_verified": true,
+    "prereg_lock_verified": true,
+    "tautology_check_ran": true,
+    "written_by": "gate_harness.runner.run_gate"
+  },
+  "analysis": {
+    "H-A": {
+      "verdict": "FAIL",
+      "violations": [
+        {
+          "dial": "v_prop",
+          "from": "t_obs=2;t_act=0;v_prop=0.50;t_irrev=8;r_rec=1.00",
+          "from_perm": 0.9166666666666666,
+          "to": "t_obs=2;t_act=0;v_prop=0.33;t_irrev=8;r_rec=1.00",
+          "to_perm": 0.7916666666666666,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "dial": "t_act",
+          "from": "t_obs=2;t_act=2;v_prop=1.00;t_irrev=8;r_rec=1.00",
+          "from_perm": 0.4166666666666667,
+          "to": "t_obs=2;t_act=4;v_prop=1.00;t_irrev=8;r_rec=1.00",
+          "to_perm": 0.625,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "dial": "v_prop",
+          "from": "t_obs=2;t_act=0;v_prop=0.50;t_irrev=8;r_rec=1.00",
+          "from_perm": 1.0,
+          "to": "t_obs=2;t_act=0;v_prop=0.33;t_irrev=8;r_rec=1.00",
+          "to_perm": 0.8333333333333334,
+          "world": "W6_mutation_corridor"
+        }
+      ]
+    },
+    "H-B": {
+      "verdict": "FAIL",
+      "violations": [
+        {
+          "group": "T_response=6",
+          "rows": 4,
+          "spread": 0.25,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_response=4",
+          "rows": 4,
+          "spread": 0.16666666666666669,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_response=6",
+          "rows": 4,
+          "spread": 0.3333333333333333,
+          "world": "W4_scavenger_catastrophe"
+        }
+      ]
+    },
+    "H-C": {
+      "verdict": "FAIL",
+      "violations": [
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=1.00;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.125,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=1.00;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.25,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=1.00;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.25,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=1.00;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.375,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.50;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.29166666666666674,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.50;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.41666666666666663,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.50;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.125,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.50;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.41666666666666663,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.50;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.20833333333333326,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.50;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.33333333333333326,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.33;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.20833333333333337,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.33;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.2916666666666667,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.33;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.29166666666666663,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.33;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.5416666666666667,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.33;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.5416666666666667,
+          "world": "W3_catastrophe_ambiguity"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=1.00;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.37500000000000006,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=1.00;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.25000000000000006,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=1.00;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.24999999999999994,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=1.00;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.3333333333333333,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=1.00;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.45833333333333337,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=1.00;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.41666666666666663,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.50;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.2916666666666667,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.50;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.16666666666666669,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.50;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.12500000000000006,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.50;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.12500000000000006,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.50;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.25000000000000006,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.50;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.24999999999999994,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.33;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.125,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.33;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.5,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.33;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.16666666666666663,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.33;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.625,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.33;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.41666666666666674,
+          "world": "W4_scavenger_catastrophe"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.50;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.125,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.33;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.20833333333333337,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.33;r_rec=0.80",
+          "rows": 4,
+          "spread": 0.16666666666666663,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.33;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.125,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.33;r_rec=1.00",
+          "rows": 4,
+          "spread": 0.20833333333333337,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "group": "T_over_t_irrev=0.25;v_prop=0.33;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.125,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "group": "T_over_t_irrev=0.50;v_prop=0.33;r_rec=1.20",
+          "rows": 4,
+          "spread": 0.20833333333333326,
+          "world": "W6_mutation_corridor"
+        }
+      ]
+    }
+  },
+  "classification_success_depends_on_harness_hint": false,
+  "construction_may_be_tautological": false,
+  "decision": "FAIL",
+  "downstream_consequence": "Each hypothesis verdict is citable independently; FAIL is a boundary finding, not a tuning request.",
+  "fact": "The gate uses the post-J-N4a substrate dials after exact default-equivalence passed.",
+  "hypothesis_verdicts": {
+    "H-A": "FAIL",
+    "H-B": "FAIL",
+    "H-C": "FAIL"
+  },
+  "inference": "The vector tests directionality, t_obs/t_act symmetry, and ratio sufficiency only under the preregistered grids.",
+  "information_ratio": null,
+  "metric": "Permanence-probability directionality, equal-response-sum spread, and equal-ratio spread.",
+  "mode": "prospective; outcome unknown at lock time; decision vector citable under ANY outcome",
+  "preregistered_thresholds": {
+    "base_config": {
+      "r_rec": 1.0,
+      "t_act": 0,
+      "t_irrev": 8,
+      "t_obs": 2,
+      "v_prop": 1.0
+    },
+    "h_a": {
+      "dials": {
+        "r_rec": {
+          "expected_direction_along_order": "nondecreasing",
+          "ordered_values": [
+            0.8,
+            1.0,
+            1.2
+          ]
+        },
+        "t_act": {
+          "expected_direction_along_order": "nonincreasing",
+          "ordered_values": [
+            0,
+            1,
+            2,
+            4
+          ]
+        },
+        "t_irrev": {
+          "expected_direction_along_order": "nondecreasing",
+          "ordered_values": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        "t_obs": {
+          "expected_direction_along_order": "nonincreasing",
+          "ordered_values": [
+            1,
+            2,
+            4,
+            6
+          ]
+        },
+        "v_prop": {
+          "expected_direction_along_order": "nondecreasing",
+          "ordered_values": [
+            1.0,
+            0.5,
+            0.33
+          ]
+        }
+      },
+      "expected_sign_table": {
+        "r_rec": {
+          "expected_permanence_direction": "up_or_flat",
+          "increase_means": "better"
+        },
+        "t_act": {
+          "expected_permanence_direction": "down_or_flat",
+          "increase_means": "worse"
+        },
+        "t_irrev": {
+          "expected_permanence_direction": "up_or_flat",
+          "increase_means": "better"
+        },
+        "t_obs": {
+          "expected_permanence_direction": "down_or_flat",
+          "increase_means": "worse"
+        },
+        "v_prop": {
+          "expected_permanence_direction": "down_or_flat",
+          "grid_order_note": "The locked grid is traversed 1.0 -> 0.5 -> 0.33, so permanence is expected to improve along that listed order.",
+          "increase_means": "worse"
+        }
+      },
+      "monotonicity_tolerance": 0.12
+    },
+    "h_b": {
+      "equal_sum_groups": [
+        {
+          "name": "T_response=2",
+          "pairs": [
+            {
+              "t_act": 0,
+              "t_obs": 2
+            },
+            {
+              "t_act": 1,
+              "t_obs": 1
+            }
+          ]
+        },
+        {
+          "name": "T_response=4",
+          "pairs": [
+            {
+              "t_act": 0,
+              "t_obs": 4
+            },
+            {
+              "t_act": 1,
+              "t_obs": 3
+            },
+            {
+              "t_act": 2,
+              "t_obs": 2
+            },
+            {
+              "t_act": 3,
+              "t_obs": 1
+            }
+          ]
+        },
+        {
+          "name": "T_response=6",
+          "pairs": [
+            {
+              "t_act": 0,
+              "t_obs": 6
+            },
+            {
+              "t_act": 2,
+              "t_obs": 4
+            },
+            {
+              "t_act": 3,
+              "t_obs": 3
+            },
+            {
+              "t_act": 4,
+              "t_obs": 2
+            }
+          ]
+        }
+      ],
+      "equal_sum_tolerance": 0.12
+    },
+    "h_c": {
+      "canonical_split": "t_act=0 and t_obs=T_response for all H-C cells",
+      "equal_ratio_groups": [
+        {
+          "name": "T_over_t_irrev=0.25",
+          "pairs": [
+            {
+              "T_response": 1,
+              "t_irrev": 4
+            },
+            {
+              "T_response": 2,
+              "t_irrev": 8
+            },
+            {
+              "T_response": 3,
+              "t_irrev": 12
+            },
+            {
+              "T_response": 4,
+              "t_irrev": 16
+            }
+          ],
+          "ratio": 0.25
+        },
+        {
+          "name": "T_over_t_irrev=0.50",
+          "pairs": [
+            {
+              "T_response": 2,
+              "t_irrev": 4
+            },
+            {
+              "T_response": 4,
+              "t_irrev": 8
+            },
+            {
+              "T_response": 6,
+              "t_irrev": 12
+            },
+            {
+              "T_response": 8,
+              "t_irrev": 16
+            }
+          ],
+          "ratio": 0.5
+        }
+      ],
+      "equal_ratio_tolerance": 0.12,
+      "fixed_r_rec": [
+        0.8,
+        1.0,
+        1.2
+      ],
+      "fixed_v_prop": [
+        1.0,
+        0.5,
+        0.33
+      ]
+    },
+    "policy_variant": "C_full",
+    "seeds": [
+      20000,
+      20001,
+      20002,
+      20003,
+      20004,
+      20005,
+      20006,
+      20007,
+      20008,
+      20009,
+      20010,
+      20011,
+      20012,
+      20013,
+      20014,
+      20015,
+      20016,
+      20017,
+      20018,
+      20019,
+      20020,
+      20021,
+      20022,
+      20023
+    ],
+    "worlds": [
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W6_mutation_corridor"
+    ]
+  },
+  "question": "Which five-dial speed-limit hypotheses survive isolated prospective testing?",
+  "seed_policy": {
+    "admissible": true,
+    "min_seeds_for_core": 20,
+    "per_metric": {
+      "J_N4_H_A_directionality": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 24,
+        "verdict": "PASS"
+      },
+      "J_N4_H_B_equal_response_sum": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 24,
+        "verdict": "PASS"
+      },
+      "J_N4_H_C_ratio_sufficiency": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 24,
+        "verdict": "PASS"
+      }
+    }
+  },
+  "what_was_not_shown": "This is not an exhaustive continuous surface map; exploratory surfaces remain non-citable unless separately preregistered."
+}
