@@ -184,6 +184,8 @@ def robust(row: dict, thresholds: dict) -> bool:
         row["permanence_ci_lo"] >= thresholds["permanence_ci_lo_bar"]
         and row["collapse_ci_hi"] <= thresholds["collapse_ci_hi_bar"]
         and row["capture_index"] <= row["capture_threshold"]
+        and row["exploitative_strategy_mass"] <= thresholds["exploit_mass_ceiling"]
+        and row["cooperative_strategy_mass"] >= thresholds["cooperative_mass_floor"]
         and row["welfare"] >= thresholds["welfare_floor"]
         and row["response_diversity"] >= thresholds["response_diversity_floor"]
         and row["containment_cost"] <= thresholds["containment_cost_ceiling"]
