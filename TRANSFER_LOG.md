@@ -4,6 +4,20 @@ Transfer test: apply fallacy-cutter to justitia using only fallacy-cutter docs
 (`README.md`, `methodology/`, `examples/hello_gate/`, `gate_harness/README.md`)
 plus `justitia_harnessed_replay_design.md`.
 
+## 2026-07-08 (wave 6)
+
+1. Wave-6 durable worktree and phase boundary.
+   - Looked for: where to run line-11 predictive-referee work without touching
+     the `epub-export` checkout or previous wave artifacts.
+   - Found: `justitia_wave6_design.md` requires branch `harnessed-wave6` from
+     `main` in `/home/master/llm_projects/justitia-wave6`; main already contains
+     the merged wave-5 bonded-envelope outcome.
+   - Assumption/action: created the requested worktree from `main`; recon will
+     be no-run. Future model edits, if approved, will be additive in a new
+     module such as `model/predictive.py` plus minimal subclass subscription,
+     with `gate_harness/`, published `results/`, and previous harnessed wave
+     directories unchanged.
+
 ## 2026-07-07 (wave 5)
 
 1. Wave-5 durable worktree and phase boundary.
