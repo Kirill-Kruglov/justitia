@@ -4,6 +4,64 @@ Transfer test: apply fallacy-cutter to justitia using only fallacy-cutter docs
 (`README.md`, `methodology/`, `examples/hello_gate/`, `gate_harness/README.md`)
 plus `justitia_harnessed_replay_design.md`.
 
+## 2026-07-07 (wave 5)
+
+1. Wave-5 durable worktree and phase boundary.
+   - Looked for: where to run FW-3 bonded-envelope work without touching the
+     `epub-export` checkout or previous wave artifacts.
+   - Found: `justitia_wave5_design.md` requires branch `harnessed-wave5` from
+     `main` in `/home/master/llm_projects/justitia-wave5`; main already contains
+     the merged wave-4 seeded-adoption outcomes and README row.
+   - Assumption/action: created the requested worktree from `main`; recon will
+     be no-run and model edits, when approved, will be limited to
+     `model/artifacts.py`, with `gate_harness/`, published `results/`, and
+     previous `experiments/harnessed/` wave directories unchanged.
+
+2. Bonded artifact implementation and J-N7a equivalence.
+   - Looked for: whether FW-3 rolling escrow and declaration-tax mechanics can
+     be layered on the existing artifact channel while leaving
+     `artifact_channel=off` byte-equivalent.
+   - Found: J-N7a passed the locked engineering replay: 18 expected headline
+     rows, 18 actual rows, exact equality true, no mismatches;
+     `verify_decision` reported VALID.
+   - Assumption/action: committed bonded mechanics only in `model/artifacts.py`.
+     `P0` is a non-refundable 0.25 declaration tax burned immediately; `P1-low`
+     and `P1-high` use proportional rolling escrow, burn all outstanding stake
+     on nonconformance, and redistribute nothing. The stake-state observable is
+     public zone collateral balance, not strategy state.
+
+3. J-N7/J-N7b prereg draft boundary.
+   - Looked for: how to express FW-3 without letting the bond become a hidden
+     truth channel or a beneficiary-bearing punishment.
+   - Found: referee-side conformance, policy, stake settlement, tax burn, and
+     stake burn can be expressed as `(Obs + declaration + public stake-state)`;
+     burned resources leave the world as deflation. `k = containment_duration = 5`
+     is recorded as reuse of a published horizon, not a tuned constant.
+   - Assumption/action: wrote executable J-N7/J-N7b runners and
+     `PREREG_DRAFT.json` files for author review only; they are not locks and
+     no J-N7/J-N7b scientific runs have been started.
+
+4. J-N7/J-N7b locked results.
+   - Looked for: whether a bonded declaration envelope can recover pressure
+     parity/extension and W7 specificity where free verified artifacts and seeded
+     adoption failed.
+   - Found: J-N7 decision FAIL. H-P1 FAIL, H-P2 L1 FAIL, H-P2 L2 FAIL,
+     H-P4 FAIL, while H-P5 classified P0/P1-low/P1-high as RETAINED. Pressure
+     ceilings were W6 A0=1.2, F1=1.0, P0=None, P1-low=1.0, P1-high=1.0; W3
+     and W4 had no robust grid point for any arm. The P0 preregistered pattern
+     is P0 fails while P1 works only weakly in W6, supporting the contingent-
+     confiscation reading over pure price in this run.
+   - Found: J-N7b decision FAIL on imported W7. A0 false_containment was 0.5305;
+     P1-low false_containment was 0.497125 with directional delta 0.033375;
+     P1-high false_containment was 0.497625 with directional delta 0.032875.
+     Both are below the preregistered 0.10 directional mark and far above the
+     0.20 false-containment bar, despite permanence 0.775/0.800.
+   - Assumption/action: recorded both failures as citable locked outcomes. Since
+     P1-low and P1-high fail J-N7 H-P2 L1 parity and fail the J-N7b H-P3
+     directional condition, the FW-3 kill condition fires: the bonded-envelope
+     path is empty in this substrate under the locked definitions. Large outputs
+     are committed as `.json.gz`; compact checks were gzip-packed before commit.
+
 ## 2026-07-07 (wave 4)
 
 1. Wave-4 durable worktree and phase boundary.

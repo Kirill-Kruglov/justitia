@@ -1,0 +1,247 @@
+{
+  "gate": "J_N7_bonded_envelope",
+  "metadata": {
+    "P0_preregistered_interpretation": {
+      "P0_approx_P1": "If P0 separates approximately like P1, the preregistered reading is that price itself carries information: an evolutionary Spence/Zahavi handicap can separate without the knife.",
+      "P0_fails_but_P1_works": "If P0 fails while P1 works, the preregistered reading is that price alone is not carrying the channel; contingency of confiscation is load-bearing.",
+      "expected_pattern": "P0 fails while P1 works, because a defector can gain more from sheltering under a trusted declaration than it pays as a non-refundable tax."
+    },
+    "anti_shylock_principles": {
+      "fungibility": "Stake is denominated in substrate resource/aid currency, not body, viability, type, or lineage identity.",
+      "mechanical_fail_closed_burn": "Verified nonconformance mechanically burns outstanding stake and triggers containment; burned stake is destroyed and redistributed to nobody.",
+      "proportionality": "Stake is a fraction of raw_aid, never an absolute fee; rich and poor zones face the same fraction.",
+      "survivability": "Confiscation removes only escrowed stake. The non-escrowed fraction of raw_aid remains available to the zone."
+    },
+    "arms": {
+      "A0": "published C_full baseline; artifact_channel off",
+      "F1": "free verified arm: wave-4 A2s logic under new seeds, no stake",
+      "P0": "trusted costly signal: non-refundable 0.25 declaration tax burned immediately; no escrow tranches, no verification, trusted softening",
+      "P1-high": "verified bonded arm: rolling escrow stake fraction 0.40",
+      "P1-low": "verified bonded arm: rolling escrow stake fraction 0.10"
+    },
+    "artifact_channel_registry": {
+      "deflation": "Burned P0 tax and forfeited P1 stake leave the world; no referee, neighbor, or zone receives the confiscated resource.",
+      "escrow_window": "k = containment_duration = 5; rationale: reuse of a published horizon, not a new tuned constant",
+      "observable_extension": {
+        "description": "Public zone-level collateral balance; referee-side escrow/forfeit may read it as stake-state.",
+        "field": "artifact_stake_balance_by_zone",
+        "no_strategy_fields_readable": true
+      },
+      "referee_side_verification_policy_and_stake": {
+        "description": "Conformance, C_full_artifacts policy, stake settlement, P0 tax burn, P1 return/burn, and containment read only Obs + declaration + public stake-state.",
+        "forbidden_names": [
+          "extraction_rate",
+          "aid_interception_rate",
+          "neighbor_harm_rate",
+          "deception_investment",
+          "migration_follow_rate",
+          "replication_aggressiveness",
+          "cooperation_investment",
+          "shock_resilience_contribution",
+          "productive_contribution",
+          "exploitative_label",
+          "lineages",
+          "strategy",
+          "hidden_type",
+          "_exploit_score",
+          "exploit_score"
+        ],
+        "scanned_functions": [
+          "artifacts.ArtifactBoundaryModel.choose_alloc",
+          "artifacts.ArtifactBoundaryModel._artifact_bad_consequence",
+          "artifacts.ArtifactBoundaryModel._settle_artifact_stakes",
+          "artifacts.ArtifactBoundaryModel._apply_zone_dynamics",
+          "artifacts.artifact_conforms"
+        ]
+      },
+      "world_side_emission": {
+        "description": "Declaration emission is agent/world behavior; it may read declaration strategy fields and is not part of the referee leakage scan.",
+        "evolvable_fields": [
+          "declaration_propensity",
+          "declaration_envelope_stiffness"
+        ],
+        "initial_conditions": "F1/P0/P1-low/P1-high start with declaration_propensity=1.0 and declaration_envelope_stiffness=0.50; both fields remain evolvable."
+      }
+    },
+    "background_interpretation_not_verdict": "If bonded channels fail, the ontology reading is that procedural legibility is constitutional, not attachable as a channel; this is metadata interpretation, not a decision verdict.",
+    "kill_FW3": "If P1-low and P1-high both fail H-P2 L1 parity recovery and J-N7b H-P3 directional, bonded envelope fails simpliciter.",
+    "mode": "prospective draft; not locked; no scientific run before author approval",
+    "outcome_branches": {
+      "FAIL": "Any required primary hypothesis fails; publish the vector as-is.",
+      "PASS": "H-P1, H-P2 L1, and H-P4 pass; H-P2 L2 and H-P5 are reported in the decision vector."
+    },
+    "question": "Does a proportional bonded declaration envelope make procedural declarations carry where the free envelope failed?",
+    "retention_interpretation": "Retention is informative in FW-3 because bonded/taxed declarations have real resource cost: RETAINED means revealed net benefit; DECAYED means revealed net cost, not mere drift.",
+    "seed_policy_rationale_guard_9": "Wave 5 J-N7 uses fresh 80-seed block 25000-25079, disjoint from prior 16000/17000/18000/19000/20000/21000/22000/23000/24000 blocks and from J-N7b 26000-26079.",
+    "status": "DRAFT_FOR_AUTHOR_REVIEW_NOT_LOCKED",
+    "trajectory_output_policy": "Large per-step outputs are written as .json.gz from the first committed result."
+  },
+  "threshold_change_rationale": {
+    "H_P1_margin": "0.12 follows published tolerance practice for nonconformance separation.",
+    "H_P2_margin": "0.2 is one published adversarial_pressure grid step; L2 extension requires a one-step ceiling gain.",
+    "H_P4_tolerance": "0.10 is the preregistered concentration tolerance: same scale as directional specificity and large enough to avoid treating small concentration movement as capture.",
+    "H_P5_retention": "0.50/0.10 retain the wave-4 RETAINED/DECAYED classification thresholds, now made informative by real bonded/taxed cost.",
+    "arms": "FW-3 compares free verified declarations, non-refundable trusted tax, and two verified bonded stake fractions against A0.",
+    "escrow_window": "k = containment_duration = 5; rationale: reuse of a published horizon, not a new tuned constant",
+    "seeds": "Wave 5 J-N7 owns fresh 80-seed block 25000-25079; J-N7b owns 26000-26079; prior gates used lower non-overlapping blocks."
+  },
+  "thresholds": {
+    "H_P1_bonded_separation": {
+      "F1_minus_P1_high_margin_min": 0.12,
+      "metric": "realized_nonconformance_rate(F1) - realized_nonconformance_rate(P1-high)",
+      "required_worlds_min": 2
+    },
+    "H_P2_domain": {
+      "L1_parity_recovery": "best pressure_ceiling(P1-low, P1-high) >= pressure_ceiling(A0) in all measured worlds",
+      "L2_extension": "best pressure_ceiling(P1-low, P1-high) >= pressure_ceiling(A0) + 0.2 in at least 2/3 worlds",
+      "L2_extension_margin_min": 0.2,
+      "L2_required_worlds_min": 2
+    },
+    "H_P4_concentration_guard": {
+      "capture_index_tolerance": 0.1,
+      "declared_resource_concentration_tolerance": 0.1,
+      "metric": "P1 capture_index and mean_declared_resource_concentration relative to A0",
+      "red_flag_if_fail": "bonded channel = channel of capture",
+      "wealth_retention_correlation_recorded": true
+    },
+    "H_P5_bonded_retention": {
+      "arms": [
+        "P0",
+        "P1-low",
+        "P1-high"
+      ],
+      "classification_not_pass_fail": true,
+      "decayed_max": 0.1,
+      "metric": "last_quarter_declared_share",
+      "middle_label": "INCONCLUSIVE",
+      "retained_min": 0.5
+    },
+    "P0_preregistered_readings": {
+      "P0_approx_P1": "price itself carries information; knife not load-bearing",
+      "P0_fails_but_P1_works": "contingency of confiscation is load-bearing; price alone is empty"
+    },
+    "adversarial_pressure_grid": [
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8
+    ],
+    "arms": [
+      "A0",
+      "F1",
+      "P0",
+      "P1-low",
+      "P1-high"
+    ],
+    "kill_FW3": "If P1-low and P1-high both fail H-P2 L1 parity recovery and J-N7b H-P3 directional, bonded envelope fails simpliciter.",
+    "mechanics": {
+      "P0_tax_fraction": 0.25,
+      "P1_high_stake_fraction": 0.4,
+      "P1_low_stake_fraction": 0.1,
+      "burned_resources_are_destroyed": true,
+      "escrow_window_k": 5,
+      "escrow_window_rationale": "reuse of a published horizon, not a new tuned constant"
+    },
+    "robust_cell_bar": {
+      "capture_index_lte_capture_threshold": true,
+      "collapse_ci_hi_max": 0.25,
+      "containment_cost_max": 0.35,
+      "cooperative_strategy_mass_min": 0.18,
+      "exploitative_strategy_mass_max": 0.4,
+      "false_containment_max": 0.2,
+      "permanence_ci_lo_min": 0.5,
+      "response_diversity_min": 0.35,
+      "welfare_min": 0.55
+    },
+    "seeds": [
+      25000,
+      25001,
+      25002,
+      25003,
+      25004,
+      25005,
+      25006,
+      25007,
+      25008,
+      25009,
+      25010,
+      25011,
+      25012,
+      25013,
+      25014,
+      25015,
+      25016,
+      25017,
+      25018,
+      25019,
+      25020,
+      25021,
+      25022,
+      25023,
+      25024,
+      25025,
+      25026,
+      25027,
+      25028,
+      25029,
+      25030,
+      25031,
+      25032,
+      25033,
+      25034,
+      25035,
+      25036,
+      25037,
+      25038,
+      25039,
+      25040,
+      25041,
+      25042,
+      25043,
+      25044,
+      25045,
+      25046,
+      25047,
+      25048,
+      25049,
+      25050,
+      25051,
+      25052,
+      25053,
+      25054,
+      25055,
+      25056,
+      25057,
+      25058,
+      25059,
+      25060,
+      25061,
+      25062,
+      25063,
+      25064,
+      25065,
+      25066,
+      25067,
+      25068,
+      25069,
+      25070,
+      25071,
+      25072,
+      25073,
+      25074,
+      25075,
+      25076,
+      25077,
+      25078,
+      25079
+    ],
+    "worlds": [
+      "W6_mutation_corridor",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe"
+    ]
+  }
+}
