@@ -16,6 +16,26 @@ plus `justitia_harnessed_replay_design.md`.
      will keep `gate_harness/`, published `results/`, and previous harnessed
      gate directories unchanged, with model changes limited to `model/artifacts.py`.
 
+2. Seeded artifact implementation and J-N6a equivalence.
+   - Looked for: whether FW-2b arms can be layered on the existing artifact
+     channel while leaving `artifact_channel=off` byte-equivalent.
+   - Found: J-N6a passed the locked engineering replay: 18 expected headline
+     rows, 18 actual rows, exact equality true, no mismatches;
+     `verify_decision` reported VALID.
+   - Assumption/action: committed seeded/forced arm support in
+     `model/artifacts.py`, kept `gate_harness/` unchanged, and recorded
+     J-N6/J-N6b adoption/stiffness trajectories as runner outputs for future
+     locked runs.
+
+3. J-N6/J-N6b prereg draft boundary.
+   - Looked for: how to express FW-2b without letting audit-only observables
+     become policy inputs.
+   - Found: referee-side conformance remains `(Obs + declaration)` only;
+     `counterfactual_nonconformance_rate`, `envelope_binding`, declaration
+     adoption, and stiffness trajectories are analysis-only outputs.
+   - Assumption/action: wrote `PREREG_DRAFT.json` files for author review only;
+     they are not locks and no J-N6/J-N6b scientific runs have been started.
+
 ## 2026-07-07 (wave 3)
 
 1. Wave-3 durable worktree and phase boundary.
