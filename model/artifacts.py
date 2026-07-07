@@ -164,7 +164,7 @@ def run_one(seed, params, axis="default", axis_value=0.0, axis_label="default", 
     model = ArtifactBoundaryModel(seed, params)
     out = model.run()
     containment_timer_activity = sum(z.containment_timer for z in model.zones)
-    return {
+    row = {
         "seed": seed,
         "cell": cell,
         "axis": axis,
@@ -176,8 +176,6 @@ def run_one(seed, params, axis="default", axis_value=0.0, axis_label="default", 
         "world": params.world,
         "policy15": params.policy15,
         "policy": params.policy,
-        "artifact_arm": params.artifact_arm,
-        "artifact_channel": params.artifact_channel,
         "delay": params.delay,
         "t_irrev": params.t_irrev,
         "R": params.t_irrev / max(1, params.delay),
@@ -192,6 +190,12 @@ def run_one(seed, params, axis="default", axis_value=0.0, axis_label="default", 
         "catastrophe_severity": params.catastrophe_severity,
         "action_channel_cost_scale": params.action_channel_cost_scale,
         "containment_timer_activity": containment_timer_activity,
-        **model.artifact_adoption_metrics(),
         **out,
     }
+    if getattr(params, "artifact_channel", "off") != "off":
+        row.update({
+            "artifact_arm": params.artifact_arm,
+            "artifact_channel": params.artifact_channel,
+            **model.artifact_adoption_metrics(),
+        })
+    return row
