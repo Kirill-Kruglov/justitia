@@ -1,0 +1,278 @@
+{
+  "gate": "J_N4_five_dial_isolation",
+  "metadata": {
+    "budget_estimate_runs": 7200,
+    "h_a_v_prop_risk_note": "The v_prop sign is a live preregistered bet. Faster spread may also make harm visible sooner to the referee; sign refutation is a finding, not a protocol error.",
+    "hypotheses": {
+      "H-A": "Monotonic directions by individual dial at the locked base configuration.",
+      "H-B": "t_obs and t_act enter only through T_response=t_obs+t_act within equal-sum tolerance.",
+      "H-C": "At fixed (v_prop, r_rec), verdict depends on (T_response, t_irrev) only through T_response/t_irrev within equal-ratio tolerance."
+    },
+    "metric": "Permanence-probability directionality, equal-response-sum spread, and equal-ratio spread.",
+    "mode": "prospective; outcome unknown at lock time; decision vector citable under ANY outcome",
+    "outcome_branches": {
+      "FAIL": "At least one H-A/H-B/H-C verdict fails under locked tolerances; publish the vector as-is.",
+      "INCONCLUSIVE": "Seed policy inadmissible or required locked cells missing.",
+      "PASS": "All H-A/H-B/H-C verdicts pass under locked tolerances."
+    },
+    "question": "Which five-dial speed-limit hypotheses survive isolated prospective testing?",
+    "source_quotes": [
+      {
+        "quote": "equal_r_permanence_tolerance: 0.12",
+        "source": "experiments/harnessed/J_N2_speed_limit/PREREG.json",
+        "thresholds": [
+          "h_a.monotonicity_tolerance",
+          "h_b.equal_sum_tolerance",
+          "h_c.equal_ratio_tolerance"
+        ]
+      },
+      {
+        "quote": "t_obs\u2191 worse, t_act\u2191 worse, v_prop\u2191 worse, t_irrev\u2191 better, r_rec\u2191 better; t_obs and t_act enter only by T_response; ratio sufficiency is tested separately.",
+        "source": "justitia_wave2_design.md:J-N4",
+        "thresholds": [
+          "h_a.expected_sign_table",
+          "h_b.equal_sum_groups",
+          "h_c.equal_ratio_groups"
+        ]
+      }
+    ],
+    "t_act_semantics": "t_act delays the whole intervention: allocation plus containment. For the first t_act steps, no allocation lands. Delayed allocation is applied with the observation available at execution step. This is a preregistered semantic choice.",
+    "v_prop_semantics": "v_prop is scheduling only, not magnitude scaling. It changes when already computed neighbor harm reaches neighboring zones; total queued harm magnitude is preserved. The locked grid is only in (0, 1] with distinguishable delays: 1.0 -> 0 steps, 0.5 -> 1 step, 0.33 -> 2 steps under max(0, ceil(1/v_prop)-1).",
+    "what_was_not_shown": "This is not an exhaustive continuous surface map; exploratory surfaces remain non-citable unless separately preregistered."
+  },
+  "threshold_change_rationale": {
+    "seeds": "fresh disjoint block 20000-20023; no reuse across gates"
+  },
+  "thresholds": {
+    "base_config": {
+      "r_rec": 1.0,
+      "t_act": 0,
+      "t_irrev": 8,
+      "t_obs": 2,
+      "v_prop": 1.0
+    },
+    "h_a": {
+      "dials": {
+        "r_rec": {
+          "expected_direction_along_order": "nondecreasing",
+          "ordered_values": [
+            0.8,
+            1.0,
+            1.2
+          ]
+        },
+        "t_act": {
+          "expected_direction_along_order": "nonincreasing",
+          "ordered_values": [
+            0,
+            1,
+            2,
+            4
+          ]
+        },
+        "t_irrev": {
+          "expected_direction_along_order": "nondecreasing",
+          "ordered_values": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        "t_obs": {
+          "expected_direction_along_order": "nonincreasing",
+          "ordered_values": [
+            1,
+            2,
+            4,
+            6
+          ]
+        },
+        "v_prop": {
+          "expected_direction_along_order": "nondecreasing",
+          "ordered_values": [
+            1.0,
+            0.5,
+            0.33
+          ]
+        }
+      },
+      "expected_sign_table": {
+        "r_rec": {
+          "expected_permanence_direction": "up_or_flat",
+          "increase_means": "better"
+        },
+        "t_act": {
+          "expected_permanence_direction": "down_or_flat",
+          "increase_means": "worse"
+        },
+        "t_irrev": {
+          "expected_permanence_direction": "up_or_flat",
+          "increase_means": "better"
+        },
+        "t_obs": {
+          "expected_permanence_direction": "down_or_flat",
+          "increase_means": "worse"
+        },
+        "v_prop": {
+          "expected_permanence_direction": "down_or_flat",
+          "grid_order_note": "The locked grid is traversed 1.0 -> 0.5 -> 0.33, so permanence is expected to improve along that listed order.",
+          "increase_means": "worse"
+        }
+      },
+      "monotonicity_tolerance": 0.12
+    },
+    "h_b": {
+      "equal_sum_groups": [
+        {
+          "name": "T_response=2",
+          "pairs": [
+            {
+              "t_act": 0,
+              "t_obs": 2
+            },
+            {
+              "t_act": 1,
+              "t_obs": 1
+            }
+          ]
+        },
+        {
+          "name": "T_response=4",
+          "pairs": [
+            {
+              "t_act": 0,
+              "t_obs": 4
+            },
+            {
+              "t_act": 1,
+              "t_obs": 3
+            },
+            {
+              "t_act": 2,
+              "t_obs": 2
+            },
+            {
+              "t_act": 3,
+              "t_obs": 1
+            }
+          ]
+        },
+        {
+          "name": "T_response=6",
+          "pairs": [
+            {
+              "t_act": 0,
+              "t_obs": 6
+            },
+            {
+              "t_act": 2,
+              "t_obs": 4
+            },
+            {
+              "t_act": 3,
+              "t_obs": 3
+            },
+            {
+              "t_act": 4,
+              "t_obs": 2
+            }
+          ]
+        }
+      ],
+      "equal_sum_tolerance": 0.12
+    },
+    "h_c": {
+      "canonical_split": "t_act=0 and t_obs=T_response for all H-C cells",
+      "equal_ratio_groups": [
+        {
+          "name": "T_over_t_irrev=0.25",
+          "pairs": [
+            {
+              "T_response": 1,
+              "t_irrev": 4
+            },
+            {
+              "T_response": 2,
+              "t_irrev": 8
+            },
+            {
+              "T_response": 3,
+              "t_irrev": 12
+            },
+            {
+              "T_response": 4,
+              "t_irrev": 16
+            }
+          ],
+          "ratio": 0.25
+        },
+        {
+          "name": "T_over_t_irrev=0.50",
+          "pairs": [
+            {
+              "T_response": 2,
+              "t_irrev": 4
+            },
+            {
+              "T_response": 4,
+              "t_irrev": 8
+            },
+            {
+              "T_response": 6,
+              "t_irrev": 12
+            },
+            {
+              "T_response": 8,
+              "t_irrev": 16
+            }
+          ],
+          "ratio": 0.5
+        }
+      ],
+      "equal_ratio_tolerance": 0.12,
+      "fixed_r_rec": [
+        0.8,
+        1.0,
+        1.2
+      ],
+      "fixed_v_prop": [
+        1.0,
+        0.5,
+        0.33
+      ]
+    },
+    "policy_variant": "C_full",
+    "seeds": [
+      20000,
+      20001,
+      20002,
+      20003,
+      20004,
+      20005,
+      20006,
+      20007,
+      20008,
+      20009,
+      20010,
+      20011,
+      20012,
+      20013,
+      20014,
+      20015,
+      20016,
+      20017,
+      20018,
+      20019,
+      20020,
+      20021,
+      20022,
+      20023
+    ],
+    "worlds": [
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W6_mutation_corridor"
+    ]
+  }
+}
