@@ -1,4 +1,5 @@
 {
+  "gate": "J_N8_predictive_referee",
   "metadata": {
     "arms": {
       "PD": "derived predictor learned from referee history",
