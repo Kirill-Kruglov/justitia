@@ -1,0 +1,146 @@
+{
+  "_harness_provenance": {
+    "evaluation_oracle_ran": true,
+    "harness_version": "53b59235a56aba8feeacf71df8d4691e9e3814309a0c37c35c1e22ee50cbcb9f",
+    "leakage_scan_verified": true,
+    "prereg_lock_verified": true,
+    "tautology_check_ran": true,
+    "written_by": "gate_harness.runner.run_gate"
+  },
+  "analysis": {
+    "H_C1_worlds": [],
+    "H_C2_a1_gain_worlds": [],
+    "H_C2_a2_gain_worlds": [],
+    "H_C3_worlds": [
+      "W6_mutation_corridor",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe"
+    ],
+    "decision": "FAIL",
+    "decision_vector": {
+      "H_C1_domain_extension": "FAIL",
+      "H_C2_knife_not_belief": "VACUOUS",
+      "H_C3_channel_cost": "PASS"
+    },
+    "pressure_ceilings": {
+      "W3_catastrophe_ambiguity": {
+        "A0": null,
+        "A1": null,
+        "A2": null
+      },
+      "W4_scavenger_catastrophe": {
+        "A0": null,
+        "A1": null,
+        "A2": null
+      },
+      "W6_mutation_corridor": {
+        "A0": 1.2,
+        "A1": 1.2,
+        "A2": 1.2
+      }
+    }
+  },
+  "classification_success_depends_on_harness_hint": false,
+  "construction_may_be_tautological": false,
+  "decision": "FAIL",
+  "decision_vector": {
+    "H_C1_domain_extension": "FAIL",
+    "H_C2_knife_not_belief": "VACUOUS",
+    "H_C3_channel_cost": "PASS"
+  },
+  "downstream_consequence": "PASS/FAIL/VACUOUS components feed W8 kill-condition jointly with J-N5b H-C4.",
+  "fact": "Referee-side conformance and policy functions were leakage-scanned; world-side declaration emission is not part of the referee path.",
+  "inference": "Only preregistered H-C decisions are citable; adoption dynamics are recorded observables, not hypothesis thresholds.",
+  "information_ratio": null,
+  "metric": "Pressure ceilings by arm, verification load-bearing status, and default-pressure channel cost.",
+  "mode": "prospective; outcome citable under any result",
+  "preregistered_thresholds": {
+    "H_C1_domain_extension": {
+      "margin_min": 0.2,
+      "metric": "pressure_ceiling(A2) - pressure_ceiling(A0)",
+      "required_worlds_min": 2
+    },
+    "H_C2_knife_not_belief": {
+      "interpretation_fail_condition": "If A1 is within <0.20 of A2 in at least 2 worlds, verification is not load-bearing even if A2 improves.",
+      "pass_condition": "A1 must not match A2: either pressure_ceiling(A2)-pressure_ceiling(A1) >= 0.20 in at least 2 worlds, or pressure_ceiling(A1) <= pressure_ceiling(A0) in at least 2 worlds.",
+      "vacuous_condition": "If neither A1 nor A2 has pressure_ceiling gain over A0 in any world, report H-C2 as VACUOUS, not PASS."
+    },
+    "H_C3_channel_cost_at_published_default": {
+      "containment_cost_increase_tolerance": 0.12,
+      "permanence_drop_tolerance": 0.12,
+      "pressure": 1.0,
+      "required_worlds_min": 3
+    },
+    "adversarial_pressure_grid": [
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8
+    ],
+    "arms": [
+      "A0",
+      "A1",
+      "A2"
+    ],
+    "kill_condition": "If H-C1 FAILS and J-N5b H-C4 FAILS, W8/corner is empty in this substrate.",
+    "robust_cell_bar": {
+      "capture_index_lte_capture_threshold": true,
+      "collapse_ci_hi_max": 0.25,
+      "containment_cost_max": 0.35,
+      "cooperative_strategy_mass_min": 0.18,
+      "exploitative_strategy_mass_max": 0.4,
+      "false_containment_max": 0.2,
+      "permanence_ci_lo_min": 0.5,
+      "response_diversity_min": 0.35,
+      "welfare_min": 0.55
+    },
+    "seeds": [
+      21000,
+      21001,
+      21002,
+      21003,
+      21004,
+      21005,
+      21006,
+      21007,
+      21008,
+      21009,
+      21010,
+      21011,
+      21012,
+      21013,
+      21014,
+      21015,
+      21016,
+      21017,
+      21018,
+      21019,
+      21020,
+      21021,
+      21022,
+      21023
+    ],
+    "worlds": [
+      "W6_mutation_corridor",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe"
+    ]
+  },
+  "question": "Do verified procedural artifacts extend the blind governance domain over published adversarial-pressure boundaries without turning into trust in declarations?",
+  "seed_policy": {
+    "admissible": true,
+    "min_seeds_for_core": 20,
+    "per_metric": {
+      "J_N5_corner_artifacts": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 24,
+        "verdict": "PASS"
+      }
+    }
+  },
+  "what_was_not_shown": "This does not show that declarations are semantically honest beyond the observable conformance envelope."
+}
