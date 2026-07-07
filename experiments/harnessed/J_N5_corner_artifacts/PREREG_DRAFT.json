@@ -44,6 +44,11 @@
       }
     },
     "mode": "prospective; outcome citable under any result",
+    "outcome_branches": {
+      "FAIL": "At least one required hypothesis fails under its preregistered threshold; publish the failure vector as-is.",
+      "PASS": "H-C1, H-C2, and H-C3 pass; artifact verification extends the domain and the knife is load-bearing under the preregistered interpretation.",
+      "VACUOUS_H_C2": "If neither A1 nor A2 shows any pressure-ceiling gain over A0 in any world, H-C2 is reported VACUOUS rather than PASS: the load-bearing role of verification received no data."
+    },
     "pressure_ceiling_definition": "For each world/arm, ceiling is the highest adversarial_pressure grid point whose aggregated cell meets the published robust-cell viability bar.",
     "question": "Do verified procedural artifacts extend the blind governance domain over published adversarial-pressure boundaries without turning into trust in declarations?",
     "seed_policy_rationale_guard_9": "W8 uses fresh non-overlapping seed blocks: J-N5 owns 21000-21023 and J-N5b owns 22000-22023; earlier harnessed gates used 16000/17000/18000/19000/20000 blocks.",
@@ -63,7 +68,8 @@
     },
     "H_C2_knife_not_belief": {
       "interpretation_fail_condition": "If A1 is within <0.20 of A2 in at least 2 worlds, verification is not load-bearing even if A2 improves.",
-      "pass_condition": "A1 must not match A2: either pressure_ceiling(A2)-pressure_ceiling(A1) >= 0.20 in at least 2 worlds, or pressure_ceiling(A1) <= pressure_ceiling(A0) in at least 2 worlds."
+      "pass_condition": "A1 must not match A2: either pressure_ceiling(A2)-pressure_ceiling(A1) >= 0.20 in at least 2 worlds, or pressure_ceiling(A1) <= pressure_ceiling(A0) in at least 2 worlds.",
+      "vacuous_condition": "If neither A1 nor A2 has pressure_ceiling gain over A0 in any world, report H-C2 as VACUOUS, not PASS."
     },
     "H_C3_channel_cost_at_published_default": {
       "containment_cost_increase_tolerance": 0.12,
