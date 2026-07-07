@@ -1,7 +1,7 @@
 {
   "gate": "J_N6_seeded_adoption",
   "metadata": {
-    "arms_preliminary_until_author_approval": {
+    "arms_author_approved": {
       "A0": "published C_full baseline; artifact_channel off",
       "A1s": "trusted seeded arm: propensity starts 1.0 and evolves; stiffness starts 0.50 and evolves; no verification",
       "A2f": "primary forced arm: every zone emits; verified fail-closed conformance; stiffness fixed at 0.50 and non-evolvable",
@@ -63,6 +63,7 @@
       "H_S1_FAIL_H_S4_PASS": "No boundary extension in the three-world grid, but W7 specificity improvement remains a local finding; not kill simpliciter.",
       "H_S1_PASS_H_S4_FAIL": "Boundary extension exists, but W7 specificity remains unresolved; not kill simpliciter.",
       "H_S1_PASS_H_S4_PASS": "FW-2b has a forced seeded carrier in boundary worlds and W7 specificity revenge.",
+      "H_S2_CREDIT_BRANCH": "If A1s ceiling ~= A2s ceiling while counterfactual_nonconformance_rate(A1s) grows and exceeds realized_nonconformance_rate(A2s) by the H-S2 margin, the preregistered reading is: trust performs on credit within this horizon - the defect is accruing but has not yet been called; the knife is what prevents the credit from being called at a worse time. This is an interpretation branch, not a hypothesis verdict.",
       "H_S2_VACUOUS": "Trusted seeded comparison received no adoption-bearing data under the preregistered adoption floor; report VACUOUS, not PASS.",
       "H_S3_RETAINED_DECAYED_INCONCLUSIVE": "A2s adoption retention is a three-valued classification, not a PASS/FAIL gate."
     },
@@ -76,10 +77,11 @@
     "pressure_ceiling_definition": "For each world/arm, ceiling is the highest adversarial_pressure grid point whose aggregated cell meets the published robust-cell viability bar.",
     "question": "Does seeded or forced procedural declaration adoption make the artifact channel carry under published boundary pressure without trusting declarations as belief?",
     "seed_policy_rationale_guard_9": "Wave 4 J-N6 uses fresh 80-seed block 23000-23079, disjoint from prior 16000/17000/18000/19000/20000/21000/22000 blocks and from J-N6b 24000-24079.",
-    "status": "DRAFT_FOR_AUTHOR_REVIEW_NOT_LOCKED"
+    "status": "DRAFT_FOR_LOCK_REVIEW_APPROVED_NOT_LOCKED",
+    "what_was_not_shown": "80 steps is a limited horizon for the evolution of deception; equality of pressure ceilings over this horizon is not evidence that trusted declarations are safe."
   },
   "threshold_change_rationale": {
-    "arms": "FW-2b tests forced seeded verified, seeded verified, and trusted seeded arms against the off baseline; A1s inclusion remains preliminary until author approval.",
+    "arms": "FW-2b author-approved four-arm composition tests forced seeded verified, seeded verified, and trusted seeded arms against the off baseline: A0/A2f/A2s/A1s.",
     "counterfactual_nonconformance_margin": "0.12 follows published tolerance practice as the minimum audit-only separation large enough to treat trusted seeded nonconformance as meaningfully higher than realized verified nonconformance.",
     "pressure_ceiling_margin": "0.2 is one published adversarial_pressure grid step; H-S1 requires a one-step ceiling gain to avoid sub-grid interpretation.",
     "retention_thresholds": "0.50 and 0.10 define retained versus decayed adoption on last-quarter declared share; middle values are explicitly INCONCLUSIVE rather than forced into PASS/FAIL.",
