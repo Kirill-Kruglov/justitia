@@ -17,6 +17,30 @@ plus `justitia_harnessed_replay_design.md`.
      `model/artifacts.py`, with `gate_harness/`, published `results/`, and
      previous `experiments/harnessed/` wave directories unchanged.
 
+2. Bonded artifact implementation and J-N7a equivalence.
+   - Looked for: whether FW-3 rolling escrow and declaration-tax mechanics can
+     be layered on the existing artifact channel while leaving
+     `artifact_channel=off` byte-equivalent.
+   - Found: J-N7a passed the locked engineering replay: 18 expected headline
+     rows, 18 actual rows, exact equality true, no mismatches;
+     `verify_decision` reported VALID.
+   - Assumption/action: committed bonded mechanics only in `model/artifacts.py`.
+     `P0` is a non-refundable 0.25 declaration tax burned immediately; `P1-low`
+     and `P1-high` use proportional rolling escrow, burn all outstanding stake
+     on nonconformance, and redistribute nothing. The stake-state observable is
+     public zone collateral balance, not strategy state.
+
+3. J-N7/J-N7b prereg draft boundary.
+   - Looked for: how to express FW-3 without letting the bond become a hidden
+     truth channel or a beneficiary-bearing punishment.
+   - Found: referee-side conformance, policy, stake settlement, tax burn, and
+     stake burn can be expressed as `(Obs + declaration + public stake-state)`;
+     burned resources leave the world as deflation. `k = containment_duration = 5`
+     is recorded as reuse of a published horizon, not a tuned constant.
+   - Assumption/action: wrote executable J-N7/J-N7b runners and
+     `PREREG_DRAFT.json` files for author review only; they are not locks and
+     no J-N7/J-N7b scientific runs have been started.
+
 ## 2026-07-07 (wave 4)
 
 1. Wave-4 durable worktree and phase boundary.
