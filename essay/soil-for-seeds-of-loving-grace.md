@@ -136,6 +136,8 @@ Not perfection. Not paradise. Just stability. And the distinction matters, becau
 
 But the little worlds were just as clear about the other half. Some soils cannot be saved by any blind referee. A world already captured, a world that has already collapsed into monoculture, a world where the adversary can push past the speed of observation — in those, blindness is not enough, and no cleverness in the judge recovers it. The mechanism has a domain. Inside it, blind governance holds. Outside it, the problem is not the referee at all; it is the ground.
 
+*Update (July 2026): a held-out world built after the study — capture seeping in under recurring, ambiguous catastrophes — later revealed a softer edge of that domain. The mechanism kept the world alive, but only by over-policing it: more than half of its containment fell on zones whose harm came from catastrophe, not exploitation. Survival held; precision frayed. See Revisions.*
+
 That is the whole finding, and it cuts both ways on purpose. There exists a blind mechanism that keeps a hard, evolving, exploit-ridden world both alive and shared — which is more than I expected to find. And it works only where the soil permits — which is more sobering than I hoped. The good news and the limit are the same sentence: whether a world of powerful, optimizing agents stays a heaven rather than a hell for the powerless is decided less by the wisdom of any single intelligence inside it than by the structure of the world they all share.
 
 If that is true, then Loving Grace is not only a property of the machine. It is a property of the soil. And the lesson I would carry out of these small worlds is this: before we ask whether we can grow the seeds, it is worth asking what ground we mean to plant them in — and whether that ground is one where any seed, however good, could survive what grows beside it.
@@ -196,6 +198,8 @@ I owe the reader the status of that claim: it is an interpretation, not an isola
 
 *Update (July 2026).* The first, partial form of that experiment has run — [preregistered](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N2_speed_limit), on the two dials the substrate already had (observation delay and irreversibility time), with fresh seeds and the kill-condition fixed before the run. The verdict is split, and the split is the finding. Permanence is monotone in the ratio R = delay/t_irrev — not one violation across three worlds — so the *direction* of the speed-limit reading survives. But configurations with the *same* ratio diverged by up to 0.42 permanence against a preregistered 0.12 tolerance: the ratio alone does not determine the boundary; absolute timescales matter, not just their proportion. Only the mutation corridor behaved ratio-like. The simple dimensionless-ratio speed limit — the version one paragraph above hoped for — is dead under this protocol, and I report its death the way this project reports everything else. The full five-dial isolation remains open.
 
+*Update (July 2026, second wave).* It is open no longer. The [five-dial isolation](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N4_five_dial_isolation) has run — observation lag, action lag, harm-propagation speed, irreversibility horizon, and recovery rate, each varied independently, on a substrate extension first [proven byte-identical](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N4a_equivalence) to the published model at neutral settings. It killed every scalar compression I had left. Configurations with equal total response time diverge — an observation lag is not an action lag; *where* the delay sits in the observe-decide-act loop matters. The conditional ratio fails in thirty-nine preregistered groups. And two dials are not even monotone: slowing harm propagation below half speed made worlds *worse*, and in one corner more action delay briefly helped. The reading I take from the wreckage — offered as interpretation, not measurement: what a blind referee lives on is not time in general but the *legibility of consequences*. Harm that travels is harm that can be seen; harm that lingers locally, or arrives wearing a catastrophe's face (see the held-out world in Revisions), starves the mechanism exactly when it matters. The boundary of blind governance is multi-dimensional, and it is priced in legible consequence.
+
 ## Catastrophes, monoculture, mutation — read together
 
 These three were separate stressors in the study, but they tell one connected story about diversity. A caveat before I tell it: this section is a *reading* of the results above, not a separate measurement — and diversity is doubly entangled here, because keeping some adaptive variety was part of how I *defined* a healthy world in the first place. So treat what follows as interpretation, with that circularity named out loud.
@@ -248,6 +252,27 @@ runs. All three decisions are provenance-signed and independently
   R = delay/t_irrev, but equal-R configurations diverge far beyond the
   preregistered tolerance; absolute timescales matter
   ([J-N2](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N2_speed_limit)).
+
+**July 7, 2026 — second wave through the knife.** Three more gates, all
+harness-signed; two prospective, one engineering.
+
+- *Bounded:* on a held-out world designed and locked after the study — delayed
+  capture under recurring ambiguous catastrophes — the mechanism kept the world
+  alive (permanence 0.79, every viability bar cleared) and failed the published
+  robustness criterion on **specificity alone**: false containment 0.52 against
+  the 0.20 ceiling. When catastrophe mimics exploitation, the sword cannot tell
+  them apart; the world survives, over-policed
+  ([J-N3](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N3_heldout_W7)).
+- *Confirmed (engineering):* the five-dial substrate extension reproduces the
+  committed headline results exactly at neutral settings — 18 of 18 cells
+  ([J-N4a](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N4a_equivalence)).
+- *Killed:* every remaining scalar compression of the speed-limit reading.
+  Equal response-time symmetry fails (an observation lag is not an action lag);
+  the conditional ratio fails in 39 preregistered groups; per-dial monotonicity
+  fails for propagation speed and action lag. What survives is the original
+  direction — and a suspicion, filed as interpretation: the mechanism's true
+  resource is the legibility of consequences
+  ([J-N4](https://github.com/Kirill-Kruglov/justitia/tree/main/experiments/harnessed/J_N4_five_dial_isolation)).
 
 ---
 

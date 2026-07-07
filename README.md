@@ -131,9 +131,9 @@ checks only.
 The study was re-run under [fallacy-cutter](https://github.com/Kirill-Kruglov/fallacy-cutter)'s
 fail-closed harness — two-phase preregistration locked in git before each run,
 an AST leakage scan of the policy path, seed policy, and provenance-signed
-decisions that an independent verifier checks. Two genuinely prospective
-experiments ran alongside the replay, with kill-conditions fixed before the
-runs, citable under any outcome. The gates live in
+decisions that an independent verifier checks. Genuinely prospective
+experiments ran alongside and after the replay, with kill-conditions fixed
+before the runs, citable under any outcome. The gates live in
 [`experiments/harnessed/`](experiments/harnessed/):
 
 | gate | mode | outcome |
@@ -141,12 +141,15 @@ runs, citable under any outcome. The gates live in
 | [J-G1 headline replay](experiments/harnessed/J_G1_headline_replay/) | confirmatory replay of published thresholds | **PASS** — 22/22 frozen expectations; robust-kernel permanence reproduced exactly (0.8625 / 0.7125 / 1.0) |
 | [J-N1 adversary battery](experiments/harnessed/J_N1_adversary_battery/) | prospective | **FAIL** (= a finding): simple classifiers identify exploitative zones from the referee's own delayed observations at up to 0.994 held-out balanced accuracy — the observables carry the information; the working policy just never reads it |
 | [J-N2 speed limit](experiments/harnessed/J_N2_speed_limit/) | prospective, partial isolation | **FAIL** (= the preregistered kill firing): permanence is monotone in R = delay/t_irrev with zero violations, but equal-R configurations diverge by up to 0.417 against a 0.12 tolerance — the simple ratio account is dead |
+| [J-N3 held-out world W7](experiments/harnessed/J_N3_heldout_W7/) | prospective, held-out world (designed & locked before any run) | **FAIL** (= a boundary finding): the mechanism keeps W7 alive — permanence 0.792, every viability bar cleared — and fails on specificity alone: false containment 0.520 vs the 0.20 ceiling; when catastrophe mimics exploitation, the sword loses precision |
+| [J-N4a equivalence](experiments/harnessed/J_N4a_equivalence/) | engineering gate for the substrate extension | **PASS** — with the three new dials at neutral defaults, 18/18 committed headline cells reproduce exactly (no extra RNG draws on the default path) |
+| [J-N4 five-dial isolation](experiments/harnessed/J_N4_five_dial_isolation/) | prospective | **FAIL** on all three preregistered hypotheses: equal response-time symmetry breaks (observation lag ≠ action lag), the conditional ratio fails in 39 groups, and even per-dial monotonicity fails — slowing harm propagation can make worlds worse |
 
 Honesty notes, stated in each preregistration: the replay is *not* independent
 replication (same forge, same hands) and does not make the original study
 discovery-preregistered — it verifies reproducibility, blindness, seed
-sufficiency, and non-tautology of the contrast. The two FAIL outcomes are
-published exactly as the kill-conditions defined them; the essay's
+sufficiency, and non-tautology of the contrast. Every FAIL outcome is
+published exactly as its kill-conditions defined it; the essay's
 [Revisions](https://kirill-kruglov.github.io/justitia/#revisions) section
 records what each one changed. Verify everything yourself:
 
