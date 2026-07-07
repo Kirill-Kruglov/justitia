@@ -1,0 +1,241 @@
+{
+  "_harness_provenance": {
+    "evaluation_oracle_ran": true,
+    "harness_version": "53b59235a56aba8feeacf71df8d4691e9e3814309a0c37c35c1e22ee50cbcb9f",
+    "leakage_scan_verified": true,
+    "prereg_lock_verified": true,
+    "tautology_check_ran": true,
+    "written_by": "gate_harness.runner.run_gate"
+  },
+  "analysis": {
+    "A1s_midpoint_declared_share": 0.9957640714109195,
+    "H_S1_worlds": [],
+    "H_S2_A1s_no_more_than_one_step_worlds": [],
+    "H_S2_counterfactual_worlds": [
+      "W6_mutation_corridor"
+    ],
+    "H_S3": {
+      "aggregate_last_quarter_declared_share": 0.9949070757917915,
+      "by_world": {
+        "W3_catastrophe_ambiguity": {
+          "classification": "RETAINED",
+          "last_quarter_declared_share": 0.9932695008708092
+        },
+        "W4_scavenger_catastrophe": {
+          "classification": "RETAINED",
+          "last_quarter_declared_share": 0.9956715048047184
+        },
+        "W6_mutation_corridor": {
+          "classification": "RETAINED",
+          "last_quarter_declared_share": 0.995780221699847
+        }
+      },
+      "classification": "RETAINED"
+    },
+    "decision": "FAIL",
+    "decision_vector": {
+      "H_S1_forced_seeded_extension": "FAIL",
+      "H_S2_trusted_seeded_counterfactual": "FAIL",
+      "H_S3_seeded_retention_classification": "RETAINED"
+    },
+    "hollow_envelope_flags": [],
+    "pressure_ceilings": {
+      "W3_catastrophe_ambiguity": {
+        "A0": null,
+        "A1s": null,
+        "A2f": null,
+        "A2s": null
+      },
+      "W4_scavenger_catastrophe": {
+        "A0": null,
+        "A1s": null,
+        "A2f": null,
+        "A2s": null
+      },
+      "W6_mutation_corridor": {
+        "A0": 1.2,
+        "A1s": null,
+        "A2f": 1.0,
+        "A2s": 1.0
+      }
+    }
+  },
+  "classification_success_depends_on_harness_hint": false,
+  "construction_may_be_tautological": false,
+  "decision": "FAIL",
+  "decision_vector": {
+    "H_S1_forced_seeded_extension": "FAIL",
+    "H_S2_trusted_seeded_counterfactual": "FAIL",
+    "H_S3_seeded_retention_classification": "RETAINED"
+  },
+  "downstream_consequence": "H-S1 combines with J-N6b H-S4 for the FW-2b kill simpliciter; H-S3 is a classification, not PASS/FAIL.",
+  "fact": "Referee-side conformance and policy functions were leakage-scanned; world-side declaration emission is not part of the referee path.",
+  "inference": "Audit-only nonconformance and envelope-binding metrics are recorded after runs and are not inputs to containment policy.",
+  "information_ratio": null,
+  "metric": "Pressure ceilings, seeded adoption retention, and audit-only nonconformance measures.",
+  "mode": "prospective; outcome citable under any result",
+  "preregistered_thresholds": {
+    "H_S1_forced_seeded_extension": {
+      "margin_min": 0.2,
+      "metric": "pressure_ceiling(A2f) - pressure_ceiling(A0)",
+      "primary_arm": "A2f",
+      "required_worlds_min": 2
+    },
+    "H_S2_trusted_seeded_counterfactual": {
+      "A1s_ceiling_over_A0_max": 0.2,
+      "counterfactual_minus_realized_margin_min": 0.12,
+      "metric": "counterfactual_nonconformance_rate(A1s) - realized_nonconformance_rate(A2s)",
+      "required_worlds_min": 2,
+      "trusted_arm": "A1s",
+      "vacuous_branch": "Report H-S2 as VACUOUS, not PASS, if the A1s midpoint declared-share observable is below 0.1.",
+      "vacuous_if_A1s_midpoint_declared_share_below": 0.1,
+      "verified_seeded_arm": "A2s"
+    },
+    "H_S3_seeded_retention_classification": {
+      "arm": "A2s",
+      "classification_not_pass_fail": true,
+      "decayed_max": 0.1,
+      "metric": "last_quarter_declared_share(A2s)",
+      "middle_label": "INCONCLUSIVE",
+      "retained_min": 0.5
+    },
+    "adversarial_pressure_grid": [
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8
+    ],
+    "arms": [
+      "A0",
+      "A2f",
+      "A2s",
+      "A1s"
+    ],
+    "kill_simpliciter": "A2f fails H-S1 and J-N6b H-S4.",
+    "robust_cell_bar": {
+      "capture_index_lte_capture_threshold": true,
+      "collapse_ci_hi_max": 0.25,
+      "containment_cost_max": 0.35,
+      "cooperative_strategy_mass_min": 0.18,
+      "exploitative_strategy_mass_max": 0.4,
+      "false_containment_max": 0.2,
+      "permanence_ci_lo_min": 0.5,
+      "response_diversity_min": 0.35,
+      "welfare_min": 0.55
+    },
+    "seeds": [
+      23000,
+      23001,
+      23002,
+      23003,
+      23004,
+      23005,
+      23006,
+      23007,
+      23008,
+      23009,
+      23010,
+      23011,
+      23012,
+      23013,
+      23014,
+      23015,
+      23016,
+      23017,
+      23018,
+      23019,
+      23020,
+      23021,
+      23022,
+      23023,
+      23024,
+      23025,
+      23026,
+      23027,
+      23028,
+      23029,
+      23030,
+      23031,
+      23032,
+      23033,
+      23034,
+      23035,
+      23036,
+      23037,
+      23038,
+      23039,
+      23040,
+      23041,
+      23042,
+      23043,
+      23044,
+      23045,
+      23046,
+      23047,
+      23048,
+      23049,
+      23050,
+      23051,
+      23052,
+      23053,
+      23054,
+      23055,
+      23056,
+      23057,
+      23058,
+      23059,
+      23060,
+      23061,
+      23062,
+      23063,
+      23064,
+      23065,
+      23066,
+      23067,
+      23068,
+      23069,
+      23070,
+      23071,
+      23072,
+      23073,
+      23074,
+      23075,
+      23076,
+      23077,
+      23078,
+      23079
+    ],
+    "vacuity_guard_hollow_envelopes": {
+      "arms": [
+        "A2s",
+        "A1s"
+      ],
+      "condition": "envelope_binding <= 0.02 and exploitative_strategy_mass - A0_exploitative_strategy_mass >= 0.12 in the same world/pressure cell",
+      "envelope_binding_max": 0.02,
+      "exploit_mass_growth_over_A0_min": 0.12,
+      "recorded_observable_only": true
+    },
+    "worlds": [
+      "W6_mutation_corridor",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe"
+    ]
+  },
+  "question": "Does seeded or forced procedural declaration adoption make the artifact channel carry under published boundary pressure without trusting declarations as belief?",
+  "seed_policy": {
+    "admissible": true,
+    "min_seeds_for_core": 20,
+    "per_metric": {
+      "J_N6_seeded_adoption": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 80,
+        "verdict": "PASS"
+      }
+    }
+  },
+  "what_was_not_shown": "This does not prove semantic honesty beyond the observable declaration envelope."
+}

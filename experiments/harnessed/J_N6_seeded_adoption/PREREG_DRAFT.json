@@ -1,0 +1,241 @@
+{
+  "gate": "J_N6_seeded_adoption",
+  "metadata": {
+    "arms_author_approved": {
+      "A0": "published C_full baseline; artifact_channel off",
+      "A1s": "trusted seeded arm: propensity starts 1.0 and evolves; stiffness starts 0.50 and evolves; no verification",
+      "A2f": "primary forced arm: every zone emits; verified fail-closed conformance; stiffness fixed at 0.50 and non-evolvable",
+      "A2s": "seeded verified arm: propensity starts 1.0 and evolves; stiffness starts 0.50 and evolves"
+    },
+    "artifact_channel_registry": {
+      "audit_only_metrics": {
+        "description": "Recorded after model steps for analysis only; containment policy and conformance do not read these fields.",
+        "fields": [
+          "declared_mass_by_step",
+          "stiffness_by_step",
+          "binding_events_by_step",
+          "counterfactual_nonconformance_rate",
+          "realized_nonconformance_rate",
+          "envelope_binding"
+        ]
+      },
+      "referee_side_verification_and_policy": {
+        "audit_only_field_rule": "Audit-only metrics may not be referenced in policy or verification code. Policy softening is conditioned only on declared && conforms.",
+        "description": "Conformance and C_full_artifacts policy read only existing Obs fields plus declarations; they are included in the same leakage scan as earlier gates.",
+        "forbidden_names": [
+          "extraction_rate",
+          "aid_interception_rate",
+          "neighbor_harm_rate",
+          "deception_investment",
+          "migration_follow_rate",
+          "replication_aggressiveness",
+          "cooperation_investment",
+          "shock_resilience_contribution",
+          "productive_contribution",
+          "exploitative_label",
+          "lineages",
+          "strategy",
+          "hidden_type",
+          "_exploit_score",
+          "exploit_score"
+        ],
+        "scanned_functions": [
+          "artifacts.ArtifactBoundaryModel.choose_alloc",
+          "artifacts.ArtifactBoundaryModel._artifact_bad_consequence",
+          "artifacts.artifact_conforms"
+        ]
+      },
+      "world_side_emission": {
+        "description": "Declaration emission is agent/world behavior, analogous to extraction or migration; it may read declaration strategy fields and is not part of the referee leakage scan.",
+        "evolvable_fields": [
+          "declaration_propensity",
+          "declaration_envelope_stiffness"
+        ],
+        "initial_conditions": {
+          "A1s": "declaration_propensity starts at 1.0 and remains evolvable; declaration_envelope_stiffness starts at 0.50 and remains evolvable.",
+          "A2f": "emission mandatory in every zone; declaration_envelope_stiffness fixed at 0.50 and excluded from mutation in this arm only; propensity is ignored by emission.",
+          "A2s": "declaration_propensity starts at 1.0 and remains evolvable; declaration_envelope_stiffness starts at 0.50 and remains evolvable."
+        }
+      }
+    },
+    "interpretation_matrix": {
+      "H_S1_FAIL_H_S4_FAIL": "Kill simpliciter: A2f fails both primary extension and W7 specificity revenge.",
+      "H_S1_FAIL_H_S4_PASS": "No boundary extension in the three-world grid, but W7 specificity improvement remains a local finding; not kill simpliciter.",
+      "H_S1_PASS_H_S4_FAIL": "Boundary extension exists, but W7 specificity remains unresolved; not kill simpliciter.",
+      "H_S1_PASS_H_S4_PASS": "FW-2b has a forced seeded carrier in boundary worlds and W7 specificity revenge.",
+      "H_S2_CREDIT_BRANCH": "If A1s ceiling ~= A2s ceiling while counterfactual_nonconformance_rate(A1s) grows and exceeds realized_nonconformance_rate(A2s) by the H-S2 margin, the preregistered reading is: trust performs on credit within this horizon - the defect is accruing but has not yet been called; the knife is what prevents the credit from being called at a worse time. This is an interpretation branch, not a hypothesis verdict.",
+      "H_S2_VACUOUS": "Trusted seeded comparison received no adoption-bearing data under the preregistered adoption floor; report VACUOUS, not PASS.",
+      "H_S3_RETAINED_DECAYED_INCONCLUSIVE": "A2s adoption retention is a three-valued classification, not a PASS/FAIL gate."
+    },
+    "kill_simpliciter": "A2f fails H-S1 and J-N6b H-S4.",
+    "mode": "prospective draft; not locked; no scientific run before author approval",
+    "outcome_branches": {
+      "FAIL": "H-S1 fails or H-S2 fails under locked thresholds; publish the vector as-is.",
+      "PASS": "H-S1 passes and H-S2 passes; H-S3 is reported separately as RETAINED/DECAYED/INCONCLUSIVE.",
+      "VACUOUS_H_S2": "If A1s adoption falls below the locked midpoint floor, H-S2 is VACUOUS rather than PASS."
+    },
+    "pressure_ceiling_definition": "For each world/arm, ceiling is the highest adversarial_pressure grid point whose aggregated cell meets the published robust-cell viability bar.",
+    "question": "Does seeded or forced procedural declaration adoption make the artifact channel carry under published boundary pressure without trusting declarations as belief?",
+    "seed_policy_rationale_guard_9": "Wave 4 J-N6 uses fresh 80-seed block 23000-23079, disjoint from prior 16000/17000/18000/19000/20000/21000/22000 blocks and from J-N6b 24000-24079.",
+    "status": "DRAFT_FOR_LOCK_REVIEW_APPROVED_NOT_LOCKED",
+    "what_was_not_shown": "80 steps is a limited horizon for the evolution of deception; equality of pressure ceilings over this horizon is not evidence that trusted declarations are safe."
+  },
+  "threshold_change_rationale": {
+    "arms": "FW-2b author-approved four-arm composition tests forced seeded verified, seeded verified, and trusted seeded arms against the off baseline: A0/A2f/A2s/A1s.",
+    "counterfactual_nonconformance_margin": "0.12 follows published tolerance practice as the minimum audit-only separation large enough to treat trusted seeded nonconformance as meaningfully higher than realized verified nonconformance.",
+    "pressure_ceiling_margin": "0.2 is one published adversarial_pressure grid step; H-S1 requires a one-step ceiling gain to avoid sub-grid interpretation.",
+    "retention_thresholds": "0.50 and 0.10 define retained versus decayed adoption on last-quarter declared share; middle values are explicitly INCONCLUSIVE rather than forced into PASS/FAIL.",
+    "seeds": "Wave 4 J-N6 owns fresh 80-seed block 23000-23079; J-N6b owns 24000-24079; prior gates used 16000/17000/18000/19000/20000/21000/22000 blocks.",
+    "vacuity_guard": "Envelope-binding near zero is preregistered as <=0.02; exploit-mass growth uses 0.12 to match published tolerance scale. This is recorded only, not a policy condition."
+  },
+  "thresholds": {
+    "H_S1_forced_seeded_extension": {
+      "margin_min": 0.2,
+      "metric": "pressure_ceiling(A2f) - pressure_ceiling(A0)",
+      "primary_arm": "A2f",
+      "required_worlds_min": 2
+    },
+    "H_S2_trusted_seeded_counterfactual": {
+      "A1s_ceiling_over_A0_max": 0.2,
+      "counterfactual_minus_realized_margin_min": 0.12,
+      "metric": "counterfactual_nonconformance_rate(A1s) - realized_nonconformance_rate(A2s)",
+      "required_worlds_min": 2,
+      "trusted_arm": "A1s",
+      "vacuous_branch": "Report H-S2 as VACUOUS, not PASS, if the A1s midpoint declared-share observable is below 0.1.",
+      "vacuous_if_A1s_midpoint_declared_share_below": 0.1,
+      "verified_seeded_arm": "A2s"
+    },
+    "H_S3_seeded_retention_classification": {
+      "arm": "A2s",
+      "classification_not_pass_fail": true,
+      "decayed_max": 0.1,
+      "metric": "last_quarter_declared_share(A2s)",
+      "middle_label": "INCONCLUSIVE",
+      "retained_min": 0.5
+    },
+    "adversarial_pressure_grid": [
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8
+    ],
+    "arms": [
+      "A0",
+      "A2f",
+      "A2s",
+      "A1s"
+    ],
+    "kill_simpliciter": "A2f fails H-S1 and J-N6b H-S4.",
+    "robust_cell_bar": {
+      "capture_index_lte_capture_threshold": true,
+      "collapse_ci_hi_max": 0.25,
+      "containment_cost_max": 0.35,
+      "cooperative_strategy_mass_min": 0.18,
+      "exploitative_strategy_mass_max": 0.4,
+      "false_containment_max": 0.2,
+      "permanence_ci_lo_min": 0.5,
+      "response_diversity_min": 0.35,
+      "welfare_min": 0.55
+    },
+    "seeds": [
+      23000,
+      23001,
+      23002,
+      23003,
+      23004,
+      23005,
+      23006,
+      23007,
+      23008,
+      23009,
+      23010,
+      23011,
+      23012,
+      23013,
+      23014,
+      23015,
+      23016,
+      23017,
+      23018,
+      23019,
+      23020,
+      23021,
+      23022,
+      23023,
+      23024,
+      23025,
+      23026,
+      23027,
+      23028,
+      23029,
+      23030,
+      23031,
+      23032,
+      23033,
+      23034,
+      23035,
+      23036,
+      23037,
+      23038,
+      23039,
+      23040,
+      23041,
+      23042,
+      23043,
+      23044,
+      23045,
+      23046,
+      23047,
+      23048,
+      23049,
+      23050,
+      23051,
+      23052,
+      23053,
+      23054,
+      23055,
+      23056,
+      23057,
+      23058,
+      23059,
+      23060,
+      23061,
+      23062,
+      23063,
+      23064,
+      23065,
+      23066,
+      23067,
+      23068,
+      23069,
+      23070,
+      23071,
+      23072,
+      23073,
+      23074,
+      23075,
+      23076,
+      23077,
+      23078,
+      23079
+    ],
+    "vacuity_guard_hollow_envelopes": {
+      "arms": [
+        "A2s",
+        "A1s"
+      ],
+      "condition": "envelope_binding <= 0.02 and exploitative_strategy_mass - A0_exploitative_strategy_mass >= 0.12 in the same world/pressure cell",
+      "envelope_binding_max": 0.02,
+      "exploit_mass_growth_over_A0_min": 0.12,
+      "recorded_observable_only": true
+    },
+    "worlds": [
+      "W6_mutation_corridor",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe"
+    ]
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "gate": "J_N6b_W7_seeded_adoption",
+  "metadata": {
+    "arms": {
+      "A0": "published C_full W7 baseline under artifact_channel off",
+      "A2f": "primary forced seeded verified arm: every zone emits; stiffness fixed at 0.50 and non-evolvable",
+      "A2s": "seeded verified arm recorded alongside for adoption/stiffness comparison"
+    },
+    "artifact_channel_registry": {
+      "audit_only_metrics": {
+        "description": "Recorded after model steps for analysis only; containment policy and conformance do not read these fields.",
+        "fields": [
+          "declared_mass_by_step",
+          "stiffness_by_step",
+          "binding_events_by_step",
+          "counterfactual_nonconformance_rate",
+          "realized_nonconformance_rate",
+          "envelope_binding"
+        ]
+      },
+      "referee_side_verification_and_policy": {
+        "audit_only_field_rule": "Audit-only metrics may not be referenced in policy or verification code. Policy softening is conditioned only on declared && conforms.",
+        "description": "Conformance and C_full_artifacts policy read only existing Obs fields plus declarations; they are included in the same leakage scan as earlier gates.",
+        "forbidden_names": [
+          "extraction_rate",
+          "aid_interception_rate",
+          "neighbor_harm_rate",
+          "deception_investment",
+          "migration_follow_rate",
+          "replication_aggressiveness",
+          "cooperation_investment",
+          "shock_resilience_contribution",
+          "productive_contribution",
+          "exploitative_label",
+          "lineages",
+          "strategy",
+          "hidden_type",
+          "_exploit_score",
+          "exploit_score"
+        ],
+        "scanned_functions": [
+          "artifacts.ArtifactBoundaryModel.choose_alloc",
+          "artifacts.ArtifactBoundaryModel._artifact_bad_consequence",
+          "artifacts.artifact_conforms"
+        ]
+      },
+      "world_side_emission": {
+        "description": "Declaration emission is agent/world behavior, analogous to extraction or migration; it may read declaration strategy fields and is not part of the referee leakage scan.",
+        "evolvable_fields": [
+          "declaration_propensity",
+          "declaration_envelope_stiffness"
+        ],
+        "initial_conditions": {
+          "A1s": "declaration_propensity starts at 1.0 and remains evolvable; declaration_envelope_stiffness starts at 0.50 and remains evolvable.",
+          "A2f": "emission mandatory in every zone; declaration_envelope_stiffness fixed at 0.50 and excluded from mutation in this arm only; propensity is ignored by emission.",
+          "A2s": "declaration_propensity starts at 1.0 and remains evolvable; declaration_envelope_stiffness starts at 0.50 and remains evolvable."
+        }
+      }
+    },
+    "baseline_anchor": {
+      "J_N3_C_full_false_containment": 0.52,
+      "J_N3_C_full_permanence": 0.7916666666666666
+    },
+    "draft_source": "experiments/harnessed/J_N6b_W7_seeded_adoption/PREREG_DRAFT.json",
+    "kill_simpliciter": "A2f fails J-N6 H-S1 and H-S4.",
+    "mode": "prospective held-out W7 revenge; outcome citable under any result",
+    "outcome_branches": {
+      "FAIL": "A2f misses either the false-containment ceiling or permanence floor; A2s remains recorded, not substituted for the primary arm.",
+      "PASS": "A2f false_containment <= 0.20 and A2f permanence >= 0.672 on imported W7."
+    },
+    "question": "Does forced seeded verified declaration reduce the imported J-N3 W7 specificity failure while preserving the W7 world unchanged?",
+    "seed_policy_rationale_guard_9": "Wave 4 J-N6b uses fresh 80-seed block 24000-24079, disjoint from prior 16000/17000/18000/19000/20000/21000/22000 blocks and from J-N6 23000-23079.",
+    "status": "LOCKED_PREREG",
+    "world_reuse_contract": "Import W7HeldoutModel and W7_WORLD from experiments.harnessed.J_N3_heldout_W7.run_j_n3; no copy and no world edits."
+  },
+  "threshold_change_rationale": {
+    "arms": "J-N6b is the W7 specificity replay with primary A2f and recorded A2s; A1s is tested only in J-N6 boundary worlds.",
+    "false_containment_ceiling": "0.20 is the J-N3 specificity ceiling and published viability bar.",
+    "kill_simpliciter": "J-N6b binds H-S4 to the already locked J-N6 H-S1 kill simpliciter; this cross-gate interpretation is not a standalone threshold relaxation.",
+    "permanence_tolerance": "0.12 follows published tolerance practice; H-S4 uses the spec floor permanence >= 0.672, matching J-N3 0.792 minus 0.12 after rounding.",
+    "seeds": "Wave 4 J-N6b owns fresh 80-seed block 24000-24079; J-N6 owns 23000-23079; prior gates used 16000/17000/18000/19000/20000/21000/22000 blocks."
+  },
+  "thresholds": {
+    "H_S4_W7_seeded_specificity_revenge": {
+      "A2f_false_containment_max": 0.2,
+      "A2f_permanence_min": 0.672,
+      "primary_arm": "A2f",
+      "record_A0_vs_A2f_false_containment": true,
+      "record_A2s_alongside": true
+    },
+    "arms": [
+      "A0",
+      "A2f",
+      "A2s"
+    ],
+    "kill_simpliciter": "J-N6 A2f fails H-S1 and H-S4 fails.",
+    "seeds": [
+      24000,
+      24001,
+      24002,
+      24003,
+      24004,
+      24005,
+      24006,
+      24007,
+      24008,
+      24009,
+      24010,
+      24011,
+      24012,
+      24013,
+      24014,
+      24015,
+      24016,
+      24017,
+      24018,
+      24019,
+      24020,
+      24021,
+      24022,
+      24023,
+      24024,
+      24025,
+      24026,
+      24027,
+      24028,
+      24029,
+      24030,
+      24031,
+      24032,
+      24033,
+      24034,
+      24035,
+      24036,
+      24037,
+      24038,
+      24039,
+      24040,
+      24041,
+      24042,
+      24043,
+      24044,
+      24045,
+      24046,
+      24047,
+      24048,
+      24049,
+      24050,
+      24051,
+      24052,
+      24053,
+      24054,
+      24055,
+      24056,
+      24057,
+      24058,
+      24059,
+      24060,
+      24061,
+      24062,
+      24063,
+      24064,
+      24065,
+      24066,
+      24067,
+      24068,
+      24069,
+      24070,
+      24071,
+      24072,
+      24073,
+      24074,
+      24075,
+      24076,
+      24077,
+      24078,
+      24079
+    ],
+    "world": "W7_delayed_capture_recurring_ambiguous_catastrophes"
+  }
+}

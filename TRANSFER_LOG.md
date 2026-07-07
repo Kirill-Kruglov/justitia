@@ -4,6 +4,56 @@ Transfer test: apply fallacy-cutter to justitia using only fallacy-cutter docs
 (`README.md`, `methodology/`, `examples/hello_gate/`, `gate_harness/README.md`)
 plus `justitia_harnessed_replay_design.md`.
 
+## 2026-07-07 (wave 4)
+
+1. Wave-4 durable worktree and phase boundary.
+   - Looked for: where to run FW-2b seeded adoption without touching the
+     `epub-export` checkout or previous wave artifacts.
+   - Found: `justitia_wave4_design.md` requires branch `harnessed-wave4` from
+     `main` in `/home/master/llm_projects/justitia-wave4`; main already contains
+     the merged wave-3 artifact channel and J-N5 decisions.
+   - Assumption/action: created the requested worktree from `main`; future edits
+     will keep `gate_harness/`, published `results/`, and previous harnessed
+     gate directories unchanged, with model changes limited to `model/artifacts.py`.
+
+2. Seeded artifact implementation and J-N6a equivalence.
+   - Looked for: whether FW-2b arms can be layered on the existing artifact
+     channel while leaving `artifact_channel=off` byte-equivalent.
+   - Found: J-N6a passed the locked engineering replay: 18 expected headline
+     rows, 18 actual rows, exact equality true, no mismatches;
+     `verify_decision` reported VALID.
+   - Assumption/action: committed seeded/forced arm support in
+     `model/artifacts.py`, kept `gate_harness/` unchanged, and recorded
+     J-N6/J-N6b adoption/stiffness trajectories as runner outputs for future
+     locked runs.
+
+3. J-N6/J-N6b prereg draft boundary.
+   - Looked for: how to express FW-2b without letting audit-only observables
+     become policy inputs.
+   - Found: referee-side conformance remains `(Obs + declaration)` only;
+     `counterfactual_nonconformance_rate`, `envelope_binding`, declaration
+     adoption, and stiffness trajectories are analysis-only outputs.
+   - Assumption/action: wrote `PREREG_DRAFT.json` files for author review only;
+     they are not locks and no J-N6/J-N6b scientific runs have been started.
+
+4. J-N6/J-N6b locked results.
+   - Looked for: whether seeded/forced artifact declarations produce a carrier
+     under FW-2b without turning trust into policy input.
+   - Found: J-N6 decision FAIL with H-S1 FAIL, H-S2 FAIL, H-S3 RETAINED.
+     W6 pressure ceilings were A0=1.2, A2f=1.0, A2s=1.0, A1s=None; W3
+     and W4 had no robust grid point for any arm. A1s midpoint declared share
+     was 0.996, so H-S2 was not VACUOUS; the credit branch did not fire.
+   - Found: J-N6b decision FAIL. On imported W7, A2f permanence was 0.800
+     but false_containment was 0.496, above the locked 0.20 ceiling; A0
+     false_containment was 0.511 and A2s recorded 0.492.
+   - Assumption/action: recorded both failures as citable locked outcomes.
+     Because A2f fails both H-S1 and H-S4, FW-2b kill_simpliciter fires: the
+     seeded-adoption corner is empty in this substrate under the locked
+     definitions. The J-N6 per-step adoption/stiffness trajectory is committed
+     as `adoption_stiffness_trajectories.json.gz` because the raw generated JSON
+     exceeds GitHub's 100 MB blob limit; `decision.json` and `j_n6_checks.json`
+     are unchanged.
+
 ## 2026-07-07 (wave 3)
 
 1. Wave-3 durable worktree and phase boundary.
