@@ -1,0 +1,99 @@
+{
+  "_harness_provenance": {
+    "evaluation_oracle_ran": true,
+    "harness_version": "53b59235a56aba8feeacf71df8d4691e9e3814309a0c37c35c1e22ee50cbcb9f",
+    "leakage_scan_verified": true,
+    "prereg_lock_verified": true,
+    "tautology_check_ran": true,
+    "written_by": "gate_harness.runner.run_gate"
+  },
+  "classification_success_depends_on_harness_hint": false,
+  "construction_may_be_tautological": false,
+  "decision": "FAIL",
+  "downstream_consequence": "PASS supports only the existing-dials R claim; FAIL kills it; INCONCLUSIVE is published as-is.",
+  "fact": "The current substrate exposes delay and t_irrev but not separate propagation/observation/intervention/recovery dials.",
+  "inference": "This gate is not the full essay-promised isolation unless the missing dials are accepted as out of scope or added in a separate model-change phase.",
+  "information_ratio": null,
+  "metric": "Monotonicity in delay/t_irrev and equal-R permanence spread on a post-lock grid over existing dials.",
+  "mode": "prospective; outcome unknown at lock time; decision citable under ANY outcome",
+  "preregistered_thresholds": {
+    "delay_grid": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "equal_r_permanence_tolerance": 0.12,
+    "monotonicity_tolerance": 0.08,
+    "seeds": [
+      18000,
+      18001,
+      18002,
+      18003,
+      18004,
+      18005,
+      18006,
+      18007,
+      18008,
+      18009,
+      18010,
+      18011,
+      18012,
+      18013,
+      18014,
+      18015,
+      18016,
+      18017,
+      18018,
+      18019,
+      18020,
+      18021,
+      18022,
+      18023
+    ],
+    "t_irrev_grid": [
+      4,
+      8,
+      16
+    ],
+    "worlds": [
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W6_mutation_corridor"
+    ]
+  },
+  "question": "Does a new justitia delay/t_irrev factorial sweep support a speed-limit boundary in R = delay / t_irrev?",
+  "seed_policy": {
+    "admissible": true,
+    "min_seeds_for_core": 20,
+    "per_metric": {
+      "J_N2_delay_t_irrev_factorial": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 24,
+        "verdict": "PASS"
+      }
+    }
+  },
+  "speed_limit_checks_path": "outputs/speed_limit_checks.json",
+  "speed_limit_summary": {
+    "decision": "FAIL",
+    "equal_r_spread": {
+      "W3_catastrophe_ambiguity:R=0.125": 0.08333333333333337,
+      "W3_catastrophe_ambiguity:R=0.25": 0.125,
+      "W3_catastrophe_ambiguity:R=0.5": 0.41666666666666663,
+      "W3_catastrophe_ambiguity:R=1.0": 0.375,
+      "W4_scavenger_catastrophe:R=0.125": 0.25,
+      "W4_scavenger_catastrophe:R=0.25": 0.33333333333333326,
+      "W4_scavenger_catastrophe:R=0.5": 0.24999999999999994,
+      "W4_scavenger_catastrophe:R=1.0": 0.16666666666666669,
+      "W6_mutation_corridor:R=0.125": 0.0,
+      "W6_mutation_corridor:R=0.25": 0.0,
+      "W6_mutation_corridor:R=0.5": 0.04166666666666663,
+      "W6_mutation_corridor:R=1.0": 0.04166666666666663
+    },
+    "max_equal_r_spread": 0.41666666666666663,
+    "monotonic_violations": []
+  },
+  "what_was_not_shown": "Independent variation of propagation speed, observation latency, intervention latency, and recovery rate was not shown."
+}
