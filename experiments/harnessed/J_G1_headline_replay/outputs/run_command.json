@@ -1,0 +1,10 @@
+{
+  "args": [
+    "python3",
+    "/tmp/justitia-harnessed/run.py"
+  ],
+  "cwd": "/tmp/justitia-harnessed",
+  "returncode": 0,
+  "stderr_tail": "",
+  "stdout_tail": "{\n  \"smoke\": false,\n  \"num_cases\": 88800,\n  \"cg_ablation_cases\": 5760,\n  \"seeds\": 80,\n  \"analyze_existing\": false,\n  \"run_cg_ablation\": false\n}\n{\n  \"verdict\": \"BE: the working mechanism is consequence-gated anti-concentration, not two independent levers.\",\n  \"runs\": 88800,\n  \"summary_cells\": 1110,\n  \"checks\": {\n    \"feeder_observation_excludes_strategy_parameters\": true,\n    \"derived_exploitative_label_not_in_policy\": true,\n    \"fixed_hidden_types_absent\": true,\n    \"mutation_and_selection_occur\": true,\n    \"feature_proxy_fails_W1\": true,\n    \"monoculture_fails_W5\": true,\n    \"exploitative_strategies_rise_under_no_control\": true,\n    \"part_a_does_not_use_delayed_consequence\": true,\n    \"part_b_does_not_use_fixed_caps\": true,\n    \"ac_cg_strictly_dominates_singles_in_robust_worlds\": true,\n    \"boundary_exists_for_each_axis\": true,\n    \"decoupling_identifies_load_bearing_ac\": true,\n    \"coupling_question_answered\": true,\n    \"smoke_mode\": false\n  }\n}\n"
+}

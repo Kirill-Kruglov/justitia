@@ -1,0 +1,67 @@
+{
+  "gate": "J_N1_adversary_battery",
+  "metadata": {
+    "label_provenance": {
+      "interpretation": "The adversary battery label mirrors the model truth bucket used for the existing delayed-consequence/feature-proxy validation signal.",
+      "quote": "truth_harm = clamp(... neighbor_harm_rate + extraction_rate + aid_interception_rate); truth.append(1 if truth_harm > 0.95 else 0)",
+      "source": "model/substrate.py:L356-L357"
+    },
+    "metric": "Maximum balanced accuracy over logistic regression, kNN, nearest-centroid, and decision-stump ensemble under leave-one-world-out evaluation.",
+    "mode": "prospective; outcome unknown at lock time; decision citable under ANY outcome",
+    "outcome_branches": {
+      "FAIL": "Any classifier has held-out balanced accuracy >= 0.75; observable features carry sufficient statistics under this protocol.",
+      "INCONCLUSIVE": "At least one classifier is >0.60 and all are <0.75, or seed policy is inadmissible; publish as-is.",
+      "PASS": "All classifiers have held-out balanced accuracy <= 0.60; the tested blindness claim strengthens from one naive proxy to this battery."
+    },
+    "question": "Can a stdlib adversary battery recover exploitative zones from observable justitia features across held-out worlds?",
+    "what_was_not_shown": "No result proves exploitative recovery impossible for all classifiers, feature sets, or worlds."
+  },
+  "threshold_change_rationale": {},
+  "thresholds": {
+    "all_classifiers_below_bar": 0.6,
+    "classifiers": [
+      "logistic_regression_manual_gd",
+      "knn_k7",
+      "nearest_centroid",
+      "decision_stump_ensemble"
+    ],
+    "finding_bar": 0.75,
+    "heldout_worlds": [
+      "W2_pure_capture",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W5_monoculture_shock",
+      "W6_mutation_corridor"
+    ],
+    "seeds": [
+      17000,
+      17001,
+      17002,
+      17003,
+      17004,
+      17005,
+      17006,
+      17007,
+      17008,
+      17009,
+      17010,
+      17011,
+      17012,
+      17013,
+      17014,
+      17015,
+      17016,
+      17017,
+      17018,
+      17019,
+      17020,
+      17021,
+      17022,
+      17023
+    ],
+    "smoke_seeds": [
+      17000,
+      17001
+    ]
+  }
+}

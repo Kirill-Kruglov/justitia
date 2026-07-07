@@ -1,0 +1,225 @@
+{
+  "_harness_provenance": {
+    "evaluation_oracle_ran": true,
+    "harness_version": "53b59235a56aba8feeacf71df8d4691e9e3814309a0c37c35c1e22ee50cbcb9f",
+    "leakage_scan_verified": true,
+    "prereg_lock_verified": true,
+    "tautology_check_ran": true,
+    "written_by": "gate_harness.runner.run_gate"
+  },
+  "classification_success_depends_on_harness_hint": false,
+  "construction_may_be_tautological": false,
+  "decision": "PASS",
+  "downstream_consequence": "PASS preserves only the published replay claim; FAIL/INCONCLUSIVE is reported as a replay finding.",
+  "fact": "The gate analyzed a pre-existing outputs/model_results snapshot produced by --run-study.",
+  "headline_checks": {
+    "decoupled_zero_events_W3_catastrophe_ambiguity": {
+      "containment_events": 0.0,
+      "passed": true,
+      "permanence": 0.0
+    },
+    "decoupled_zero_events_W4_scavenger_catastrophe": {
+      "containment_events": 0.0,
+      "passed": true,
+      "permanence": 0.0
+    },
+    "decoupled_zero_events_W6_mutation_corridor": {
+      "containment_events": 0.0,
+      "passed": true,
+      "permanence": 0.0
+    },
+    "negative_world_type_none_W2_pure_capture": {
+      "expected": 1.0,
+      "none_fraction": 1.0,
+      "passed": true
+    },
+    "negative_world_type_none_W5_monoculture_shock": {
+      "expected": 1.0,
+      "none_fraction": 1.0,
+      "passed": true
+    },
+    "robust_kernel_W3_catastrophe_ambiguity": {
+      "actual": 0.8625,
+      "expected": 0.8625,
+      "passed": true
+    },
+    "robust_kernel_W4_scavenger_catastrophe": {
+      "actual": 0.7125,
+      "expected": 0.7125,
+      "passed": true
+    },
+    "robust_kernel_W6_mutation_corridor": {
+      "actual": 1.0,
+      "expected": 1.0,
+      "passed": true
+    },
+    "runtime_integrity": {
+      "checks": {
+        "ac_cg_strictly_dominates_singles_in_robust_worlds": true,
+        "decoupling_identifies_load_bearing_ac": true,
+        "exploitative_strategies_rise_under_no_control": true,
+        "feature_proxy_fails_W1": true,
+        "feeder_observation_excludes_strategy_parameters": true,
+        "monoculture_fails_W5": true,
+        "mutation_and_selection_occur": true
+      },
+      "expected_pass_count": 7,
+      "passed": true
+    },
+    "static_alone_W2_pure_capture": {
+      "actual": 0.0,
+      "expected": 0.0,
+      "passed": true
+    },
+    "static_alone_W3_catastrophe_ambiguity": {
+      "actual": 0.0,
+      "expected": 0.0,
+      "passed": true
+    },
+    "static_alone_W4_scavenger_catastrophe": {
+      "actual": 0.0,
+      "expected": 0.0,
+      "passed": true
+    },
+    "static_alone_W5_monoculture_shock": {
+      "actual": 0.0,
+      "expected": 0.0,
+      "passed": true
+    },
+    "static_alone_W6_mutation_corridor": {
+      "actual": 0.0,
+      "expected": 0.0,
+      "passed": true
+    },
+    "sword_alone_W2_pure_capture": {
+      "actual": 0.0,
+      "expected_max": 0.17,
+      "passed": true
+    },
+    "sword_alone_W3_catastrophe_ambiguity": {
+      "actual": 0.1375,
+      "expected_max": 0.17,
+      "passed": true
+    },
+    "sword_alone_W4_scavenger_catastrophe": {
+      "actual": 0.0375,
+      "expected_max": 0.17,
+      "passed": true
+    },
+    "sword_alone_W5_monoculture_shock": {
+      "actual": 0.0,
+      "expected_max": 0.17,
+      "passed": true
+    },
+    "sword_alone_W6_mutation_corridor": {
+      "actual": 0.0,
+      "expected_max": 0.17,
+      "passed": true
+    },
+    "threshold_stability_W3_catastrophe_ambiguity": {
+      "ac_cg_fraction": 1.0,
+      "expected": 1.0,
+      "passed": true
+    },
+    "threshold_stability_W4_scavenger_catastrophe": {
+      "ac_cg_fraction": 1.0,
+      "expected": 1.0,
+      "passed": true
+    },
+    "threshold_stability_W6_mutation_corridor": {
+      "ac_cg_fraction": 1.0,
+      "expected": 1.0,
+      "passed": true
+    }
+  },
+  "inference": "Harness-valid PASS means the published thresholds replayed under the declared enforcement surface.",
+  "information_ratio": null,
+  "metric": "Published headline permanence, decoupling, stability, and integrity checks.",
+  "mode": "confirmatory replay of published thresholds, NOT discovery preregistration",
+  "preregistered_thresholds": {
+    "consequence_removed_worlds": [
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W6_mutation_corridor"
+    ],
+    "core_metric_seeds": 80,
+    "negative_world_type_none_fraction": 1.0,
+    "negative_worlds_no_robust_kernel": [
+      "W2_pure_capture",
+      "W5_monoculture_shock"
+    ],
+    "no_governance_baseline_viability_bar": 0.5,
+    "permanence_tolerance": 0.02,
+    "robust_kernel_default_permanence": {
+      "W3_catastrophe_ambiguity": 0.8625,
+      "W4_scavenger_catastrophe": 0.7125,
+      "W6_mutation_corridor": 1.0
+    },
+    "runtime_integrity_checks": [
+      "feeder_observation_excludes_strategy_parameters",
+      "mutation_and_selection_occur",
+      "feature_proxy_fails_W1",
+      "monoculture_fails_W5",
+      "exploitative_strategies_rise_under_no_control",
+      "ac_cg_strictly_dominates_singles_in_robust_worlds",
+      "decoupling_identifies_load_bearing_ac"
+    ],
+    "static_alone_permanence": {
+      "W2_pure_capture": 0.0,
+      "W3_catastrophe_ambiguity": 0.0,
+      "W4_scavenger_catastrophe": 0.0,
+      "W5_monoculture_shock": 0.0,
+      "W6_mutation_corridor": 0.0
+    },
+    "sword_alone_permanence_max": {
+      "W2_pure_capture": 0.17,
+      "W3_catastrophe_ambiguity": 0.17,
+      "W4_scavenger_catastrophe": 0.17,
+      "W5_monoculture_shock": 0.17,
+      "W6_mutation_corridor": 0.17
+    },
+    "threshold_combinations": 54,
+    "threshold_stability_fraction": 1.0,
+    "threshold_stable_worlds": [
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W6_mutation_corridor"
+    ]
+  },
+  "question": "Can the published justitia headline results be replayed under fallacy-cutter enforcement?",
+  "run_stamp": {
+    "argv": [
+      "experiments/harnessed/J_G1_headline_replay/run_j_g1.py",
+      "--run-study"
+    ],
+    "duration_seconds": 7069.355656744912,
+    "mode": "full",
+    "smoke": false,
+    "written_at_utc": "2026-07-06T23:02:48.496702+00:00"
+  },
+  "seed_policy": {
+    "admissible": true,
+    "min_seeds_for_core": 20,
+    "per_metric": {
+      "J_G1_core_permanence": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 80,
+        "verdict": "PASS"
+      },
+      "J_G1_integrity_checks": {
+        "min_required": null,
+        "role": "auxiliary_check",
+        "seeds_used": 80,
+        "verdict": "PASS"
+      },
+      "J_G1_threshold_stability": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 54,
+        "verdict": "PASS"
+      }
+    }
+  },
+  "what_was_not_shown": "This is not independent replication and does not make the original study discovery-preregistered."
+}

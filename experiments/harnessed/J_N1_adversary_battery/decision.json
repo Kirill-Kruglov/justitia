@@ -1,0 +1,103 @@
+{
+  "_harness_provenance": {
+    "evaluation_oracle_ran": true,
+    "harness_version": "53b59235a56aba8feeacf71df8d4691e9e3814309a0c37c35c1e22ee50cbcb9f",
+    "leakage_scan_verified": true,
+    "prereg_lock_verified": true,
+    "tautology_check_ran": true,
+    "written_by": "gate_harness.runner.run_gate"
+  },
+  "classification_success_depends_on_harness_hint": false,
+  "construction_may_be_tautological": false,
+  "decision": "FAIL",
+  "downstream_consequence": "PASS strengthens the tested blindness claim; FAIL reports sufficient observable statistics; INCONCLUSIVE is published as-is.",
+  "fact": "The battery trained on K-1 worlds and evaluated on the held-out world for each fold.",
+  "features": [
+    "wellness",
+    "productivity",
+    "recovery",
+    "migration_capacity",
+    "strategy_diversity",
+    "response_diversity",
+    "resource_concentration",
+    "apparent_cooperation",
+    "sag",
+    "last_aid",
+    "response_to_aid",
+    "neighbor_delta",
+    "global_welfare"
+  ],
+  "fold_results_path": "outputs/fold_results.json",
+  "inference": "Only the preregistered outcome branch may be cited.",
+  "information_ratio": null,
+  "max_balanced_accuracy": 0.9942946940775793,
+  "max_by_classifier": {
+    "decision_stump_ensemble": 0.5,
+    "knn_k7": 0.9270923384263712,
+    "logistic_regression_manual_gd": 0.5,
+    "nearest_centroid": 0.9942946940775793
+  },
+  "metric": "Maximum held-out balanced accuracy across classifiers and worlds.",
+  "mode": "prospective; outcome unknown at lock time; decision citable under ANY outcome",
+  "preregistered_thresholds": {
+    "all_classifiers_below_bar": 0.6,
+    "classifiers": [
+      "logistic_regression_manual_gd",
+      "knn_k7",
+      "nearest_centroid",
+      "decision_stump_ensemble"
+    ],
+    "finding_bar": 0.75,
+    "heldout_worlds": [
+      "W2_pure_capture",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W5_monoculture_shock",
+      "W6_mutation_corridor"
+    ],
+    "seeds": [
+      17000,
+      17001,
+      17002,
+      17003,
+      17004,
+      17005,
+      17006,
+      17007,
+      17008,
+      17009,
+      17010,
+      17011,
+      17012,
+      17013,
+      17014,
+      17015,
+      17016,
+      17017,
+      17018,
+      17019,
+      17020,
+      17021,
+      17022,
+      17023
+    ],
+    "smoke_seeds": [
+      17000,
+      17001
+    ]
+  },
+  "question": "Can stdlib adversaries recover exploitative zones from observable justitia features across held-out worlds?",
+  "seed_policy": {
+    "admissible": true,
+    "min_seeds_for_core": 20,
+    "per_metric": {
+      "J_N1_holdout_world_battery": {
+        "min_required": 20,
+        "role": "core",
+        "seeds_used": 24,
+        "verdict": "PASS"
+      }
+    }
+  },
+  "what_was_not_shown": "This does not prove hidden strategy recovery impossible for all model classes or feature sets."
+}

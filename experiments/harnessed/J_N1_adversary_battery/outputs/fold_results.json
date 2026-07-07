@@ -1,0 +1,170 @@
+{
+  "fold_results": [
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "logistic_regression_manual_gd",
+      "heldout_world": "W2_pure_capture",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.32902777777777775
+    },
+    {
+      "balanced_accuracy": 0.8937220882778973,
+      "classifier": "knn_k7",
+      "heldout_world": "W2_pure_capture",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.32902777777777775
+    },
+    {
+      "balanced_accuracy": 0.9942946940775793,
+      "classifier": "nearest_centroid",
+      "heldout_world": "W2_pure_capture",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.32902777777777775
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "decision_stump_ensemble",
+      "heldout_world": "W2_pure_capture",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.32902777777777775
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "logistic_regression_manual_gd",
+      "heldout_world": "W3_catastrophe_ambiguity",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.20527777777777778
+    },
+    {
+      "balanced_accuracy": 0.5655776350551023,
+      "classifier": "knn_k7",
+      "heldout_world": "W3_catastrophe_ambiguity",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.20527777777777778
+    },
+    {
+      "balanced_accuracy": 0.9868585618706582,
+      "classifier": "nearest_centroid",
+      "heldout_world": "W3_catastrophe_ambiguity",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.20527777777777778
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "decision_stump_ensemble",
+      "heldout_world": "W3_catastrophe_ambiguity",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.20527777777777778
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "logistic_regression_manual_gd",
+      "heldout_world": "W4_scavenger_catastrophe",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.0775
+    },
+    {
+      "balanced_accuracy": 0.9270923384263712,
+      "classifier": "knn_k7",
+      "heldout_world": "W4_scavenger_catastrophe",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.0775
+    },
+    {
+      "balanced_accuracy": 0.8001104085114925,
+      "classifier": "nearest_centroid",
+      "heldout_world": "W4_scavenger_catastrophe",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.0775
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "decision_stump_ensemble",
+      "heldout_world": "W4_scavenger_catastrophe",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.0775
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "logistic_regression_manual_gd",
+      "heldout_world": "W5_monoculture_shock",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.0
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "knn_k7",
+      "heldout_world": "W5_monoculture_shock",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.0
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "nearest_centroid",
+      "heldout_world": "W5_monoculture_shock",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.0
+    },
+    {
+      "balanced_accuracy": 0.49997685185185187,
+      "classifier": "decision_stump_ensemble",
+      "heldout_world": "W5_monoculture_shock",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.0
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "logistic_regression_manual_gd",
+      "heldout_world": "W6_mutation_corridor",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.11773148148148148
+    },
+    {
+      "balanced_accuracy": 0.7231678724614286,
+      "classifier": "knn_k7",
+      "heldout_world": "W6_mutation_corridor",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.11773148148148148
+    },
+    {
+      "balanced_accuracy": 0.8780500603452799,
+      "classifier": "nearest_centroid",
+      "heldout_world": "W6_mutation_corridor",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.11773148148148148
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "classifier": "decision_stump_ensemble",
+      "heldout_world": "W6_mutation_corridor",
+      "n_eval": 21600,
+      "n_train": 86400,
+      "positive_rate_eval": 0.11773148148148148
+    }
+  ],
+  "max_by_classifier": {
+    "decision_stump_ensemble": 0.5,
+    "knn_k7": 0.9270923384263712,
+    "logistic_regression_manual_gd": 0.5,
+    "nearest_centroid": 0.9942946940775793
+  }
+}
