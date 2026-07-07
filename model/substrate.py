@@ -533,7 +533,7 @@ class EvolvableStrategyModel:
         if self.params.v_prop == 1.0:
             return 0
         if self.params.v_prop <= 0:
-            return STEPS + 1
+            raise ValueError("v_prop must be positive")
         return max(0, math.ceil(1.0 / self.params.v_prop) - 1)
 
     def _apply_or_schedule_neighbor_harm(self, idx, neighbor_harm, wellness_factor, productivity_factor, recovery_factor):
