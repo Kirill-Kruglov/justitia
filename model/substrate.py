@@ -177,6 +177,9 @@ class Params:
     audit_intervention: str = "audit_no_intervention"
     delay: int = 2
     t_irrev: int = 8
+    t_act: int = 0
+    v_prop: float = 1.0
+    r_rec: float = 1.0
     containment_strength: float = 0.62
     containment_duration: int = 5
     diversity_floor: float = 0.45
@@ -192,6 +195,11 @@ class EvolvableStrategyModel:
         self.neighbors = {i: sorted({(i - 1) % ZONES, (i + 1) % ZONES}) for i in range(ZONES)}
         self.zones = []
         self.obs_queue = deque(maxlen=max(2, params.delay + 1))
+        self.current_step = 0
+        self._planning_delayed_action = False
+        self._planned_containment = []
+        self._action_queue = deque()
+        self._pending_neighbor_harm = defaultdict(list)
         self.first_irrev = -1
         self.irreversible_failures = 0
         self.mi_truth = []
@@ -409,11 +417,7 @@ class EvolvableStrategyModel:
         if self.params.policy in {"action_channel_containment", "consequence_plus_diversity"}:
             for i, z in enumerate(self.zones):
                 if self._bad_consequence(obs, i):
-                    z.containment_timer = max(z.containment_timer, self.params.containment_duration)
-                    z.containment_events += 1
-                    z.containment_cost += 0.030 * self.params.containment_strength
-                    if z.catastrophe:
-                        z.false_containment += 1
+                    self._record_or_apply_containment(i, z, self.params.containment_duration, 0.030 * self.params.containment_strength)
         scores = [self._score(obs, i) for i in range(ZONES)]
         min_s = min(scores)
         shifted = [max(0.01, s - min_s + 0.04) for s in scores]
@@ -505,6 +509,90 @@ class EvolvableStrategyModel:
         self.mutation_events += 1
         return child
 
+
+    def _record_or_apply_containment(self, idx, z, duration, cost, count_false=True):
+        if self._planning_delayed_action:
+            self._planned_containment.append((idx, duration, cost, count_false))
+            return
+        z.containment_timer = max(z.containment_timer, duration)
+        z.containment_events += 1
+        z.containment_cost += cost
+        if count_false and z.catastrophe:
+            z.false_containment += 1
+
+    def _apply_planned_containment(self, planned):
+        for idx, duration, cost, count_false in planned:
+            self._record_or_apply_containment(idx, self.zones[idx], duration, cost, count_false=count_false)
+
+    def _recovery_gain(self, amount):
+        if self.params.r_rec == 1.0:
+            return amount
+        return amount * self.params.r_rec
+
+    def _neighbor_harm_arrival_delay(self):
+        if self.params.v_prop == 1.0:
+            return 0
+        if self.params.v_prop <= 0:
+            raise ValueError("v_prop must be positive")
+        return max(0, math.ceil(1.0 / self.params.v_prop) - 1)
+
+    def _apply_or_schedule_neighbor_harm(self, idx, neighbor_harm, wellness_factor, productivity_factor, recovery_factor):
+        if self.params.v_prop == 1.0:
+            for j in self.neighbors[idx]:
+                n = self.zones[j]
+                n.wellness = clamp(n.wellness - neighbor_harm * wellness_factor)
+                n.productivity = clamp(n.productivity - neighbor_harm * productivity_factor)
+                n.recovery = clamp(n.recovery - neighbor_harm * recovery_factor)
+            return
+        delay = self._neighbor_harm_arrival_delay()
+        arrivals = [
+            (j, neighbor_harm * wellness_factor, neighbor_harm * productivity_factor, neighbor_harm * recovery_factor)
+            for j in self.neighbors[idx]
+        ]
+        if delay <= 0:
+            for j, dw, dp, dr in arrivals:
+                n = self.zones[j]
+                n.wellness = clamp(n.wellness - dw)
+                n.productivity = clamp(n.productivity - dp)
+                n.recovery = clamp(n.recovery - dr)
+            return
+        self._pending_neighbor_harm[self.current_step + delay].extend(arrivals)
+
+    def _apply_pending_neighbor_harm(self, step):
+        if self.params.v_prop == 1.0:
+            return
+        arrivals = self._pending_neighbor_harm.pop(step, [])
+        for idx, dw, dp, dr in arrivals:
+            z = self.zones[idx]
+            z.wellness = clamp(z.wellness - dw)
+            z.productivity = clamp(z.productivity - dp)
+            z.recovery = clamp(z.recovery - dr)
+
+    def _delayed_action_due(self, step):
+        due = []
+        while self._action_queue and self._action_queue[0][0] <= step:
+            due.append(self._action_queue.popleft())
+        return due
+
+    def _plan_action(self):
+        self._planning_delayed_action = True
+        self._planned_containment = []
+        try:
+            alloc = self.choose_alloc()
+            planned = tuple(self._planned_containment)
+        finally:
+            self._planning_delayed_action = False
+            self._planned_containment = []
+        return alloc, planned
+
+    def _step_with_action_delay(self, step, obs):
+        alloc, planned = self._plan_action()
+        self._action_queue.append((step + self.params.t_act, alloc, planned))
+        for _, due_alloc, due_planned in self._delayed_action_due(step):
+            self._apply_planned_containment(due_planned)
+            for i, z in enumerate(self.zones):
+                self._apply_zone_dynamics(z, BUDGET * due_alloc[i], due_alloc[i], obs, i)
+
     def _apply_zone_dynamics(self, z, raw_aid, alloc_share, obs, idx):
         containment = z.containment_timer > 0 or (self.params.mode == "audit" and self._audit_trigger(z, obs, idx))
         strength = self.params.containment_strength
@@ -525,7 +613,7 @@ class EvolvableStrategyModel:
             aid_for_lineages -= escrowed
             z.wellness = clamp(z.wellness + 0.20 * escrowed)
             z.productivity = clamp(z.productivity + 0.14 * escrowed)
-            z.recovery = clamp(z.recovery + 0.18 * escrowed)
+            z.recovery = clamp(z.recovery + self._recovery_gain(0.18 * escrowed))
             z.containment_cost += 0.05 * escrowed
         if anti_concentration and self._resource_hhi_zone(z) > 0.46:
             aid_for_lineages *= max(0.18, 1.0 - 0.70 * strength)
@@ -552,12 +640,11 @@ class EvolvableStrategyModel:
         before_state = (z.wellness + z.productivity + z.recovery) / 3
         z.wellness = clamp(z.wellness + 0.13 * useful + 0.030 * weighted_coop - 0.055 * extracted - 0.035 * weighted_harm)
         z.productivity = clamp(z.productivity + 0.11 * useful + 0.040 * weighted_prod - 0.050 * intercepted - 0.026 * weighted_harm)
-        z.recovery = clamp(z.recovery + 0.12 * useful + 0.050 * weighted_res - 0.028 * extracted)
-        for j in self.neighbors[idx]:
-            n = self.zones[j]
-            n.wellness = clamp(n.wellness - neighbor_harm * 0.58)
-            n.productivity = clamp(n.productivity - neighbor_harm * 0.45)
-            n.recovery = clamp(n.recovery - neighbor_harm * 0.30)
+        if self.params.r_rec == 1.0:
+            z.recovery = clamp(z.recovery + 0.12 * useful + 0.050 * weighted_res - 0.028 * extracted)
+        else:
+            z.recovery = clamp(z.recovery + self._recovery_gain(0.12 * useful + 0.050 * weighted_res) - 0.028 * extracted)
+        self._apply_or_schedule_neighbor_harm(idx, neighbor_harm, 0.58, 0.45, 0.30)
         after_state = (z.wellness + z.productivity + z.recovery) / 3
         z.last_response = after_state - before_state
         new_lineages = []
@@ -649,14 +736,19 @@ class EvolvableStrategyModel:
             self.first_irrev = step
 
     def step(self, step):
+        self.current_step = step
         self._store_pre_step()
         self._apply_shocks(step)
+        self._apply_pending_neighbor_harm(step)
         if self.params.mode == "audit":
             self._apply_audit_oracle()
         obs = self._delayed_obs()
-        alloc = self.choose_alloc()
-        for i, z in enumerate(self.zones):
-            self._apply_zone_dynamics(z, BUDGET * alloc[i], alloc[i], obs, i)
+        if self.params.t_act == 0:
+            alloc = self.choose_alloc()
+            for i, z in enumerate(self.zones):
+                self._apply_zone_dynamics(z, BUDGET * alloc[i], alloc[i], obs, i)
+        else:
+            self._step_with_action_delay(step, obs)
         self._migrate()
         self._update_neighbor_metrics()
         self._update_irreversible(step)
