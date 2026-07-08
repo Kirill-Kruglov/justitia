@@ -35,6 +35,19 @@ plus `justitia_harnessed_replay_design.md`.
      before rerunning. Thresholds, comparisons, seed blocks, model code,
      `gate_harness/`, and prior wave artifacts are unchanged.
 
+3. J-N9a accepted locally and J-N9 draft boundary.
+   - Looked for: whether the relocked active-probing equivalence gate preserves
+     both required neutral paths.
+   - Found: J-N9a decision PASS and `verify_decision` VALID. Off-path headline
+     replay matched 18/18 expected rows exactly; budget-zero identity matched
+     80/80 PA/PN checks against phase-1 PD on seeds 29900-29909.
+   - Assumption/action: wrote `experiments/harnessed/J_N9_active_probing/` with
+     executable runner plus `PREREG_DRAFT.json` for author review only. No
+     J-N9 PREREG.lock exists and no scientific J-N9 run has been started. The
+     draft pins reviewer corrections: continuous observable-disagreement PA
+     score, epsilon=0.10 rationale, allocation conservation by normalization,
+     published-bar health constants plus margin m, and no W7 gate rationale.
+
 ## 2026-07-08 (wave 6)
 
 1. Wave-6 durable worktree and phase boundary.

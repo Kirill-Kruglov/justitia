@@ -1,0 +1,236 @@
+{
+  "gate": "J_N9_active_probing",
+  "metadata": {
+    "arms": {
+      "PA": "PD plus information-directed safe-to-fail probes selected by continuous ensemble disagreement",
+      "PD": "exact phase-1 passive derivation code, same representation/capacity/parameters",
+      "PN": "PD plus random safe-to-fail probes with identical budget/schedule/magnitude and isolated RNG",
+      "PO": "phase-1 shadow oracle over observable dynamics, upper-bound anchor",
+      "R0": "channel off / published C_full baseline"
+    },
+    "blindness_registry": {
+      "forbidden": "same FORBIDDEN_NAMES as phase 1; no strategy fields, lineages, hidden type, or exploit score in probe selection or containment policy",
+      "probe_ledger_location": "probe channel structures, not Zone; no new truth channel",
+      "probe_policy_reads": [
+        "observables",
+        "referee action/allocation",
+        "transition ensemble predictions over observables",
+        "probe ledger state"
+      ]
+    },
+    "equal_capacity": "PD wave 7 is the same code as PD wave 6. PA/PN change contact only; they do not change model representation, ensemble size, horizon, calibration rule, or predictor capacity.",
+    "interpretation_matrix": {
+      "H_M1_FAIL_PO_headroom": "mechanism phase 2 red: active contact did not close the derivation gap at fixed capacity; capacity/representation remains a limitation for a later wave only",
+      "H_M1_PASS_H_M5_PASS": "active contact helps at fixed representation and remains safe-to-fail under the registered audit",
+      "H_M5_FAIL": "independent safety kill: safe-to-fail was not mechanically safe",
+      "PN_approx_PA_gt_R0": "decorrelation, not design: probes help, but information-directed argmax did not carry the improvement"
+    },
+    "line": "line 11 phase 2 active safe-to-fail probing",
+    "mode": "prospective scientific gate; no lock yet in this draft",
+    "no_W7_gate": "No W7 gate is included intentionally: J-N8b measured the ceiling of this observable transition family, and the oracle was worse than baseline on specificity (false_containment 0.5205 vs 0.4989). A derivative model should not be expected to beat its oracle; specificity needs a different object of knowledge, not another zone-transition run.",
+    "not_in_this_wave": [
+      "W7 specificity gate",
+      "phase 3 optionality/unification",
+      "changed model capacity or representation",
+      "active probing for containment benefit beyond information gathering"
+    ],
+    "old_as_limit": {
+      "channel_off": "probe channel off is published justitia byte-for-byte, checked by J-N9a headline replay.",
+      "probe_budget_to_zero": "probe-budget -> 0 is exactly phase-1 PD, checked by J-N9a on seeds 29900-29909."
+    },
+    "question": "Can active safe-to-fail probing close the phase-1 derivation gap at fixed predictive representation and capacity?",
+    "what_was_not_shown": "This wave cannot prove that stronger representations would or would not close the gap; it tests contact under fixed phase-1 capacity only. It also does not revisit W7 specificity because phase 1 already showed the oracle ceiling is below baseline specificity for this family."
+  },
+  "threshold_change_rationale": {
+    "margin_grid_step": "0.2 matches the published adversarial_pressure grid step and wave-6 continuity.",
+    "probe_mechanics": "Probe parameters were fixed in recon before data; epsilon=0.10 follows the reviewer-approved failure-asymmetry rationale, and r=5 reuses containment_duration.",
+    "seeds": "Scientific seed block 29000-29079 is disjoint from wave-6 27000/28000, J-N9a 29900-29909, and all previous wave blocks.",
+    "worlds": "W3/W4/W6 are the specified phase-2 worlds; W7 is excluded by preregistered rationale from J-N8b oracle specificity ceiling."
+  },
+  "thresholds": {
+    "H_M1_PA_extension": {
+      "margin_min": 0.2,
+      "required_worlds_min": 2,
+      "universe": "measured worlds among W3/W4/W6 with an R0 robust-cell ceiling"
+    },
+    "H_M2_order": {
+      "PA_gt_PO_red_flag": true,
+      "required_order": "PO >= PA >= PD in every measured world"
+    },
+    "H_M3_choice_bearing": {
+      "evaluated_only_where_H_M1_holds": true,
+      "margin_min": 0.2,
+      "reading_branch": "PN ~= PA > R0 means decorrelation, not design: probes work, argmax choice does not carry the result.",
+      "vacuous_if_no_H_M1_worlds": true
+    },
+    "H_M4_mechanism_recorded": {
+      "PA_calibration_balanced_accuracy_reference": 0.6,
+      "classification": "RECORDED, not PASS/FAIL",
+      "expected_direction_confounded": "confounded-exclusion count/share(PA) < PD is recorded",
+      "expected_direction_gate_open": "gate-open share(PA) > PD is recorded",
+      "probe_statistics": [
+        "probe counts",
+        "zone distribution",
+        "non-recovery rate",
+        "preemptive/reactive counters"
+      ]
+    },
+    "H_M5_safety": {
+      "PA_ceiling_ge_R0": true,
+      "independent_safety_kill_on_violation": true,
+      "non_recovery_rate_max": 0.1
+    },
+    "adversarial_pressure_grid": [
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8
+    ],
+    "arms": [
+      "R0",
+      "PO",
+      "PD",
+      "PA",
+      "PN"
+    ],
+    "kill_phase_2": {
+      "H_M5_independent_safety_kill": "If safe-to-fail is not safe, the approach is killed even if H-M1 succeeds.",
+      "PA_approx_R0_when_PO_gt_R0": "H-M1 FAIL while PO > R0 inside the wave means active contact at fixed capacity does not close the derivation gap; representation capacity remains a limitation, not a rescue.",
+      "PN_approx_PA_gt_R0_reading": "decorrelation, not design: contact schedule helps, informational argmax does not."
+    },
+    "margin_grid_step": 0.2,
+    "predictive_mechanics": {
+      "calibration_balanced_accuracy_min": 0.6,
+      "calibration_min_positive_harm_events": 5,
+      "calibration_warmup": 90,
+      "calibration_window": 180,
+      "confounded_rule": "Unchanged from phase 1: confound means preemptive containment between prediction and outcome. Probes are part of the referee action input and are not confounds.",
+      "ensemble_size": 9,
+      "predictive_horizon": 2,
+      "rollout_semantics": "Forecast rollout is under nonintervention: persistent current allocation, no new containment in the forecast. Trigger semantics: what will happen if I do not intervene.",
+      "theta_confident_members": 6
+    },
+    "probe_mechanics": {
+      "PA_score_formula": "For each guard-passing candidate c=(zone z, sign s), form allocation a_c by multiplying a_z by (1+s*epsilon) and normalizing. Score(c)=mean over PREDICTED_FIELDS of Var over the 9 ensemble members of the predicted next-step observable for zone z under action a_c. Tie-break is deterministic: highest score, then lowest zone index, then +epsilon before -epsilon.",
+      "PN_rng": "PN uses the same budget, schedule, magnitude, and health guard as PA; (zone, sign) is selected by an isolated Random(stable_hash(seed, \"J_N9_probe\", step)) stream that never touches world RNG and does not exist when the channel is off or budget=0.",
+      "allocation_conservation": "A probe preserves total allocation: one zone share is multiplied by 1 +/- epsilon and the whole allocation is normalized. It is a shift, not resource injection.",
+      "epsilon": 0.1,
+      "epsilon_rationale": "Failure asymmetry: too-large probes are caught by the preregistered mechanical guard (H-M5 and recovery-audit fail-closed), while too-small probes produce an uninterpretable null without the guard; after zone-normalized allocation, a 0.05 delta is close to ensemble noise.",
+      "fail_closed": "If resolved non-recovery rate exceeds 0.10 once denominator >=5, the probe channel closes for the rest of the run and never reopens.",
+      "health_margin_constants_source": {
+        "core_health_floor": "published sag boundary 0.42 + m on wellness/productivity/recovery",
+        "current_harm_free": "published _bad_consequence must be false before probing",
+        "neighbor_delta_floor": "published _bad_consequence neighbor_delta bar -0.030 + m/2",
+        "resource_concentration_ceiling": "published _bad_consequence concentration bar 0.62 - m",
+        "response_to_aid_floor": "published _bad_consequence response_to_aid bar -0.025 + m/2"
+      },
+      "health_margin_m": 0.1,
+      "non_recovery_budget": 0.1,
+      "non_recovery_min_denominator": 5,
+      "probe_budget": 20,
+      "probe_frequency": 5,
+      "recovery_window_r": 5,
+      "recovery_window_rationale": "r=containment_duration=5 reuses a published horizon, not a new tuned constant."
+    },
+    "robust_cell_bar": {
+      "collapse_ci_hi_max": 0.25,
+      "containment_cost_max": 0.35,
+      "cooperative_strategy_mass_min": 0.18,
+      "exploitative_strategy_mass_max": 0.4,
+      "false_containment_max": 0.2,
+      "permanence_ci_lo_min": 0.5,
+      "response_diversity_min": 0.35,
+      "welfare_min": 0.55
+    },
+    "seeds": [
+      29000,
+      29001,
+      29002,
+      29003,
+      29004,
+      29005,
+      29006,
+      29007,
+      29008,
+      29009,
+      29010,
+      29011,
+      29012,
+      29013,
+      29014,
+      29015,
+      29016,
+      29017,
+      29018,
+      29019,
+      29020,
+      29021,
+      29022,
+      29023,
+      29024,
+      29025,
+      29026,
+      29027,
+      29028,
+      29029,
+      29030,
+      29031,
+      29032,
+      29033,
+      29034,
+      29035,
+      29036,
+      29037,
+      29038,
+      29039,
+      29040,
+      29041,
+      29042,
+      29043,
+      29044,
+      29045,
+      29046,
+      29047,
+      29048,
+      29049,
+      29050,
+      29051,
+      29052,
+      29053,
+      29054,
+      29055,
+      29056,
+      29057,
+      29058,
+      29059,
+      29060,
+      29061,
+      29062,
+      29063,
+      29064,
+      29065,
+      29066,
+      29067,
+      29068,
+      29069,
+      29070,
+      29071,
+      29072,
+      29073,
+      29074,
+      29075,
+      29076,
+      29077,
+      29078,
+      29079
+    ],
+    "worlds": [
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W6_mutation_corridor"
+    ]
+  }
+}
