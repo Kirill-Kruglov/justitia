@@ -62,6 +62,23 @@ plus `justitia_harnessed_replay_design.md`.
      disjoint from previous scientific blocks and the J-N9a engineering block
      29900-29909.
 
+5. J-N9 locked result.
+   - Looked for: whether active safe-to-fail probing closes the phase-1
+     derivation gap at fixed phase-1 predictive representation.
+   - Found: J-N9 decision FAIL and `verify_decision` VALID. Decision vector:
+     H-M1 FAIL, H-M2 PASS, H-M3 VACUOUS, H-M4 RECORDED, H-M5 FAIL. Only W6
+     had a measured robust ceiling: R0=1.2, PO=1.8, PD=1.2, PA=1.2, PN=1.2;
+     W3/W4 had no robust grid point for any arm.
+   - Found: both registered kill branches fired except the decorrelation reading:
+     phase-2 mechanism red (`PA ~= R0` while `PO > R0`) and H-M5 independent
+     safety kill. PN~=PA>R0 did not fire. PA probe recovery denominator was
+     8117 with non-recovery rate 0.795984 against the 0.10 budget; PA channel
+     closed in 1498/1680 runs. PN had 8124 recovery denominator, non-recovery
+     rate 0.772526, and 1501/1680 channel closures.
+   - Assumption/action: committed the J-N9 `decision.json` and gzipped outputs
+     as the locked outcome. This publishes the failure as data, not as a reason
+     to tune probe budget, epsilon, guard constants, or model capacity.
+
 ## 2026-07-08 (wave 6)
 
 1. Wave-6 durable worktree and phase boundary.
