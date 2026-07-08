@@ -46,6 +46,26 @@ plus `justitia_harnessed_replay_design.md`.
      `PREREG_DRAFT.json` files for author review only; they are not locks and
      no J-N8/J-N8b scientific runs have been started.
 
+4. J-N8/J-N8b locked results.
+   - Looked for: whether a self-gated predictive referee can extend the
+     published C_full boundary or repair W7 false containment without reading
+     strategy fields or adding active probing.
+   - Found: J-N8 decision FAIL. H-L1 FAIL; H-L2 PASS; H-L3 PASS; H-L4 PASS.
+     In measured W6, pressure ceilings were R0=1.2, PO=1.6, PD=1.2,
+     PR=1.2, PW=1.2; W3 and W4 had no robust grid point for any arm. Thus
+     PO shows headroom, but PD remains at R0. The preregistered derivation-gap
+     branch fires; PO<=R0 simpliciter and PW independent safety kill do not.
+   - Found: J-N8b decision FAIL on imported W7. R0 false_containment was
+     0.498875; PD false_containment was 0.497500 with directional delta
+     0.001375 and permanence 0.8375; PO false_containment was 0.520500 with
+     permanence 0.8500. H-L5 FAIL and the recorded directional mark 0.10 was
+     not approached.
+   - Assumption/action: recorded both failures as citable locked outcomes.
+     Gate-open shares in J-N8 were PO=0.6396, PD=0.2442, PR=0.2760,
+     PW=0.0021; mean latest calibration scores were PO=0.8057, PD=0.5233,
+     PR=0.5353, PW=0.4700. Large outputs were written as `.json.gz` from the
+     runners.
+
 ## 2026-07-07 (wave 5)
 
 1. Wave-5 durable worktree and phase boundary.
