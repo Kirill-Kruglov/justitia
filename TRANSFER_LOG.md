@@ -48,6 +48,20 @@ plus `justitia_harnessed_replay_design.md`.
      score, epsilon=0.10 rationale, allocation conservation by normalization,
      published-bar health constants plus margin m, and no W7 gate rationale.
 
+4. J-N9 prereg lock boundary.
+   - Looked for: whether the accepted J-N9 draft can be locked without changing
+     thresholds or starting the scientific run.
+   - Found: `PREREG.lock` records locked-at git rev
+     `1740cb1251e7645d0eea6d0b2fa137e3dab4463e` and SHA256
+     `95139618cfde2111da5211f7d73c5962afa5c9e7deb17a330cedd51634ab7f1f`.
+     `verify_prereg_lock` reports the lock is committed before run and unedited
+     since lock.
+   - Assumption/action: committed J-N9 `PREREG.json`/`PREREG.lock` only. The
+     scientific J-N9 runner has not been started; it awaits reviewer
+     confirmation of the lock. Guard #9 rationale records seeds 29000-29079 as
+     disjoint from previous scientific blocks and the J-N9a engineering block
+     29900-29909.
+
 ## 2026-07-08 (wave 6)
 
 1. Wave-6 durable worktree and phase boundary.
