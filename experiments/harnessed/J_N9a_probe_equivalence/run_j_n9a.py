@@ -226,8 +226,8 @@ def experiment() -> dict:
     off_path = compare_rows(expected, actual)
     budget_zero = budget_zero_checks(thresholds)
     seed_report = SP.enforce_seed_policy([
-        {"metric": "J_N9a_probe_default_equivalence", "role": "headline_replay", "seeds": len(thresholds["headline_seeds"]), "pass_fail": "PASS"},
-        {"metric": "J_N9a_probe_budget_zero_identity", "role": "engineering_budget_zero", "seeds": len(thresholds["budget_zero_seeds"]), "pass_fail": "PASS"},
+        {"metric": "J_N9a_probe_default_equivalence", "role": "auxiliary_check", "seeds": len(thresholds["headline_seeds"]), "pass_fail": "PASS"},
+        {"metric": "J_N9a_probe_budget_zero_identity", "role": "auxiliary_check", "seeds": len(thresholds["budget_zero_seeds"]), "pass_fail": "PASS"},
     ])
     decision = "PASS" if off_path["exact_equal"] and budget_zero["exact_equal"] and seed_report["admissible"] else "FAIL"
     write_json(OUTPUTS / "equivalence_checks.json", {

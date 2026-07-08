@@ -18,6 +18,23 @@ plus `justitia_harnessed_replay_design.md`.
      with `gate_harness/`, published `results/`, and previous harnessed wave
      directories unchanged.
 
+2. J-N9a implementation and relock cycle.
+   - Looked for: whether active probing can be added without touching phase-1
+     predictive code or the published default path.
+   - Found: `model/probing.py` can wrap `PredictiveBoundaryModel` additively;
+     `probe_arm=off` and `probe_budget=0` return before probe candidate
+     construction, isolated probe RNG, or recovery-ledger code. PA scoring uses
+     continuous ensemble disagreement over predicted next-step observables; PN
+     uses an isolated `Random(stable_hash(seed, "J_N9_probe", step))` stream.
+   - What happened: the first J-N9a run stopped before decision because the new
+     runner used non-existent seed-policy roles (`headline_replay`,
+     `engineering_budget_zero`). This was a harness metadata error, not a
+     scientific result.
+   - Assumption/action: changed only those role labels to the documented
+     `auxiliary_check`, recorded the relock cycle here, and will relock J-N9a
+     before rerunning. Thresholds, comparisons, seed blocks, model code,
+     `gate_harness/`, and prior wave artifacts are unchanged.
+
 ## 2026-07-08 (wave 6)
 
 1. Wave-6 durable worktree and phase boundary.
