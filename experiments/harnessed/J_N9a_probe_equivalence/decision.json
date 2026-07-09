@@ -1,0 +1,741 @@
+{
+  "_harness_provenance": {
+    "evaluation_oracle_ran": true,
+    "harness_version": "53b59235a56aba8feeacf71df8d4691e9e3814309a0c37c35c1e22ee50cbcb9f",
+    "leakage_scan_verified": true,
+    "prereg_lock_verified": true,
+    "tautology_check_ran": true,
+    "written_by": "gate_harness.runner.run_gate"
+  },
+  "classification_success_depends_on_harness_hint": false,
+  "comparison": {
+    "budget_zero_identity": {
+      "checks": [
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29900,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29900,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29901,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29901,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29902,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29902,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29903,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29903,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29904,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29904,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29905,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29905,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29906,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29906,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29907,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29907,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29908,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29908,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29909,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29909,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29900,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29900,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29901,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29901,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29902,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29902,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29903,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29903,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29904,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29904,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29905,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29905,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29906,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29906,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29907,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29907,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29908,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29908,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29909,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29909,
+          "world": "W6_mutation_corridor"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29900,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29900,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29901,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29901,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29902,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29902,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29903,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29903,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29904,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29904,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29905,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29905,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29906,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29906,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29907,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29907,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29908,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29908,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29909,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.0,
+          "seed": 29909,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29900,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29900,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29901,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29901,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29902,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29902,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29903,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29903,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29904,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29904,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29905,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29905,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29906,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29906,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29907,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29907,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29908,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29908,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PA",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29909,
+          "world": "W2_pure_capture"
+        },
+        {
+          "arm": "PN",
+          "exact_equal": true,
+          "pressure": 1.2,
+          "seed": 29909,
+          "world": "W2_pure_capture"
+        }
+      ],
+      "exact_equal": true,
+      "mismatches": [],
+      "total_checks": 80
+    },
+    "off_path": {
+      "actual_rows": 18,
+      "exact_equal": true,
+      "expected_rows": 18,
+      "mismatches": [],
+      "missing": []
+    }
+  },
+  "construction_may_be_tautological": false,
+  "decision": "PASS",
+  "downstream_consequence": "PASS permits J-N9 preregistration draft; FAIL stops line-11 phase 2 until implementation is fixed and re-reviewed.",
+  "fact": "probe_arm=off and probe_budget=0 return through the phase-1 predictive path before probe candidate construction, probe RNG, or recovery-ledger code runs.",
+  "inference": "Exact equality supports the engineering contract that active probing is additive and has PD as the budget-zero limit.",
+  "information_ratio": null,
+  "metric": "Exact string equality for committed J-G1 headline rows plus exact canonical row equality for phase-1 PD versus PA/PN with probe_budget=0.",
+  "mode": "engineering equivalence; not a scientific outcome",
+  "preregistered_thresholds": {
+    "boundary_policy15": [
+      "anti_hhi_allocator",
+      "delayed_harm_throttle",
+      "anti_concentration_plus_delayed_harm_throttle"
+    ],
+    "budget_zero_arms": [
+      "PA",
+      "PN"
+    ],
+    "budget_zero_pressures": [
+      1.0,
+      1.2
+    ],
+    "budget_zero_seeds": [
+      29900,
+      29901,
+      29902,
+      29903,
+      29904,
+      29905,
+      29906,
+      29907,
+      29908,
+      29909
+    ],
+    "budget_zero_worlds": [
+      "W6_mutation_corridor",
+      "W2_pure_capture"
+    ],
+    "headline_seeds": [
+      16000,
+      16001,
+      16002,
+      16003,
+      16004,
+      16005,
+      16006,
+      16007,
+      16008,
+      16009,
+      16010,
+      16011,
+      16012,
+      16013,
+      16014,
+      16015,
+      16016,
+      16017,
+      16018,
+      16019,
+      16020,
+      16021,
+      16022,
+      16023,
+      16024,
+      16025,
+      16026,
+      16027,
+      16028,
+      16029,
+      16030,
+      16031,
+      16032,
+      16033,
+      16034,
+      16035,
+      16036,
+      16037,
+      16038,
+      16039,
+      16040,
+      16041,
+      16042,
+      16043,
+      16044,
+      16045,
+      16046,
+      16047,
+      16048,
+      16049,
+      16050,
+      16051,
+      16052,
+      16053,
+      16054,
+      16055,
+      16056,
+      16057,
+      16058,
+      16059,
+      16060,
+      16061,
+      16062,
+      16063,
+      16064,
+      16065,
+      16066,
+      16067,
+      16068,
+      16069,
+      16070,
+      16071,
+      16072,
+      16073,
+      16074,
+      16075,
+      16076,
+      16077,
+      16078,
+      16079
+    ],
+    "required_exact_equal": true,
+    "validation_policy15": [
+      "feature_proxy_W1",
+      "feature_proxy_W5",
+      "no_control_W2"
+    ],
+    "worlds": [
+      "W6_mutation_corridor",
+      "W3_catastrophe_ambiguity",
+      "W4_scavenger_catastrophe",
+      "W2_pure_capture",
+      "W5_monoculture_shock"
+    ]
+  },
+  "question": "Do active-probing neutral paths exactly preserve published behavior and phase-1 PD when the probe budget is zero?",
+  "seed_policy": {
+    "admissible": true,
+    "min_seeds_for_core": 20,
+    "per_metric": {
+      "J_N9a_probe_budget_zero_identity": {
+        "min_required": null,
+        "role": "auxiliary_check",
+        "seeds_used": 10,
+        "verdict": "PASS"
+      },
+      "J_N9a_probe_default_equivalence": {
+        "min_required": null,
+        "role": "auxiliary_check",
+        "seeds_used": 80,
+        "verdict": "PASS"
+      }
+    }
+  },
+  "what_was_not_shown": "This gate does not evaluate PA/PN scientific benefit or safety under positive probe budgets."
+}

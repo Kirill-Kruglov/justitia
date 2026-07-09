@@ -4,6 +4,81 @@ Transfer test: apply fallacy-cutter to justitia using only fallacy-cutter docs
 (`README.md`, `methodology/`, `examples/hello_gate/`, `gate_harness/README.md`)
 plus `justitia_harnessed_replay_design.md`.
 
+## 2026-07-08 (wave 7)
+
+1. Wave-7 durable worktree and phase boundary.
+   - Looked for: where to run line-11 phase-2 active safe-to-fail probing
+     without touching the `epub-export` checkout or previous wave artifacts.
+   - Found: `justitia_wave7_design.md` requires branch `harnessed-wave7` from
+     `main` in `/home/master/llm_projects/justitia-wave7`; main already contains
+     the merged wave-6 predictive-referee outcome.
+   - Assumption/action: created the requested worktree from `main`; recon will
+     be no-run. Future model edits, if approved, will keep phase-1 PD code
+     unchanged and add the probe channel only through an additive module/class,
+     with `gate_harness/`, published `results/`, and previous harnessed wave
+     directories unchanged.
+
+2. J-N9a implementation and relock cycle.
+   - Looked for: whether active probing can be added without touching phase-1
+     predictive code or the published default path.
+   - Found: `model/probing.py` can wrap `PredictiveBoundaryModel` additively;
+     `probe_arm=off` and `probe_budget=0` return before probe candidate
+     construction, isolated probe RNG, or recovery-ledger code. PA scoring uses
+     continuous ensemble disagreement over predicted next-step observables; PN
+     uses an isolated `Random(stable_hash(seed, "J_N9_probe", step))` stream.
+   - What happened: the first J-N9a run stopped before decision because the new
+     runner used non-existent seed-policy roles (`headline_replay`,
+     `engineering_budget_zero`). This was a harness metadata error, not a
+     scientific result.
+   - Assumption/action: changed only those role labels to the documented
+     `auxiliary_check`, recorded the relock cycle here, and will relock J-N9a
+     before rerunning. Thresholds, comparisons, seed blocks, model code,
+     `gate_harness/`, and prior wave artifacts are unchanged.
+
+3. J-N9a accepted locally and J-N9 draft boundary.
+   - Looked for: whether the relocked active-probing equivalence gate preserves
+     both required neutral paths.
+   - Found: J-N9a decision PASS and `verify_decision` VALID. Off-path headline
+     replay matched 18/18 expected rows exactly; budget-zero identity matched
+     80/80 PA/PN checks against phase-1 PD on seeds 29900-29909.
+   - Assumption/action: wrote `experiments/harnessed/J_N9_active_probing/` with
+     executable runner plus `PREREG_DRAFT.json` for author review only. No
+     J-N9 PREREG.lock exists and no scientific J-N9 run has been started. The
+     draft pins reviewer corrections: continuous observable-disagreement PA
+     score, epsilon=0.10 rationale, allocation conservation by normalization,
+     published-bar health constants plus margin m, and no W7 gate rationale.
+
+4. J-N9 prereg lock boundary.
+   - Looked for: whether the accepted J-N9 draft can be locked without changing
+     thresholds or starting the scientific run.
+   - Found: `PREREG.lock` records locked-at git rev
+     `1740cb1251e7645d0eea6d0b2fa137e3dab4463e` and SHA256
+     `95139618cfde2111da5211f7d73c5962afa5c9e7deb17a330cedd51634ab7f1f`.
+     `verify_prereg_lock` reports the lock is committed before run and unedited
+     since lock.
+   - Assumption/action: committed J-N9 `PREREG.json`/`PREREG.lock` only. The
+     scientific J-N9 runner has not been started; it awaits reviewer
+     confirmation of the lock. Guard #9 rationale records seeds 29000-29079 as
+     disjoint from previous scientific blocks and the J-N9a engineering block
+     29900-29909.
+
+5. J-N9 locked result.
+   - Looked for: whether active safe-to-fail probing closes the phase-1
+     derivation gap at fixed phase-1 predictive representation.
+   - Found: J-N9 decision FAIL and `verify_decision` VALID. Decision vector:
+     H-M1 FAIL, H-M2 PASS, H-M3 VACUOUS, H-M4 RECORDED, H-M5 FAIL. Only W6
+     had a measured robust ceiling: R0=1.2, PO=1.8, PD=1.2, PA=1.2, PN=1.2;
+     W3/W4 had no robust grid point for any arm.
+   - Found: both registered kill branches fired except the decorrelation reading:
+     phase-2 mechanism red (`PA ~= R0` while `PO > R0`) and H-M5 independent
+     safety kill. PN~=PA>R0 did not fire. PA probe recovery denominator was
+     8117 with non-recovery rate 0.795984 against the 0.10 budget; PA channel
+     closed in 1498/1680 runs. PN had 8124 recovery denominator, non-recovery
+     rate 0.772526, and 1501/1680 channel closures.
+   - Assumption/action: committed the J-N9 `decision.json` and gzipped outputs
+     as the locked outcome. This publishes the failure as data, not as a reason
+     to tune probe budget, epsilon, guard constants, or model capacity.
+
 ## 2026-07-08 (wave 6)
 
 1. Wave-6 durable worktree and phase boundary.

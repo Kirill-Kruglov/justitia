@@ -1,0 +1,6 @@
+{
+  "locked_at_git_rev": "1740cb1251e7645d0eea6d0b2fa137e3dab4463e",
+  "locked_at_utc": "2026-07-08T07:39:47.758868+00:00",
+  "note": "Two-phase commit required: commit this PREREG.json + PREREG.lock in a commit that contains NO outputs/. Run the experiment and commit results separately. The runner verifies this rev is a strict ancestor of the run's HEAD.",
+  "prereg_sha256": "95139618cfde2111da5211f7d73c5962afa5c9e7deb17a330cedd51634ab7f1f"
+}
